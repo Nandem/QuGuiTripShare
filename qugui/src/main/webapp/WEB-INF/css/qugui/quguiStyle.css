@@ -1,0 +1,163 @@
+*{ margin: 0; padding: 0; }
+html, body { height: 100%; font-size: 62.5%; font-family: FangSong;}
+/* webkit, opera, IE9 */
+::selection { background: orange; }
+/* mozilla firefox */
+::-moz-selection { background:orange; }
+
+/*^_^*------------容器和导航------------*^_^*/
+.quguiFullScreenContainer
+{
+    width: 100%;
+    height: 100%;
+}
+.boxLayer1
+{
+    width: 85%;
+}
+.pointerCursor
+{
+    cursor: pointer;
+}
+
+/*^_^*------------属性操作------------*^_^*/
+.quguiInputHide
+{
+    background: transparent;
+    border: none;
+}
+
+/*^_^*------------尺寸样式------------*^_^*/
+.quguiWidth250
+{
+    width: 250px;
+}
+.quguiHeight50
+{
+    height: 50px;
+}
+.quguiHeight40
+{
+    height: 40px;
+}
+.quguiSizeLarge
+{
+    width: 250px;
+    height: 40px;
+}
+
+/*^_^*------------字体样式------------*^_^*/
+
+.quguiFontSize8
+{
+    font-size: .8em;
+}
+.quguiFontSize12
+{
+    font-size: 1.2em;
+}
+.quguiFontSize14
+{
+    font-size: 1.4em;
+}
+.quguiFontSize25
+{
+    font-size: 2.5em;
+}
+.quguiFontSize35
+ {
+     font-size: 3.5em;
+ }
+.quguiFontSize45
+{
+    font-size: 4.5em;
+}
+.quguiFontSize50
+{
+    font-size: 5.0em;
+}
+.quguiFontSize66
+{
+    font-size: 6.6em;
+}
+
+.quguiTextStyleWhite
+{
+    color: #FFFFFF;
+}
+
+/*^_^*------------按钮样式------------*^_^*/
+.quguiBtn
+{
+    border: 0;
+}
+.quguiBtn:focus
+{
+    outline-color: orange;
+}
+
+.quguiBlackBtnStyle
+{
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quguiWiteBtnStyle
+{
+    padding: 8px 18px;
+    border: 2px solid #000000;
+    background-color: #FFFFFF;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*^_^*------------输入框样式------------*^_^*/
+.quguiTextInput
+{
+    border: 1px solid #000000;
+    text-indent: 5px;
+    font-family: "Microsoft YaHei";
+    font-size: 18px;
+    font-weight: bold;
+}
+.quguiTextInput:focus
+{
+    border: 1px solid transparent;
+    outline-color: #FF4500;
+}
+
+.quguiTextInputLine
+{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #000000;
+}
+.quguiTextInputLine:focus
+{
+    outline: none;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #FF4500;
+}
+
+/*^_^*------------边距------------*^_^*/
+.quguiMarginLeft5 { margin-left: 5px; }
+.quguiMarginLeft10 { margin-left: 10px; }
+.quguiMarginLeft30 { margin-left: 30px; }
+.quguiMarginTop5 { margin-top: 5px; }
+.quguiMarginTop10 { margin-top: 10px; }
+.quguiMarginTop30 { margin-top: 30px; }
+
+/*^_^*------------debug------------*^_^*/
+.debugBorder
+{
+    border: 1px solid red;
+}

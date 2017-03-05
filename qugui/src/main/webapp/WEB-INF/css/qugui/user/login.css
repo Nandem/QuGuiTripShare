@@ -1,0 +1,63 @@
+.topBox
+{
+    height: 50%;
+    background-color: #000000;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.introduction
+{
+    font-family: FangSong;
+    /*vertical-align: middle;*/
+}
+
+#weather { background: transparent; color:#FFF; overflow:hidden; }
+#weather i { background: no-repeat top left; display:inline-block; height:128px; line-height:128px; font-size:66px; padding-left:150px; font-style:normal; text-align:center; font-weight:bold; }
+#weather i.icon-xiaoyu { background-image:url(../../../imgs/icon/xiaoyu.png); }
+#weather i.icon-zhongyu { background-image:url(../../../imgs/icon/zhongyu.png); }
+#weather i.icon-dayu { background-image:url(../../../imgs/icon/dayu.png); }
+#weather i.icon-qing { background-image:url(../../../imgs/icon/qing.png); }
+#weather i.icon-duoyun { background-image:url(../../../imgs/icon/duoyun.png); }
+#weather i.icon-yin { background-image:url(../../../imgs/icon/yin.png); }
+.vline
+{
+    width: 1px;
+    height: 25%;
+    background: #FFFFFF;
+}
+
+.bottomBox
+{
+    height: 50%;
+    background-color: #FFFFFF;
+}
+.loginBox
+{
+    color: #000000;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerAndForgotPassword
+{
+    float: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer
+{
+    width: 390px;
+    text-align: center;
+    line-height: 20px;
+    color: #cccccc;
+
+    position: absolute;
+    left: 50%;
+    bottom:30px;
+    margin-left: -195px;
+}
