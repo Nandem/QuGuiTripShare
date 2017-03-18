@@ -1,0 +1,152 @@
+.boxContainer
+{
+    display: flex;
+    /*flex-direction: column;!*主轴方向，默认row*!*/
+    justify-content: center;/*主轴对齐方式*/
+    align-items: center;/*交叉轴对齐方式*/
+}
+
+#headIcon
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+
+
+}
+#slogan
+{
+    width: 60%;
+    height: 100%;
+    font-size: 20px;
+    /*background: yellow;*/
+}
+#favoritePic
+{
+    width: 95%;
+    height: 95%;
+}
+#moreBtn
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+
+    background: #000000;
+    color: #FFFFFF;
+
+    border: none;
+}
+
+.leftContentBox
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 90%;
+    height: 90%;
+
+    /*background: pink;*/
+
+    text-align: center;
+}
+
+.profileNav
+{
+    width: 95%;
+    height: 80%;
+
+    line-height: 80%;
+
+    border-width: 2px 0 2px 0;
+    border-color: #000000;
+    border-style: solid;
+
+    text-align: center;
+}
+
+.visitedPlaceBox
+{
+    width: 90%;
+    height: 80%;
+
+    /*background: red;*/
+}
+
+.visitedPlaceBoxCenter
+{
+    width: 100%;
+    height: 80%;
+}
+.visitedPlaceBoxBottom
+{
+    width: 100%;
+    height: 20%;
+    /*background: pink;*/
+}
+
+.navBtnBox
+{
+    width: 100%;
+    height: 90%;
+}
+
+.everyDayMsg
+{
+    width: 100%;
+    height: 10%;
+
+    /*background: red;*/
+
+    font-size: 18px;
+    font-weight: 500;
+    color: #BBBBBB;
+    text-indent: 2em;
+
+    text-align: left;
+}
+
+.visitedPlace
+{
+    width: 33.333333%;
+    height: 100%;
+
+    /*background: pink;*/
+
+    margin: 10px;
+}
+.visitedPlace img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.navBtn
+{
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+
+    margin: 0 30px;
+
+    border-radius: 20px;
+    border: none;
+
+    font-size: 22px;
+    font-weight: bolder;
+    color: #AAA;
+}
+.navBtn:focus
+{
+    outline-color: transparent;
+}
+.navBtn:hover
+{
+    /*-webkit-box-shadow: 0 0 3px 1px rgb(230, 0, 0);*/
+    /*-moz-box-shadow: 0 0 3px 1px rgb(230, 0, 0);*/
+    /*box-shadow: 0 0 3px 1px rgb(230, 0, 0);*/
+    /*border: 2px solid rgba(230, 0, 0, 0.5);*/
+}

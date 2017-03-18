@@ -5,8 +5,8 @@ html, body
     font-size: 62.5%;
     font-family: FangSong;
 
-    min-width: 1366px;
-    min-height: 768px;
+    min-width: 1024px;
+    min-height: 700px;
 }
 /* webkit, opera, IE9 */
 ::selection { background: rgb(230, 0, 0); color: #FFFFFF; }
@@ -23,7 +23,7 @@ html, body
 {
     width: 85%;
 }
-.pointerCursor
+.QuGuiPointerCursor
 {
     cursor: pointer;
 }
@@ -45,6 +45,27 @@ html, body
 {
     color: #000000;
 }
+.QuGuiBackgroundColorBlack
+{
+    background: black;
+}
+.QuGuiBackgroundColorChinaRed
+{
+    background: rgb(230, 0, 0);
+}
+
+.QuiGuiHoverShadowChinaRed:hover
+{
+    -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
+    -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
+    box-shadow: 0 0 3px rgb(230, 0, 0);
+}
+.QuiGuiHoverShadowWhite:hover
+{
+    -webkit-box-shadow: 0 0 3px 3px #aaa;
+    -moz-box-shadow: 0 0 3px 3px #aaa;
+    box-shadow: 0 0 3px 3px #aaa;
+}
 
 /*^_^*------------尺寸------------*^_^*/
 .QuGuiWidth250
@@ -63,6 +84,61 @@ html, body
 {
     width: 300px;
     height: 40px;
+}
+/*pc= percent*/
+.QuGuiBox50And100pc
+{
+    width: 50%;
+    height: 100%;
+}
+
+/*^_^*------------对齐方式------------*^_^*/
+.QuGuiBoxAlignRowCenterFlex
+{
+    display: flex;
+    /*flex-direction: column;!*主轴方向，默认row*!*/
+    justify-content: center;/*主轴对齐方式*/
+    align-items: center;/*交叉轴对齐方式*/
+}
+.QuGuiBoxAlignColumnCenterFlex
+ {
+     display: flex;
+     flex-direction: column;/*主轴方向，默认row*/
+     justify-content: center;/*主轴对齐方式*/
+     align-items: center;/*交叉轴对齐方式*/
+ }
+
+.QuGuiHorizontalListBox
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    /*flex-direction: column;!*主轴方向，默认row*!*/
+    justify-content: center;/*主轴对齐方式*/
+    align-items: center;/*交叉轴对齐方式*/
+
+}
+.QuGuiHorizontalListBox div
+{
+    padding: 15px 35px;
+    margin: 0 15px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+.QuGuiHorizontalListBox div:hover
+{
+    /*padding: 20px 40px;*/
+
+    /*font-size: 18px;*/
+
+    background: black;
+    color: white;
+
+    /*margin: 5px;*/
+
 }
 
 /*^_^*------------字体样式------------*^_^*/
@@ -164,9 +240,9 @@ html, body
 }
 .QuGuiBtn:hover
 {
-    -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
-    -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
-    box-shadow: 0 0 3px rgb(230, 0, 0);
+    -webkit-box-shadow: 0 0 3px 1px rgb(230, 0, 0);
+    -moz-box-shadow: 0 0 3px 1px rgb(230, 0, 0);
+    box-shadow: 0 0 3px 1px rgb(230, 0, 0);
 }
 
 .QuGuiBlackBtnStyle

@@ -48,8 +48,8 @@
             <input placeholder="密码" type="password" class="QuGuiTextInput QuGuiMarginTop10 QuGuiSizeLarge" />
             <button class="QuGuiBtn QuGuiBlackBtnStyle QuGuiMarginTop10 QuGuiSizeLarge QuGuiTextSize30" onclick="login()">登录</button>
             <div class="QuGuiSizeLarge registerAndForgotPassword QuGuiMarginTop5">
-                <p class="pointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07">忘记密码</p>
-                <p class="pointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07" onclick="window.location.href = 'register.html'">免费注册</p>
+                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07">忘记密码</p>
+                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07" onclick="window.location.href = 'register.html'">免费注册</p>
             </div>
 
             <div class="footer QuGuiTextSize12">
