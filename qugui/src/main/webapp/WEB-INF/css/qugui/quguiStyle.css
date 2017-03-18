@@ -1,12 +1,20 @@
 *{ margin: 0; padding: 0; }
-html, body { height: 100%; font-size: 62.5%; font-family: FangSong;}
+html, body
+{
+    height: 100%;
+    font-size: 62.5%;
+    font-family: FangSong;
+
+    min-width: 1366px;
+    min-height: 768px;
+}
 /* webkit, opera, IE9 */
-::selection { background: orange; }
+::selection { background: rgb(230, 0, 0); color: #FFFFFF; }
 /* mozilla firefox */
-::-moz-selection { background:orange; }
+::-moz-selection { background:rgb(230, 0, 0); color: #FFFFFF; }
 
 /*^_^*------------容器和导航------------*^_^*/
-.quguiFullScreenContainer
+.QuGuiFullScreenContainer
 {
     width: 100%;
     height: 100%;
@@ -21,82 +29,147 @@ html, body { height: 100%; font-size: 62.5%; font-family: FangSong;}
 }
 
 /*^_^*------------属性操作------------*^_^*/
-.quguiInputHide
+.QuGuiInputHide
 {
     background: transparent;
     border: none;
 }
 
-/*^_^*------------尺寸样式------------*^_^*/
-.quguiWidth250
+
+/*^_^*------------颜色------------*^_^*/
+.QuGuiTextColorLinkChinaRed
+{
+    color: rgb(230, 0, 0);
+}
+.QuGuiTextColorLinkBlack
+{
+    color: #000000;
+}
+
+/*^_^*------------尺寸------------*^_^*/
+.QuGuiWidth250
 {
     width: 250px;
 }
-.quguiHeight50
+.QuGuiHeight50
 {
     height: 50px;
 }
-.quguiHeight40
+.QuGuiHeight40
 {
     height: 40px;
 }
-.quguiSizeLarge
+.QuGuiSizeLarge
 {
-    width: 250px;
+    width: 300px;
     height: 40px;
 }
 
 /*^_^*------------字体样式------------*^_^*/
 
-.quguiFontSize8
+.QuGuiTextSize8
 {
     font-size: .8em;
 }
-.quguiFontSize12
+.QuGuiTextSize12
 {
     font-size: 1.2em;
 }
-.quguiFontSize14
+.QuGuiTextSize14
 {
     font-size: 1.4em;
 }
-.quguiFontSize25
+.QuGuiTextSize25
 {
     font-size: 2.5em;
 }
-.quguiFontSize35
- {
-     font-size: 3.5em;
- }
-.quguiFontSize45
+.QuGuiTextSize30
+{
+    font-size: 3.0em;
+}
+.QuGuiTextSize35
+{
+    font-size: 3.5em;
+}
+.QuGuiTextSize45
 {
     font-size: 4.5em;
 }
-.quguiFontSize50
+.QuGuiTextSize50
 {
     font-size: 5.0em;
 }
-.quguiFontSize66
+.QuGuiTextSize66
 {
     font-size: 6.6em;
 }
 
-.quguiTextStyleWhite
+.QuGuiTextBold900
+{
+    font-weight: 900;
+}
+.QuGuiTextBolder
+{
+    font-weight: bolder;
+}
+.QuGuiTextBold
+{
+    font-weight: bold;
+}
+
+.QuGuiTextSelectionStyleChinaRed
+{
+}
+.QuGuiTextSelectionStyleChinaRed:hover
+ {
+    -moz-text-shadow: 0 0 5px #fff,
+    0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 2px #000,
+    0 0 2px #000;
+    -webkit-text-shadow: 0 0 5px #fff,
+    0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 2px #000,
+    0 0 2px #000;
+    text-shadow: 0 0 5px #fff,
+    0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 2px #000,
+    0 0 2px #000;
+ }
+
+.QuGuiTextOpacity07
+{
+    opacity: 0.7;
+}
+.QuGuiTextOpacity07:hover
+{
+    opacity: 1;
+}
+
+.QuGuiTextStyleWhite
 {
     color: #FFFFFF;
 }
 
 /*^_^*------------按钮样式------------*^_^*/
-.quguiBtn
+.QuGuiBtn
 {
     border: 0;
 }
-.quguiBtn:focus
+.QuGuiBtn:focus
 {
-    outline-color: orange;
+    outline-color: rgb(230, 0, 0);
+}
+.QuGuiBtn:hover
+{
+    -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
+    -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
+    box-shadow: 0 0 3px rgb(230, 0, 0);
 }
 
-.quguiBlackBtnStyle
+.QuGuiBlackBtnStyle
 {
     padding: 10px 20px;
     background-color: #000000;
@@ -106,7 +179,7 @@ html, body { height: 100%; font-size: 62.5%; font-family: FangSong;}
     align-items: center;
 }
 
-.quguiWiteBtnStyle
+.QuGuiWhiteBtnStyle
 {
     padding: 8px 18px;
     border: 2px solid #000000;
@@ -118,43 +191,69 @@ html, body { height: 100%; font-size: 62.5%; font-family: FangSong;}
 }
 
 /*^_^*------------输入框样式------------*^_^*/
-.quguiTextInput
+.QuGuiTextInput
 {
     border: 1px solid #000000;
     text-indent: 5px;
-    font-family: "Microsoft YaHei";
     font-size: 18px;
     font-weight: bold;
 }
-.quguiTextInput:focus
+.QuGuiTextInput:focus
 {
     border: 1px solid transparent;
-    outline-color: #FF4500;
+    outline-color: rgb(230, 0, 0);
+}
+.QuGuiTextInput:hover
+{
+    -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
+    -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
+    box-shadow: 0 0 3px rgb(230, 0, 0);
 }
 
-.quguiTextInputLine
+.QuGuiTextInputLine
 {
     border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid #000000;
 }
-.quguiTextInputLine:focus
+.QuGuiTextInputLine:focus
 {
     outline: none;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 1px solid #FF4500;
+    border-bottom: 1px solid rgb(230, 0, 0);
+}
+.QuGuiTextInputLine:hover
+{
+    -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
+    -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
+    box-shadow: 0 0 3px rgb(230, 0, 0);
 }
 
+.QuGuiTextInputLineCancelShadow:focus
+{
+    outline: none;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #000000;
+}
+.QuGuiTextInputLineCancelShadow:hover
+ {
+     -webkit-box-shadow: 0 0 0 rgb(230, 0, 0);
+     -moz-box-shadow: 0 0 0 rgb(230, 0, 0);
+     box-shadow: 0 0 0 rgb(230, 0, 0);
+ }
+
 /*^_^*------------边距------------*^_^*/
-.quguiMarginLeft5 { margin-left: 5px; }
-.quguiMarginLeft10 { margin-left: 10px; }
-.quguiMarginLeft30 { margin-left: 30px; }
-.quguiMarginTop5 { margin-top: 5px; }
-.quguiMarginTop10 { margin-top: 10px; }
-.quguiMarginTop30 { margin-top: 30px; }
+.QuGuiMarginLeft5 { margin-left: 5px; }
+.QuGuiMarginLeft10 { margin-left: 10px; }
+.QuGuiMarginLeft30 { margin-left: 30px; }
+.QuGuiMarginTop5 { margin-top: 5px; }
+.QuGuiMarginTop10 { margin-top: 10px; }
+.QuGuiMarginTop30 { margin-top: 30px; }
 
 /*^_^*------------debug------------*^_^*/
 .debugBorder

@@ -17,7 +17,13 @@ public class UserController
     public String register()
     {
         logger.debug("注册用户...");
-        return "/user/registerResult";
+        return "/user/register";
+    }
+
+    @RequestMapping("/registerResult")
+    public String registerResult()
+    {
+        return "/user/register";
     }
 
     @RequestMapping("/login")

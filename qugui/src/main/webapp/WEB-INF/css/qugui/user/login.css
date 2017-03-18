@@ -51,13 +51,13 @@
 
 .footer
 {
-    width: 390px;
+    width: 600px;
     text-align: center;
     line-height: 20px;
-    color: #cccccc;
+    color: #aaaccc;
 
     position: absolute;
     left: 50%;
     bottom:30px;
-    margin-left: -195px;
+    margin-left: -300px;
 }
