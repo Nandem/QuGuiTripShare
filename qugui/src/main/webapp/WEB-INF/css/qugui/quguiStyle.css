@@ -1,6 +1,9 @@
-*{ margin: 0; padding: 0; }
-html, body
-{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
     height: 100%;
     font-size: 62.5%;
     font-family: FangSong;
@@ -8,118 +11,182 @@ html, body
     min-width: 1024px;
     min-height: 700px;
 }
+
 /* webkit, opera, IE9 */
-::selection { background: rgb(230, 0, 0); color: #FFFFFF; }
+::selection {
+    background: rgb(230, 0, 0);
+    color: #FFFFFF;
+}
+
 /* mozilla firefox */
-::-moz-selection { background:rgb(230, 0, 0); color: #FFFFFF; }
+::-moz-selection {
+    background: rgb(230, 0, 0);
+    color: #FFFFFF;
+}
 
 /*^_^*------------容器和导航------------*^_^*/
-.QuGuiFullScreenContainer
-{
+.QuGuiFullScreenContainer {
     width: 100%;
     height: 100%;
 }
-.boxLayer1
-{
+
+.boxLayer1 {
     width: 85%;
 }
-.QuGuiPointerCursor
-{
+
+.QuGuiPointerCursor {
     cursor: pointer;
 }
 
 /*^_^*------------属性操作------------*^_^*/
-.QuGuiInputHide
-{
+.QuGuiInputHide {
     background: transparent;
     border: none;
 }
 
-
 /*^_^*------------颜色------------*^_^*/
-.QuGuiTextColorLinkChinaRed
-{
+.QuGuiTextColorLinkChinaRed {
     color: rgb(230, 0, 0);
 }
-.QuGuiTextColorLinkBlack
-{
+
+.QuGuiTextColorLinkBlack {
     color: #000000;
 }
-.QuGuiBackgroundColorBlack
-{
+
+.QuGuiBackgroundColorBlack {
     background: black;
 }
-.QuGuiBackgroundColorChinaRed
-{
+
+.QuGuiBackgroundColorChinaRed {
     background: rgb(230, 0, 0);
 }
 
-.QuiGuiHoverShadowChinaRed:hover
+.QuiGuiHoverShadowChinaRed
 {
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
+}
+.QuiGuiHoverShadowChinaRed:hover {
     -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
     -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
     box-shadow: 0 0 3px rgb(230, 0, 0);
 }
-.QuiGuiHoverShadowWhite:hover
+
+.QuiGuiHoverShadowWhite
 {
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
+}
+
+.QuiGuiHoverShadowWhite:hover {
     -webkit-box-shadow: 0 0 3px 3px #aaa;
     -moz-box-shadow: 0 0 3px 3px #aaa;
     box-shadow: 0 0 3px 3px #aaa;
 }
 
 /*^_^*------------尺寸------------*^_^*/
-.QuGuiWidth250
-{
+.QuGuiWidth250 {
     width: 250px;
 }
-.QuGuiHeight50
-{
+
+.QuGuiHeight50 {
     height: 50px;
 }
-.QuGuiHeight40
-{
+
+.QuGuiHeight40 {
     height: 40px;
 }
-.QuGuiSizeLarge
-{
+
+.QuGuiSizeLarge {
     width: 300px;
     height: 40px;
 }
+
 /*pc= percent*/
-.QuGuiBox50And100pc
-{
+.QuGuiBox10And100pc {
+    width: 10%;
+    height: 100%;
+}
+
+.QuGuiBox20And100pc {
+    width: 20%;
+    height: 100%;
+}
+
+.QuGuiBox30And100pc {
+    width: 30%;
+    height: 100%;
+}
+
+.QuGuiBox40And100pc {
+    width: 40%;
+    height: 100%;
+}
+
+.QuGuiBox50And100pc {
     width: 50%;
     height: 100%;
 }
 
+.QuGuiBox60And100pc {
+    width: 60%;
+    height: 100%;
+}
+
+.QuGuiBox70And100pc {
+    width: 70%;
+    height: 100%;
+}
+
+.QuGuiBox80And100pc {
+    width: 80%;
+    height: 100%;
+}
+
+.QuGuiBox90And100pc {
+    width: 90%;
+    height: 100%;
+}
+
+.QuGuiBox100And100pc {
+    width: 100%;
+    height: 100%;
+}
+
 /*^_^*------------对齐方式------------*^_^*/
-.QuGuiBoxAlignRowCenterFlex
-{
+.QuGuiBoxAlignRowCenterFlex {
     display: flex;
     /*flex-direction: column;!*主轴方向，默认row*!*/
-    justify-content: center;/*主轴对齐方式*/
-    align-items: center;/*交叉轴对齐方式*/
+    justify-content: center; /*主轴对齐方式*/
+    align-items: center; /*交叉轴对齐方式*/
 }
-.QuGuiBoxAlignColumnCenterFlex
- {
-     display: flex;
-     flex-direction: column;/*主轴方向，默认row*/
-     justify-content: center;/*主轴对齐方式*/
-     align-items: center;/*交叉轴对齐方式*/
- }
 
-.QuGuiHorizontalListBox
-{
+.QuGuiItemAlignAround {
+    justify-content: space-around;
+}
+
+.QuGuiBoxAlignColumnCenterFlex {
+    display: flex;
+    flex-direction: column; /*主轴方向，默认row*/
+    justify-content: center; /*主轴对齐方式*/
+    align-items: center; /*交叉轴对齐方式*/
+}
+
+.QuGuiHorizontalListBox {
     padding-top: 5px;
     padding-bottom: 5px;
     display: flex;
     /*flex-direction: column;!*主轴方向，默认row*!*/
-    justify-content: center;/*主轴对齐方式*/
-    align-items: center;/*交叉轴对齐方式*/
+    justify-content: center; /*主轴对齐方式*/
+    align-items: center; /*交叉轴对齐方式*/
 
 }
-.QuGuiHorizontalListBox div
-{
+
+.QuGuiHorizontalListBox div {
     padding: 15px 35px;
     margin: 0 15px;
 
@@ -127,9 +194,16 @@ html, body
     font-weight: bold;
 
     cursor: pointer;
+
+    border-radius: 5px;
+
+    transition:background .3s;
+    -moz-transition:background .3s; /* Firefox 4 */
+    -webkit-transition:background .3s; /* Safari and Chrome */
+    -o-transition:background .3s; /* Opera */
 }
-.QuGuiHorizontalListBox div:hover
-{
+
+.QuGuiHorizontalListBox div:hover {
     /*padding: 20px 40px;*/
 
     /*font-size: 18px;*/
@@ -142,62 +216,85 @@ html, body
 }
 
 /*^_^*------------字体样式------------*^_^*/
-
-.QuGuiTextSize8
+/*图标字体*/
+@font-face
 {
+    font-family: 'iconfont';
+    src: url('fonticon/iconfont.eot');
+    src: url('fonticon/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('fonticon/iconfont.woff') format('woff'),
+    url('fonticon/iconfont.ttf') format('truetype'),
+    url('fonticon/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont
+{
+    font-family: "iconFont", sans-serif !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.QuGuiTextSize8 {
     font-size: .8em;
 }
-.QuGuiTextSize12
-{
+
+.QuGuiTextSize12 {
     font-size: 1.2em;
 }
-.QuGuiTextSize14
-{
+
+.QuGuiTextSize14 {
     font-size: 1.4em;
 }
-.QuGuiTextSize25
-{
+
+.QuGuiTextSize25 {
     font-size: 2.5em;
 }
-.QuGuiTextSize30
-{
+
+.QuGuiTextSize30 {
     font-size: 3.0em;
 }
-.QuGuiTextSize35
-{
+
+.QuGuiTextSize35 {
     font-size: 3.5em;
 }
-.QuGuiTextSize45
-{
+
+.QuGuiTextSize45 {
     font-size: 4.5em;
 }
-.QuGuiTextSize50
-{
+
+.QuGuiTextSize50 {
     font-size: 5.0em;
 }
-.QuGuiTextSize66
-{
+
+.QuGuiTextSize66 {
     font-size: 6.6em;
 }
 
-.QuGuiTextBold900
-{
+.QuGuiTextBold900 {
     font-weight: 900;
 }
-.QuGuiTextBolder
-{
+
+.QuGuiTextBolder {
     font-weight: bolder;
 }
-.QuGuiTextBold
-{
+
+.QuGuiTextBold {
     font-weight: bold;
 }
 
 .QuGuiTextSelectionStyleChinaRed
 {
+
+    transition:text-shadow .3s;
+    -moz-transition:text-shadow .3s; /* Firefox 4 */
+    -webkit-transition:text-shadow .3s; /* Safari and Chrome */
+    -o-transition:text-shadow .3s; /* Opera */
 }
-.QuGuiTextSelectionStyleChinaRed:hover
- {
+
+.QuGuiTextSelectionStyleChinaRed:hover {
     -moz-text-shadow: 0 0 5px #fff,
     0 0 2px #fff,
     0 0 2px #fff,
@@ -213,40 +310,47 @@ html, body
     0 0 2px #fff,
     0 0 2px #000,
     0 0 2px #000;
- }
+}
 
 .QuGuiTextOpacity07
 {
+
     opacity: 0.7;
+    transition:opacity .3s;
+    -moz-transition:opacity .3s; /* Firefox 4 */
+    -webkit-transition:opacity .3s; /* Safari and Chrome */
+    -o-transition:opacity .3s; /* Opera */
 }
-.QuGuiTextOpacity07:hover
-{
+
+.QuGuiTextOpacity07:hover {
     opacity: 1;
 }
 
-.QuGuiTextStyleWhite
-{
+.QuGuiTextStyleWhite {
     color: #FFFFFF;
 }
 
 /*^_^*------------按钮样式------------*^_^*/
-.QuGuiBtn
-{
+.QuGuiBtn {
     border: 0;
+
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
 }
-.QuGuiBtn:focus
-{
+
+.QuGuiBtn:focus {
     outline-color: rgb(230, 0, 0);
 }
-.QuGuiBtn:hover
-{
+
+.QuGuiBtn:hover {
     -webkit-box-shadow: 0 0 3px 1px rgb(230, 0, 0);
     -moz-box-shadow: 0 0 3px 1px rgb(230, 0, 0);
     box-shadow: 0 0 3px 1px rgb(230, 0, 0);
 }
 
-.QuGuiBlackBtnStyle
-{
+.QuGuiBlackBtnStyle {
     padding: 10px 20px;
     background-color: #000000;
     color: #FFFFFF;
@@ -255,8 +359,7 @@ html, body
     align-items: center;
 }
 
-.QuGuiWhiteBtnStyle
-{
+.QuGuiWhiteBtnStyle {
     padding: 8px 18px;
     border: 2px solid #000000;
     background-color: #FFFFFF;
@@ -267,72 +370,97 @@ html, body
 }
 
 /*^_^*------------输入框样式------------*^_^*/
-.QuGuiTextInput
-{
+.QuGuiTextInput {
     border: 1px solid #000000;
     text-indent: 5px;
     font-size: 18px;
     font-weight: bold;
+
+
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
 }
-.QuGuiTextInput:focus
-{
+
+.QuGuiTextInput:focus {
     border: 1px solid transparent;
     outline-color: rgb(230, 0, 0);
 }
-.QuGuiTextInput:hover
-{
+
+.QuGuiTextInput:hover {
     -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
     -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
     box-shadow: 0 0 3px rgb(230, 0, 0);
 }
 
-.QuGuiTextInputLine
-{
+.QuGuiTextInputLine {
     border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid #000000;
+
+
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
 }
-.QuGuiTextInputLine:focus
-{
+
+.QuGuiTextInputLine:focus {
     outline: none;
     border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid rgb(230, 0, 0);
 }
-.QuGuiTextInputLine:hover
-{
+
+.QuGuiTextInputLine:hover {
     -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
     -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
     box-shadow: 0 0 3px rgb(230, 0, 0);
 }
 
-.QuGuiTextInputLineCancelShadow:focus
-{
+.QuGuiTextInputLineCancelShadow:focus {
     outline: none;
     border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid #000000;
 }
-.QuGuiTextInputLineCancelShadow:hover
- {
-     -webkit-box-shadow: 0 0 0 rgb(230, 0, 0);
-     -moz-box-shadow: 0 0 0 rgb(230, 0, 0);
-     box-shadow: 0 0 0 rgb(230, 0, 0);
- }
+
+.QuGuiTextInputLineCancelShadow:hover {
+    -webkit-box-shadow: 0 0 0 rgb(230, 0, 0);
+    -moz-box-shadow: 0 0 0 rgb(230, 0, 0);
+    box-shadow: 0 0 0 rgb(230, 0, 0);
+}
 
 /*^_^*------------边距------------*^_^*/
-.QuGuiMarginLeft5 { margin-left: 5px; }
-.QuGuiMarginLeft10 { margin-left: 10px; }
-.QuGuiMarginLeft30 { margin-left: 30px; }
-.QuGuiMarginTop5 { margin-top: 5px; }
-.QuGuiMarginTop10 { margin-top: 10px; }
-.QuGuiMarginTop30 { margin-top: 30px; }
+.QuGuiMarginLeft5 {
+    margin-left: 5px;
+}
+
+.QuGuiMarginLeft10 {
+    margin-left: 10px;
+}
+
+.QuGuiMarginLeft30 {
+    margin-left: 30px;
+}
+
+.QuGuiMarginTop5 {
+    margin-top: 5px;
+}
+
+.QuGuiMarginTop10 {
+    margin-top: 10px;
+}
+
+.QuGuiMarginTop30 {
+    margin-top: 30px;
+}
 
 /*^_^*------------debug------------*^_^*/
-.debugBorder
-{
+.debugBorder {
     border: 1px solid red;
 }

@@ -43,9 +43,11 @@
         </div>
         <div class="bottomBox">
             <div class="loginBox">
-                <input placeholder="用户名/邮箱/手机号" type="text" class="QuGuiTextInput QuGuiSizeLarge QuGuiMarginTop30" />
-                <input placeholder="密码" type="password" class="QuGuiTextInput QuGuiMarginTop10 QuGuiSizeLarge" />
-                <button class="QuGuiBtn QuGuiBlackBtnStyle QuGuiMarginTop10 QuGuiSizeLarge QuGuiTextSize30" onclick="login()">登录</button>
+                <form class="loginBox" method="post" action="/user/loginResult">
+                    <input name="userName" placeholder="用户名/邮箱/手机号" type="text" class="QuGuiTextInput QuGuiSizeLarge QuGuiMarginTop30" />
+                    <input name="password" placeholder="密码" type="password" class="QuGuiTextInput QuGuiMarginTop10 QuGuiSizeLarge" />
+                    <button type="submit" class="QuGuiBtn QuGuiBlackBtnStyle QuGuiMarginTop10 QuGuiSizeLarge QuGuiTextSize30" onclick="login()">登录</button>
+                </form>
                 <div class="QuGuiSizeLarge registerAndForgotPassword QuGuiMarginTop5">
                     <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07">忘记密码</p>
                     <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07" onclick="window.location.href = 'register.html'">免费注册</p>

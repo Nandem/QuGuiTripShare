@@ -11,6 +11,6 @@
     <title>注册结果</title>
 </head>
 <body>
-    注册成功
+    ${message}
 </body>
 </html>

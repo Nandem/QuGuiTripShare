@@ -5,6 +5,6 @@
 </head>
 <body>
 <h2>去归</h2><br>
-<a href="/register">注册</a>/<a href="/login">登录</a>
+<a href="/user/register">注册</a>/<a href="/user/login">登录</a>
 </body>
 </html>

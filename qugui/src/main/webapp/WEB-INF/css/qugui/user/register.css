@@ -104,6 +104,12 @@
     -ms-transform:rotate(-7deg); 	/* IE 9 */
     -moz-transform:rotate(-7deg); 	/* Firefox */
     -webkit-transform:rotate(-7deg); /* Safari 和 Chrome */
+
+
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
 }
 #tip:hover
 {
