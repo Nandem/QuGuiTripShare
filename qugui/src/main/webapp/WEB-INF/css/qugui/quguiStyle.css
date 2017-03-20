@@ -93,12 +93,12 @@ html, body {
     width: 250px;
 }
 
-.QuGuiHeight50 {
-    height: 50px;
-}
-
 .QuGuiHeight40 {
     height: 40px;
+}
+
+.QuGuiHeight50 {
+    height: 50px;
 }
 
 .QuGuiSizeLarge {
@@ -107,6 +107,15 @@ html, body {
 }
 
 /*pc= percent*/
+.QuGuiBoxW50pc
+{
+    width: 50%;
+}
+.QuGuiBoxH50pc
+{
+    height: 50%;
+}
+
 .QuGuiBox10And100pc {
     width: 10%;
     height: 100%;
@@ -158,6 +167,14 @@ html, body {
 }
 
 /*^_^*------------对齐方式------------*^_^*/
+.QuGuiBoxAlignRowBottomFlex
+{
+    display: flex;
+    /*flex-direction: column;!*主轴方向，默认row*!*/
+    justify-content: center; /*主轴对齐方式*/
+    align-items: flex-end; /*交叉轴对齐方式*/
+}
+
 .QuGuiBoxAlignRowCenterFlex {
     display: flex;
     /*flex-direction: column;!*主轴方向，默认row*!*/
@@ -165,8 +182,15 @@ html, body {
     align-items: center; /*交叉轴对齐方式*/
 }
 
+.QuGuiItemAlignEnd
+{
+    justify-content: flex-end;
+}
 .QuGuiItemAlignAround {
     justify-content: space-around;
+}
+.QuGuiItemAlignBetween {
+    justify-content: space-between;
 }
 
 .QuGuiBoxAlignColumnCenterFlex {
@@ -272,6 +296,12 @@ html, body {
 .QuGuiTextSize66 {
     font-size: 6.6em;
 }
+.QuGuiTextSize90 {
+    font-size: 9.0em;
+}
+.QuGuiTextSize150 {
+    font-size: 15.0em;
+}
 
 .QuGuiTextBold900 {
     font-weight: 900;
@@ -326,7 +356,8 @@ html, body {
     opacity: 1;
 }
 
-.QuGuiTextStyleWhite {
+.QuGuiTextStyleWhite
+{
     color: #FFFFFF;
 }
 
@@ -433,6 +464,23 @@ html, body {
     -webkit-box-shadow: 0 0 0 rgb(230, 0, 0);
     -moz-box-shadow: 0 0 0 rgb(230, 0, 0);
     box-shadow: 0 0 0 rgb(230, 0, 0);
+}
+
+.QuGuiTextIndent2em
+{
+    text-indent: 2em;
+}
+.QuGuiTextAlignLeft
+{
+    text-align: left;
+}
+.QuGuiTextAlignCenter
+{
+    text-align: center;
+}
+.QuGuiTextAlignRight
+{
+    text-align: right;
 }
 
 /*^_^*------------边距------------*^_^*/

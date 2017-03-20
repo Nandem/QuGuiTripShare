@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 40%;">
-                <img id="favoritePic" src="../../imgs/favorite.jpg" />
+                <img id="summary" src="../../imgs/favorite.jpg" />
             </div>
             <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 10%;">
                 <button id="moreBtn" class="profileBottomBtn QuGuiBtn"><i class="iconfont">&#xe600;</i></button>
