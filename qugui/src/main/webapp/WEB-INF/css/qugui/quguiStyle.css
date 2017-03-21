@@ -508,6 +508,13 @@ html, body {
     margin-top: 30px;
 }
 
+
+/*^_^*------------显示方式------------*^_^*/
+.QuGuiHide
+{
+    display: none;
+}
+
 /*^_^*------------debug------------*^_^*/
 .debugBorder {
     border: 1px solid red;

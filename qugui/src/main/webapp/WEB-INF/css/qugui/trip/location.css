@@ -39,9 +39,9 @@
     font-size: 20px;
     /*background: yellow;*/
 }
-#navBody
+.navBody
 {
-    width: 95%;
+    width: 98%;
     height: 95%;
     background: #C9C5C5;
 
@@ -101,7 +101,7 @@
 
 .profileNav
 {
-    width: 95%;
+    width: 98%;
     height: 80%;
 
     line-height: 80%;

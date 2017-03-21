@@ -1,13 +1,42 @@
 /**
- * Created by Nandem on 2017-03-20.
- */
-/**
  * @author Nandem on 2017-03-19.
  */
 
 var screenWidth = window.screen.width;
 
 $().ready(function () {
+    initZoomEvent();
+    initTabEvent();
+});
+
+/*^_^*-------------tab event---------------*^_^*/
+function initTabEvent() {
+
+    var btnArray = [];
+    var bodyArray = [];
+    for (var i = 0; i < 6; i++) {
+        btnArray[i] = $("#" + (i + 1) + "NavBtn");
+        bodyArray[i] = $("#" + (i + 1) + "NavBody");
+        bodyArray[i].hide();
+    }
+
+    bodyArray[0].show();
+
+    btnArray.forEach(function (item, index) {
+        item.click(function () {
+            hideAllElements(bodyArray);
+            bodyArray[index].show();
+        })
+    });
+}
+
+function hideAllElements(elementsArray) {
+    elementsArray.forEach(function (item) {
+        item.hide();
+    })
+}
+/*^_^*-------------zoom event---------------*^_^*/
+function initZoomEvent() {
     var $navBtnZoomIn = $("#navBtnZoomIn");
     var $navBtnZoomOut = $("#navBtnZoomOut");
     var $leftBox = $("#leftBox");
@@ -15,10 +44,6 @@ $().ready(function () {
     var $info = $("#info");
     var $article = $("#article");
     var $articleContent = $("#articleContent");
-
-    $(window).resize(function () {
-        screenWidth = window.screen.width;
-    });
 
     $navBtnZoomIn.click(function () {
         zoom($rightBox, $leftBox);
@@ -45,7 +70,7 @@ $().ready(function () {
             })
         });
     })
-});
+}
 
 function zoom($sthToBeZoomIn, $sthToBeZoomOut) {
     var temRightWidth = $sthToBeZoomOut.width();
