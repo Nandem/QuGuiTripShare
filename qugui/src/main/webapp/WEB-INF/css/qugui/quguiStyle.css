@@ -44,9 +44,34 @@ html, body {
     border: none;
 }
 
+/*^_^*------------头像等统一风格样式---------------*^_^*/
+.QuGuiCircleHeadIconBox
+{
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50px;
+
+    border: 2px solid #aaaaaa;
+}
+
+/*^_^*------------分隔符------------*^_^*/
+.QuGuiSeparatorWhite
+{
+    width: 90%;
+    height: 1px;
+
+    margin: 5px 0;
+
+    background: #AAAAAA;
+}
+
 /*^_^*------------颜色------------*^_^*/
 .QuGuiTextColorLinkChinaRed {
     color: rgb(230, 0, 0);
+}
+.QuGuiTextColorGray {
+    color: #CCCCCC;
 }
 
 .QuGuiTextColorLinkBlack {
@@ -55,6 +80,9 @@ html, body {
 
 .QuGuiBackgroundColorBlack {
     background: black;
+}
+.QuGuiBackgroundColorGray {
+    background: #CFCFCF;
 }
 
 .QuGuiBackgroundColorChinaRed {
@@ -107,6 +135,64 @@ html, body {
 }
 
 /*pc= percent*/
+
+.QuGuiHeight30pc
+{
+    height: 30%;
+}
+.QuGuiHeight40pc
+{
+    height: 40%;
+}
+.QuGuiHeight50pc
+{
+    height: 50%;
+}
+.QuGuiHeight100pc
+{
+    height: 100%;
+}
+.GuGuiWidth10pc
+{
+    width: 10%;
+}
+.GuGuiWidth20pc
+{
+    width: 20%;
+}
+.GuGuiWidth30pc
+{
+    width: 30%;
+}
+.GuGuiWidth40pc
+{
+    width: 40%;
+}
+.GuGuiWidth50pc
+{
+    width: 50%;
+}
+.GuGuiWidth60pc
+{
+    width: 60%;
+}
+.GuGuiWidth70pc
+{
+    width: 70%;
+}
+.GuGuiWidth80pc
+{
+    width: 80%;
+}
+.GuGuiWidth90pc
+{
+    width: 90%;
+}
+.GuGuiWidth100pc
+{
+    width: 100%;
+}
+
 .QuGuiBoxW50pc
 {
     width: 50%;
@@ -199,6 +285,18 @@ html, body {
     justify-content: center; /*主轴对齐方式*/
     align-items: center; /*交叉轴对齐方式*/
 }
+.QuGuiBoxAlignColumnEndFlex {
+    display: flex;
+    flex-direction: column; /*主轴方向，默认row*/
+    justify-content: flex-end; /*主轴对齐方式*/
+    align-items: center; /*交叉轴对齐方式*/
+}
+.QuGuiBoxAlignColumnStartFlex {
+    display: flex;
+    flex-direction: column; /*主轴方向，默认row*/
+    justify-content: flex-start; /*主轴对齐方式*/
+    align-items: center; /*交叉轴对齐方式*/
+}
 
 .QuGuiHorizontalListBox {
     padding-top: 5px;
@@ -239,6 +337,14 @@ html, body {
 
 }
 
+
+/*^_^*------------边框样式------------*^_^*/
+.QuGuiBorderBottom
+{
+    border: 0 solid #C9C5C5;
+    border-bottom-width: 2px;
+}
+
 /*^_^*------------字体样式------------*^_^*/
 /*图标字体*/
 @font-face
@@ -259,6 +365,11 @@ html, body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.QuGuiTextFamilyMicroSoftYaHei
+{
+    font-family: "Microsoft YaHei" !important;
 }
 
 .QuGuiTextSize8 {
@@ -507,7 +618,14 @@ html, body {
 .QuGuiMarginTop30 {
     margin-top: 30px;
 }
-
+.QuGuiPaddingBottom50
+{
+    padding-bottom: 50px;
+}
+.QuGuiPaddingBottom20
+{
+    padding-bottom: 20px;
+}
 
 /*^_^*------------显示方式------------*^_^*/
 .QuGuiHide

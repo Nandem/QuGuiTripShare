@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../css/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../../css/libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">-->
     <link href="../../css/qugui/quguiStyle.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,6 +18,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../js/libs/bootstrap/bootstrap.min.js"></script>
     <script src="../../js/libs/layer/layer.js"></script>
+    <!--<script src="../../js/libs/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>-->
     <link href="../../css/qugui/trip/location.css" rel="stylesheet">
 
     <title>地点</title>
@@ -24,8 +26,8 @@
 <body>
 <div class="QuGuiFullScreenContainer boxContainer">
     <div id="leftBox" class="QuGuiBoxAlignColumnCenterFlex QuGuiBox60And100pc">
-        <div id="info" class="leftContentBox QuGuiBoxAlignColumnCenterFlex">
-            <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 20%;">
+        <div id="info"  class=" leftContentBox QuGuiBoxAlignColumnCenterFlex">
+            <div class=" QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 20%;">
                 <img class="QuGuiPointerCursor QuiGuiHoverShadowChinaRed" src="../../imgs/logo.png" id="headIcon">
                 <div class=" locationNameBox QuGuiBoxAlignRowCenterFlex QuGuiItemAlignBetween">
                     <div id="locationName" class=" QuGuiTextSize90 QuGuiBoxAlignRowCenterFlex QuGuiItemAlignEnd">
@@ -37,12 +39,12 @@
                     </div>
                 </div>
             </div>
-            <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 10%;">
+            <div class=" QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 8%;">
                 <div id="slogan" class="QuGuiBoxAlignRowCenterFlex">
                     向来心是看客心，奈何人是剧中人
                 </div>
             </div>
-            <div class="QuGuiBoxAlignColumnCenterFlex" style="width: 100%; height: 10%;">
+            <div class=" QuGuiBoxAlignColumnCenterFlex" style="width: 100%; height: 10%;">
                 <div class="profileNav QuGuiBoxAlignRowCenterFlex">
                     <div class="QuGuiHorizontalListBox">
                         <div class="QuGuiBoxAlignRowCenterFlex" id="1NavBtn" title="印象"><i class="iconfont QuGuiTextSize12">
@@ -60,28 +62,47 @@
                     </div>
                 </div>
             </div>
-            <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 50%;">
-                <div id="1NavBody" style="background: red;" class="navBody QuGuiBoxAlignRowCenterFlex QuGuiHide">
-                    ☷
+            <div class=" QuGuiBoxAlignRowCenterFlex " style="width: 100%; height: 55%;">
+                <div id="1NavBody" class="navBody ">
+                    <div class="navBodyContentBox ">
+                        <span class="QuGuiTextSize90" style="font-family: 'Microsoft YaHei'">“</span>
+                        <span class="QuGuiTextSize45">一座来了就不想走的城市？</span>
+                        <span class="QuGuiTextSize90"  style="font-family: 'Microsoft YaHei'">”</span>
+                    </div>
+                    <div class="navBodyContentBox QuGuiMarginTop5">
+                        <span class="QuGuiTextSize90" style="font-family: 'Microsoft YaHei'">“</span>
+                        <span class="QuGuiTextSize45">美女超多</span>
+                        <span class="QuGuiTextSize90"  style="font-family: 'Microsoft YaHei'">”</span>
+                    </div>
+                    <div class="navBodyContentBox QuGuiMarginTop5">
+                        <span class="QuGuiTextSize90" style="font-family: 'Microsoft YaHei'">“</span>
+                        <span class="QuGuiTextSize45">怕老婆</span>
+                        <span class="QuGuiTextSize90"  style="font-family: 'Microsoft YaHei'">”</span>
+                    </div>
+                    <div class="navBodyContentBox QuGuiMarginTop5">
+                        <span class="QuGuiTextSize90" style="font-family: 'Microsoft YaHei'">“</span>
+                        <span class="QuGuiTextSize45">辣椒</span>
+                        <span class="QuGuiTextSize90"  style="font-family: 'Microsoft YaHei'">”</span>
+                    </div>
                 </div>
-                <div id="2NavBody" style="background: greenyellow;" class="navBody QuGuiBoxAlignRowCenterFlex QuGuiHide">
-                    ☳
+                <div id="2NavBody" class="navBody QuGuiBoxAlignRowCenterFlex">
+                    这里可以填写一些到达成都后，对成都的一些了解，比如那些有名的小吃，景点什么的
                 </div>
-                <div id="3NavBody" style="background: navajowhite;" class="navBody QuGuiBoxAlignRowCenterFlex QuGuiHide">
-                    ☱
+                <div id="3NavBody" class="navBody QuGuiBoxAlignRowCenterFlex">
+                    游走在成都的时候，自己的一些经历
                 </div>
-                <div id="4NavBody" style="background: burlywood;" class="navBody QuGuiBoxAlignRowCenterFlex QuGuiHide">
-                    ☰
+                <div id="4NavBody" class="navBody QuGuiBoxAlignRowCenterFlex">
+                    成都的一些民俗、民风。比如怕老婆什么的
                 </div>
-                <div id="5NavBody" style="background: pink;" class="navBody QuGuiBoxAlignRowCenterFlex QuGuiHide">
-                    ☴
+                <div id="5NavBody" class="navBody QuGuiBoxAlignRowCenterFlex">
+                    对成都某些景点或地点，产生的自己的一些感想
                 </div>
-                <div id="6NavBody" style="background: aliceblue;" class="navBody QuGuiBoxAlignRowCenterFlex QuGuiHide">
-                    ☶
+                <div id="6NavBody" class="navBody QuGuiBoxAlignRowCenterFlex ">
+                    旅行的意义，这趟旅行，你有什么体会
                 </div>
             </div>
-            <div style="width: 30%; height: 2px; background: black"></div>
-            <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 10%;">
+            <div style="width: 30%; height: 2px; margin-top: 5px; background: black"></div>
+            <div class=" QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 8%;">
                 <button id="navBtnIndexBtn" class="profileBottomBtn QuGuiBtn"><i class="iconfont">&#xe600;</i></button>
                 <button id="navBtnZoomIn" class="profileBottomBtn QuGuiBtn"><i class="iconfont">&#xe73b;</i>
                 </button>

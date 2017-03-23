@@ -18,6 +18,12 @@ function initTabEvent() {
         btnArray[i] = $("#" + (i + 1) + "NavBtn");
         bodyArray[i] = $("#" + (i + 1) + "NavBody");
         bodyArray[i].hide();
+        // bodyArray[i].mCustomScrollbar(
+        // {
+        //     setWidth: true,
+        //     setHeight: true,
+        //     theme:"dark"
+        // });
     }
 
     bodyArray[0].show();
