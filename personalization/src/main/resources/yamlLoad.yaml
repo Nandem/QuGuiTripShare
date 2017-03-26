@@ -1,0 +1,19 @@
+---
+default: &default
+ name: Nandem
+ age: 24
+ city:
+ - NanJing
+ - ChengDu
+ - DaLi
+ - XiAn
+ - XiShuangBanNa
+ school:
+ - name: ChengQiaoHighSchool
+   city: NanJing
+ - name: LaJi
+   city: HuaiAn
+
+first:
+ test: test
+ <<: *default

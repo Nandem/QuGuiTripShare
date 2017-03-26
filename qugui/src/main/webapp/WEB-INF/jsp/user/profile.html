@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../css/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../../css/libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">-->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,6 +18,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../js/libs/bootstrap/bootstrap.min.js"></script>
     <script src="../../js/libs/layer/layer.js"></script>
+    <!--<script src="../../js/libs/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>-->
     <link href="../../css/qugui/user/profile.css" rel="stylesheet">
     <link href="../../css/qugui/quguiStyle.css" rel="stylesheet">
 
@@ -24,22 +26,67 @@
 </head>
 <body>
 <div class="QuGuiFullScreenContainer QuGuiBoxAlignRowCenterFlex">
-    <div class="QuGuiBoxAlignColumnStartFlex  QuGuiBackgroundColorBlack GuGuiWidth20pc QuGuiHeight100pc">
-        <div class=" GuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnEndFlex">
+    <div class="QuGuiBoxAlignColumnStartFlex  QuGuiBackgroundColorBlack QuGuiWidth20pc QuGuiHeight100pc">
+        <div class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnEndFlex">
             <img class="QuGuiCircleHeadIconBox" src="../../imgs/logo.png">
             <h3 class="QuGuiTextColorGray">我的虚幻岁月</h3>
         </div>
         <div class="QuGuiSeparatorWhite"></div>
-        <div class="settingBtn">☷ 足迹</div>
-        <div class="settingBtn">☷ 行程</div>
-        <div class="settingBtn">☷ 朋友</div>
-        <div class="settingBtn">☷ 资料</div>
+        <div id="recommendTab" class="btnHighlight settingBtn">☷ 推荐</div>
+        <div id="tripTab" class="settingBtn">☷ 足迹</div>
+        <div id="schedulingTab" class="settingBtn">☷ 行程</div>
+        <div id="friendsTab" class="settingBtn">☷ 朋友</div>
+        <div id="personalInfoTab" class="settingBtn">☷ 资料</div>
     </div>
-    <div class=" QuGuiBoxAlignRowCenterFlex GuGuiWidth80pc QuGuiHeight100pc">
-        <div class="GuGuiWidth70pc QuGuiHeight100pc">
-            <h1>这里是个人资料</h1>
+    <div class=" QuGuiBoxAlignRowCenterFlex QuGuiWidth80pc QuGuiHeight100pc">
+        <div class=" QuGuiBoxAlignColumnStartFlex QuGuiWidth70pc QuGuiHeight100pc">
+            <div id="recommendBox" class="  QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
+                <h1>推荐</h1>
+            </div>
+            <div id="tripBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
+                <h1>我的旅行</h1>
+            </div>
+            <div id="schedulingBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
+                <h1>行程安排</h1>
+            </div>
+            <div id="friendsBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
+                <h1>朋友们</h1>
+            </div>
+            <div id="personalInfoBox" class="QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc QuGuiMarginTop30">
+                <div class="QuGuiWidth100pc QuGuiHeight100pc QuGuiMarginTop25">
+                    <fieldset style="width: 90%; margin: auto" class="QuGuiBoxAlignColumnStartFlex">
+                        <legend style="font-size: 32px; border-bottom-width: 2px; border-bottom-color: #000000">
+                            个人资料
+                        </legend>
+                        <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
+                            <input readonly type="text" value="昵称：我的虚幻岁月" class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                            <input readonly type="text" value="性别：男" class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                        </div>
+                        <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
+                            <input readonly type="text" value="邮箱：nandem@126.com" class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                            <input readonly type="text" value="手机号：13551274792" class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                        </div>
+                        <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
+                            <input readonly type="text" value="身份证号：320123199304014811" class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                            <input readonly type="text" value="真实姓名：叶明" class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                        </div>
+                    </fieldset>
+                </div>
+                <div style="margin-bottom: 7px;width: 90%; height: 2px; background: #000000"></div>
+                <div style="width: 90%; height: 30px; margin-bottom: 45px;" class=" QuGuiBoxAlignRowBetweenFlex">
+                    <div style="width: 50%; height: 30px;" class=" QuGuiBoxAlignRowStartFlex">
+                        <span class="QuGuiTextSize25 QuGuiTextBold">第234位申请者资料</span>
+                        <span class="QuGuiTextSize22">&nbsp;&nbsp;2017年3月21日</span>
+                    </div>
+                    <div style="width: 50%; height: 30px;" class=" QuGuiBoxAlignRowEndFlex">
+                        <button id="modifyBtn" style="line-height: 7px;" class="QuGuiBtn QuGuiTextSize25 QuGuiWidth80px QuGuiHeight100pc QuGuiBlackBtnStyle">修改</button>
+                        <button style="line-height: 7px;" class="QuGuiBtn QuGuiTextSize25 QuGuiMarginLeft5 QuGuiWidth80px QuGuiHeight100pc QuGuiBlackBtnStyle">提交</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="GuGuiWidth30pc QuGuiBackgroundColorGray QuGuiHeight100pc">
+        <div id="messageBox" style="margin-left: 0;"
+             class="QuGuiScrollBar QuGuiWidth30pc QuGuiBackgroundColorGray QuGuiHeight100pc">
             <div class="tips QuGuiBoxAlignRowCenterFlex">
                 有人查看了你的足迹
             </div>
@@ -54,6 +101,9 @@
             </div>
             <div class="tips QuGuiBoxAlignRowCenterFlex">
                 我真的编不下去了
+            </div>
+            <div class="tips QuGuiBoxAlignRowCenterFlex">
+                这个就是最后一条消息
             </div>
             <div class="tips QuGuiBoxAlignRowCenterFlex">
                 这个就是最后一条消息
