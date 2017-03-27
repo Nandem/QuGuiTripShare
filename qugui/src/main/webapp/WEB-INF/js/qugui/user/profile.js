@@ -20,6 +20,10 @@ function initVariable()
     QuGui.Profile.$friendsBox = $("#friendsBox");
     QuGui.Profile.$personalInfoBox = $("#personalInfoBox");
 
+    //
+    QuGui.Profile.$boxTitle = $("#boxTitle");
+    QuGui.Profile.$boxTitleBox = $("#boxTitleBox");
+
     //personalInfo
     QuGui.Profile.$infoInput = $("#personalInfoBox input");
     QuGui.Profile.$modifyBtn = $("#modifyBtn");
@@ -75,28 +79,43 @@ function initTabClickEvent()
 {
     QuGui.Profile.$recommendTab.click(function ()
     {
+        if(checkIsHighlight(QuGui.Profile.$recommendTab))
+            return;
+        changeTitle(QuGui.Profile.$recommendTab);
         highLightTab(QuGui.Profile.$recommendTab);
         showBox(QuGui.Profile.$recommendBox);
     });
     QuGui.Profile.$tripTab.click(function ()
     {
+        if(checkIsHighlight(QuGui.Profile.$tripTab))
+            return;
+        changeTitle(QuGui.Profile.$tripTab);
         highLightTab(QuGui.Profile.$tripTab);
         showBox(QuGui.Profile.$tripBox);
     });
     QuGui.Profile.$schedulingTab.click(function ()
     {
+        if(checkIsHighlight(QuGui.Profile.$schedulingTab))
+            return;
+        changeTitle(QuGui.Profile.$schedulingTab);
         highLightTab(QuGui.Profile.$schedulingTab);
         showBox(QuGui.Profile.$schedulingBox);
     });
     QuGui.Profile.$friendsTab.click(function ()
     {
+        if(checkIsHighlight(QuGui.Profile.$friendsTab))
+            return;
+        changeTitle(QuGui.Profile.$friendsTab);
         highLightTab(QuGui.Profile.$friendsTab);
         showBox(QuGui.Profile.$friendsBox);
     });
     QuGui.Profile.$personalInfoTab.click(function ()
     {
-        highLightTab(QuGui.Profile.$personalInfoTab);
+        if(checkIsHighlight(QuGui.Profile.$personalInfoTab))
+            return;
+        changeTitle(QuGui.Profile.$personalInfoTab);
         showBox(QuGui.Profile.$personalInfoBox);
+        highLightTab(QuGui.Profile.$personalInfoTab);
     });
 }
 function highLightTab($tabToBeHighLight)
@@ -124,6 +143,30 @@ function showBox($boxToBeShow)
 
     $boxToBeShow.removeClass("QuGuiHide");
     $boxToBeShow.animate({opacity:1}, 300);
+}
+function checkIsHighlight(objToBeChecked)
+{
+    return !!objToBeChecked.hasClass("btnHighlight");
+}
+function changeTitle($objToBeChangeTitle)
+{
+    var id = "#"+ $objToBeChangeTitle[0].id + "Hidden";
+    id = id.replace("Tab", "Box");
+    if(id == "#personalInfoBoxHidden")
+    {
+        QuGui.Profile.$boxTitleBox.hide();
+        return;
+    }
+    else
+    {
+        QuGui.Profile.$boxTitleBox.show();
+    }
+
+    QuGui.Profile.$boxTitle.animate({opacity:0}, 0, function ()
+    {
+        QuGui.Profile.$boxTitle.text($(id).val());
+        QuGui.Profile.$boxTitle.animate({opacity:1}, 300);
+    });
 }
 
 /*^_^*------入口*^_^*/

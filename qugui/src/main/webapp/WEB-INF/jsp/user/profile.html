@@ -18,7 +18,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../js/libs/bootstrap/bootstrap.min.js"></script>
     <script src="../../js/libs/layer/layer.js"></script>
-    <!--<script src="../../js/libs/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>-->
+    <script src="../../js/libs/paginate/jquery.paginate.js"></script>
     <link href="../../css/qugui/user/profile.css" rel="stylesheet">
     <link href="../../css/qugui/quguiStyle.css" rel="stylesheet">
 
@@ -40,17 +40,45 @@
     </div>
     <div class=" QuGuiBoxAlignRowCenterFlex QuGuiWidth80pc QuGuiHeight100pc">
         <div class=" QuGuiBoxAlignColumnStartFlex QuGuiWidth70pc QuGuiHeight100pc">
-            <div id="recommendBox" class="  QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
-                <h1>推荐</h1>
+            <h1 id="boxTitleBox" style="width: 90%;" class="QuGuiTitleBorder">
+                <span id="boxTitle">推荐</span>
+            </h1>
+            <div id="recommendBox" class="  QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
+                <input id="recommendBoxHidden" type="hidden" value="推荐" />
+
             </div>
-            <div id="tripBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
-                <h1>我的旅行</h1>
+            <div id="tripBox" style="" class="QuGuiScrollBar QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
+                <input id="tripBoxHidden" type="hidden" value="我的旅行" />
+                <div style="background: #eeeeee" class="QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiBoxAlignRowCenterFlex QuGuiBorderBottom tripBorderShadow">
+                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
+                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBoxAlignRowCenterFlex QuGuiHeight20pc"></span>
+                        <span style="background: #000000" class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBoxAlignRowCenterFlex QuGuiHeight40pc">大理</span>
+                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•云南</span>
+                    </div>
+                    <div style="" class=" QuGuiWidth80pc QuGuiHeight100pc"></div>
+                </div>
+                <div style="background: #eeeeee"  class="QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiBoxAlignRowCenterFlex QuGuiBorderBottom tripBorderShadow">
+                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
+                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBoxAlignRowCenterFlex QuGuiHeight20pc"></span>
+                        <span style="background: #000000" class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBoxAlignRowCenterFlex QuGuiHeight40pc">西安</span>
+                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•陕西</span>
+                    </div>
+                    <div style="" class=" QuGuiWidth80pc QuGuiHeight100pc"></div>
+                </div>
+                <div style="background: #eeeeee"  class="QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiBoxAlignRowCenterFlex QuGuiBorderBottom tripBorderShadow">
+                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
+                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBoxAlignRowCenterFlex QuGuiHeight20pc"></span>
+                        <span style="background: #000000" class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBoxAlignRowCenterFlex QuGuiHeight40pc">成都</span>
+                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•四川</span>
+                    </div>
+                    <div style="" class=" QuGuiWidth80pc QuGuiHeight100pc"></div>
+                </div>
             </div>
-            <div id="schedulingBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
-                <h1>行程安排</h1>
+            <div id="schedulingBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
+                <input id="schedulingBoxHidden" type="hidden" value="行程安排" />
             </div>
-            <div id="friendsBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc ">
-                <h1>朋友们</h1>
+            <div id="friendsBox" class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
+                <input id="friendsBoxHidden" type="hidden" value="朋友们" />
             </div>
             <div id="personalInfoBox" class="QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth100pc QuGuiHeight100pc QuGuiMarginTop30">
                 <div class="QuGuiWidth100pc QuGuiHeight100pc QuGuiMarginTop25">

@@ -10,6 +10,11 @@ html, body {
 
     background: #FFFFFF;
 
+    -moz-user-select:none;/*火狐*/
+    -webkit-user-select:none;/*webkit浏览器*/
+    -ms-user-select:none;/*IE10*/
+    user-select:none;
+
     min-width: 1024px;
     min-height: 700px;
 }
@@ -105,6 +110,12 @@ html, body {
 .QuGuiTextColorLinkBlack {
     color: #000000;
 }
+.QuGuiTextColorBlack {
+    color: #000000;
+}
+.QuGuiTextColorWhite {
+    color: #FFFFFF;
+}
 
 .QuGuiBackgroundColorBlack {
     background: black;
@@ -174,6 +185,10 @@ html, body {
 .QuGuiSizeLarge {
     width: 300px;
     height: 40px;
+}
+.QuGuiMinHeight
+{
+    min-height: 120px;
 }
 
 /*pc= percent*/
@@ -438,6 +453,22 @@ html, body {
     border: 0 solid #C9C5C5;
     border-bottom-width: 2px;
 }
+.QuGuiBorderBlack1px
+{
+    border: 1px solid #000000;
+}
+.QuGuiBorderBlack2px
+{
+    border: 2px solid #000000;
+}
+.QuGuiTitleBorder
+{
+    border-bottom-width: 2px;
+    border-bottom-color: #000000;
+    border-bottom-style: solid;
+    text-align: center;
+}
+
 
 /*^_^*------------字体样式------------*^_^*/
 /*图标字体*/
@@ -585,7 +616,6 @@ html, body {
 
 .QuGuiBtn:hover {
     -webkit-box-shadow: 0 0 3px 1px rgb(230, 0, 0);
-    -moz-box-shadow: 0 0 3px 1px rgb(230, 0, 0);
     box-shadow: 0 0 3px 1px rgb(230, 0, 0);
 }
 
@@ -721,7 +751,13 @@ html, body {
 .QuGuiMarginTop30 {
     margin-top: 30px;
 }
-.QuGuiPaddingBottom50
+.QuGuiMarginBottom5pc {
+    margin-bottom: 5%;
+}
+.QuGuiMarginBottom10px {
+    margin-bottom: 10px;
+}
+.QuGuiPaddingBottom50px
 {
     padding-bottom: 50px;
 }

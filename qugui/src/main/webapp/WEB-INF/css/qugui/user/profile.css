@@ -69,11 +69,24 @@
 
 }
 
+/*^_^*------我的旅行------*^_^*/
+.tripBorderShadow
+{
+    transition:all .3s;
+    -moz-transition:all .3s; /* Firefox 4 */
+    -webkit-transition:all .3s; /* Safari and Chrome */
+    -o-transition:all .3s; /* Opera */
+}
+.tripBorderShadow:hover
+{
+    transform: scale(1.015);
+}
+/*^_^*------个人资料------*^_^*/
 .profileInputHeight
 {
     height: 80px;
 }
-
+/*^_^*------全局提示------*^_^*/
 .tips
 {
     width: 100%;
