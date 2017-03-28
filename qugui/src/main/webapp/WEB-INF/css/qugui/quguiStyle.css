@@ -241,6 +241,10 @@ html, body {
 {
     width: 20%;
 }
+.QuGuiWidth25pc
+{
+    width: 25%;
+}
 .QuGuiWidth30pc
 {
     width: 30%;
@@ -554,7 +558,7 @@ html, body {
     font-weight: bold;
 }
 
-.QuGuiTextSelectionStyleChinaRed
+.QuGuiTextSelectionStyleBlack
 {
 
     transition:text-shadow .3s;
@@ -563,7 +567,7 @@ html, body {
     -o-transition:text-shadow .3s; /* Opera */
 }
 
-.QuGuiTextSelectionStyleChinaRed:hover {
+.QuGuiTextSelectionStyleBlack:hover {
     -moz-text-shadow: 0 0 5px #fff,
     0 0 2px #fff,
     0 0 2px #fff,
@@ -579,6 +583,33 @@ html, body {
     0 0 2px #fff,
     0 0 2px #000,
     0 0 2px #000;
+}
+
+.QuGuiTextSelectionStyleChinaRed
+{
+
+    transition:text-shadow .3s;
+    -moz-transition:text-shadow .3s; /* Firefox 4 */
+    -webkit-transition:text-shadow .3s; /* Safari and Chrome */
+    -o-transition:text-shadow .3s; /* Opera */
+}
+
+.QuGuiTextSelectionStyleChinaRed:hover {
+    -moz-text-shadow: 0 0 5px #fff,
+    0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 2px rgb(230, 0, 0),
+    0 0 2px rgb(230, 0, 0);
+    -webkit-text-shadow: 0 0 5px #fff,
+    0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 2px rgb(230, 0, 0),
+    0 0 2px rgb(230, 0, 0);
+    text-shadow: 0 0 5px #fff,
+    0 0 2px #fff,
+    0 0 2px #fff,
+    0 0 2px rgb(230, 0, 0),
+    0 0 2px rgb(230, 0, 0);
 }
 
 .QuGuiTextOpacity07
@@ -726,9 +757,16 @@ html, body {
     margin-left: 5px;
 }
 
+.QuGuiMarginLeft5 {
+    margin-left: 5px;
+}
+
 .QuGuiMarginLeft10 {
     margin-left: 10px;
 }
+.QuGuiMarginRight10 {
+     margin-right: 10px;
+ }
 
 .QuGuiMarginLeft30 {
     margin-left: 30px;

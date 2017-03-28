@@ -50,8 +50,8 @@
                 <button type="submit" class="QuGuiBtn QuGuiBlackBtnStyle QuGuiMarginTop10 QuGuiSizeLarge QuGuiTextSize30" onclick="login()">登录</button>
             </form>
             <div class="QuGuiSizeLarge registerAndForgotPassword QuGuiMarginTop5">
-                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07">忘记密码</p>
-                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleChinaRed QuGuiTextOpacity07" onclick="window.location.href = 'register.html'">免费注册</p>
+                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleBlack QuGuiTextOpacity07">忘记密码</p>
+                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleBlack QuGuiTextOpacity07" onclick="window.location.href = 'register.html'">免费注册</p>
             </div>
 
             <div class="footer QuGuiTextSize12">
