@@ -12,6 +12,7 @@ function initVariable()
     QuGui.Profile.$tripTab = $("#tripTab");
     QuGui.Profile.$schedulingTab = $("#schedulingTab");
     QuGui.Profile.$friendsTab = $("#friendsTab");
+    QuGui.Profile.$shareTab = $("#shareTab");
     QuGui.Profile.$personalInfoTab = $("#personalInfoTab");
 
     QuGui.Profile.$recommendBox = $("#recommendBox");
@@ -108,6 +109,10 @@ function initTabClickEvent()
         changeTitle(QuGui.Profile.$friendsTab);
         highLightTab(QuGui.Profile.$friendsTab);
         showBox(QuGui.Profile.$friendsBox);
+    });
+    QuGui.Profile.$shareTab.click(function ()
+    {
+        // window.location.href = ""
     });
     QuGui.Profile.$personalInfoTab.click(function ()
     {
