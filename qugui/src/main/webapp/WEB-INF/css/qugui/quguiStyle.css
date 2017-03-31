@@ -6,7 +6,7 @@
 html, body {
     height: 100%;
     font-size: 62.5%;
-    font-family: FangSong;
+    font-family: arial, helvetica, sans-serif;
 
     background: #FFFFFF;
 
@@ -66,6 +66,7 @@ html, body {
 {
     overflow: scroll;
     padding: 8px 8px 0 10px;
+    background: transparent;
 }
 .QuGuiScrollBar::-webkit-scrollbar
 {
