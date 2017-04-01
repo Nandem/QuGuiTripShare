@@ -72,22 +72,47 @@ html.fp-enabled,
     width: 0;
     height: 0;
     border-style: solid;
-    margin-top: -38px;
+    margin-top: -10px;
     -webkit-transform: translate3d(0,0,0);
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
 }
 .fp-controlArrow.fp-prev {
-    left: 15px;
+    right: 60px;
     width: 0;
-    border-width: 38.5px 34px 38.5px 0;
-    border-color: transparent #fff transparent transparent;
+    border-radius: 25px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #000 transparent transparent;
+
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
+}
+.fp-controlArrow.fp-prev:focus {
+    border-color: transparent darkred transparent transparent;
+}
+.fp-controlArrow.fp-prev:hover {
+    border-color: transparent darkred transparent transparent;
 }
 .fp-controlArrow.fp-next {
-    right: 15px;
-    border-width: 38.5px 0 38.5px 34px;
-    border-color: transparent transparent transparent #fff;
+    right: 45px;
+    border-radius: 25px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #000;
+
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
 }
+.fp-controlArrow.fp-next:focus {
+    border-color: transparent transparent transparent darkred;
+}
+.fp-controlArrow.fp-next:hover {
+    border-color: transparent transparent transparent darkred;
+}
+
 .fp-scrollable {
     overflow: hidden;
     position: relative;

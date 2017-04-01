@@ -8,12 +8,12 @@ $(document).ready(function()
     {
         //Navigation
         menu: '#myMenu',
-        lockAnchors: false,
+        lockAnchors: true,
         anchors:['firstPage', 'secondPage'],
         navigation: true,
         navigationPosition: 'right',
         navigationTooltips: ['firstSlide', '初识', '相知', '游走', '熟悉', '熟悉', '离别', '提交'],
-        showActiveTooltip: true,
+        showActiveTooltip: false,
         slidesNavigation: false,
         slidesNavPosition: 'bottom',
 
@@ -51,9 +51,9 @@ $(document).ready(function()
         recordHistory: true,
 
         //Design
-        controlArrows: false,
+        controlArrows: true,
         verticalCentered: true,
-        sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'pink', '#ccddff'],
+        sectionsColor: ['#FFFFFF', '#000000', '#FFFFFF', '#000000', '#FFFFFF', '#000000', '#FFFFFF'],
         // paddingTop: '3em',
         // paddingBottom: '10px',
         fixedElements: '#header, .footer',
