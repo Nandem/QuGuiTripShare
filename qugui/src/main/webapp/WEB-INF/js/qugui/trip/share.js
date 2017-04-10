@@ -10,9 +10,9 @@ $(document).ready(function()
         menu: '#myMenu',
         lockAnchors: true,
         anchors:['firstPage', 'secondPage'],
-        navigation: true,
+        navigation: false,
         navigationPosition: 'right',
-        navigationTooltips: ['firstSlide', '初识', '相知', '游走', '熟悉', '熟悉', '离别', '提交'],
+        navigationTooltips: ['编辑', '确定', '提交'],
         showActiveTooltip: false,
         slidesNavigation: false,
         slidesNavPosition: 'bottom',
@@ -51,9 +51,9 @@ $(document).ready(function()
         recordHistory: true,
 
         //Design
-        controlArrows: true,
+        controlArrows: false,
         verticalCentered: true,
-        sectionsColor: ['#FFFFFF', '#000000', '#FFFFFF', '#000000', '#FFFFFF', '#000000', '#FFFFFF'],
+        sectionsColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
         // paddingTop: '3em',
         // paddingBottom: '10px',
         fixedElements: '#header, .footer',
