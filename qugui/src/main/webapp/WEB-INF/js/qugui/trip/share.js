@@ -100,4 +100,17 @@ $(document).ready(function()
 
         }
     });
+
+    var $oSildeLeftBtn = $("#slideLeftBtn");
+    var $oSildeRightBtn = $("#slideRightBtn");
+
+    $oSildeLeftBtn.click(function ()
+    {
+        $.fn.fullpage.moveSlideLeft();
+    });
+
+    $oSildeRightBtn.click(function ()
+    {
+        $.fn.fullpage.moveSlideRight();
+    });
 });
