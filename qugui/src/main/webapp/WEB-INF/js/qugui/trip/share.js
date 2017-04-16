@@ -4,6 +4,11 @@
 
 $(document).ready(function()
 {
+
+    var $oSlideLeftBtn = $("#slideLeftBtn");
+    var $oSlideRightBtn = $("#slideRightBtn");
+    var $oFirstSlideNextBtn = $("#firstSlideNextBtn");
+
     $('#fullpage').fullpage(
     {
         //Navigation
@@ -81,7 +86,9 @@ $(document).ready(function()
         afterRender: function()
         {
             //整个页面只会执行一次该回调方法
-            layer.msg("渲染完毕");
+            // layer.msg("渲染完毕");
+            $oSlideLeftBtn.hide();
+            $oSlideRightBtn.hide();
         },
         afterResize: function()
         {
@@ -89,27 +96,36 @@ $(document).ready(function()
         },
         afterResponsive: function(isResponsive)
         {
-            layer.msg("isResponsive：" + isResponsive);
         },
         afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex)
         {
-
         },
         onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex)
         {
-
+            if(nextSlideIndex == 0)
+            {
+                $oSlideLeftBtn.hide('slow');
+                $oSlideRightBtn.hide('slow');
+            }
+            else
+            {
+                $oSlideLeftBtn.show('slow');
+                $oSlideRightBtn.show('slow');
+            }
         }
     });
 
-    var $oSildeLeftBtn = $("#slideLeftBtn");
-    var $oSildeRightBtn = $("#slideRightBtn");
-
-    $oSildeLeftBtn.click(function ()
+    $oSlideLeftBtn.click(function ()
     {
         $.fn.fullpage.moveSlideLeft();
     });
 
-    $oSildeRightBtn.click(function ()
+    $oSlideRightBtn.click(function ()
+    {
+        $.fn.fullpage.moveSlideRight();
+    });
+
+    $oFirstSlideNextBtn.click(function ()
     {
         $.fn.fullpage.moveSlideRight();
     });

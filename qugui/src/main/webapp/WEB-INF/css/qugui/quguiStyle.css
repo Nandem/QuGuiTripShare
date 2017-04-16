@@ -459,6 +459,19 @@ html, body {
 
 }
 
+/*^_^*------------布局方式------------*^_^*/
+.QuGuiPositionAbsolute
+{
+    position: absolute;
+}
+.QuGuiLeft0
+{
+    left: 0;
+}
+.QuGuiTop0
+{
+    top: 0;
+}
 
 /*^_^*------------边框样式------------*^_^*/
 .QuGuiBorderRadius3px
@@ -486,6 +499,18 @@ html, body {
 .QuGuiBorderBlack2px
 {
     border: 2px solid #000000;
+}
+.QuGuiBorderWhite2px
+{
+    border: 2px solid #FFFFFF;
+}
+.QuGuiBorderBottomNone
+{
+    border-bottom: none;
+}
+.QuGuiBorderTopNone
+{
+    border-top: none;
 }
 .QuGuiTitleBorder
 {
@@ -685,6 +710,8 @@ html, body {
     -moz-transition:box-shadow .3s; /* Firefox 4 */
     -webkit-transition:box-shadow .3s; /* Safari and Chrome */
     -o-transition:box-shadow .3s; /* Opera */
+
+    cursor: pointer;
 }
 
 .QuGuiBtn:focus {
@@ -694,6 +721,28 @@ html, body {
 .QuGuiBtn:hover {
     -webkit-box-shadow: 0 0 3px 1px rgb(230, 0, 0);
     box-shadow: 0 0 3px 1px rgb(230, 0, 0);
+}
+
+.QuGuiBtnRadiusSmall
+{
+    width: 30px;
+    height: 30px;
+
+    border-radius: 15px;
+}
+.QuGuiBtnRadiusMiddle
+{
+    width: 40px;
+    height: 40px;
+
+    border-radius: 20px;
+}
+.QuGuiBtnRadiusLarge
+{
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50px;
 }
 
 .QuGuiBlackBtnStyle {
@@ -937,6 +986,79 @@ html, body {
 .QuGuiHide
 {
     display: none;
+}
+
+/*^_^*------------动画------------*^_^*/
+@keyframes btnRippleOuter
+{
+    0% {
+        -webkit-box-shadow: 0 0 15px rgb(80, 0, 0);
+        -moz-box-shadow: 0 0 15px rgb(80, 0, 0);
+        box-shadow: 0 0 15px rgb(80, 0, 0);
+        /*transform: scale(1.1);*/
+    }
+    30% {
+        -webkit-box-shadow: 0 0 9px #000000;
+        -moz-box-shadow: 0 0 9px #000000;
+        box-shadow: 0 0 9px #000000;
+        /*transform: scale(1.05);*/
+    }
+    80% {
+        -webkit-box-shadow: 0 0 12px #111111;
+        -moz-box-shadow: 0 0 12px #111111;
+        box-shadow: 0 0 12px #111111;
+        /*transform: scale(1.025);*/
+    }
+    100% {
+        -webkit-box-shadow: 0 0 18px #555555;
+        -moz-box-shadow: 0 0 18px #555555;
+        box-shadow: 0 0 18px #555555;
+        /*transform: scale(1);*/
+    }
+}
+
+@-moz-keyframes btnRippleOuter /* Firefox */
+{
+    from {background: red;}
+    to {background: yellow;}
+}
+
+@-webkit-keyframes btnRippleOuter /* Safari 和 Chrome */
+{
+    0% {
+        -webkit-box-shadow: 0 0 3px #000000;
+        -moz-box-shadow: 0 0 3px #000000;
+        box-shadow: 0 0 3px #000000;
+    }
+    30% {
+        -webkit-box-shadow: 0 0 9px #111111;
+        -moz-box-shadow: 0 0 9px #111111;
+        box-shadow: 0 0 9px #111111;
+    }
+    80% {
+        -webkit-box-shadow: 0 0 12px #222222;
+        -moz-box-shadow: 0 0 12px #222222;
+        box-shadow: 0 0 12px #222222;
+    }
+    100% {
+        -webkit-box-shadow: 0 0 16px rgb(230, 0, 0);
+        -moz-box-shadow: 0 0 16px rgb(230, 0, 0);
+        box-shadow: 0 0 16px rgb(230, 0, 0);
+    }
+}
+
+@-o-keyframes btnRippleOuter /* Opera */
+{
+    from {background: red;}
+    to {background: yellow;}
+}
+
+.QuGuiBtnRipple
+{
+    animation: btnRippleOuter 2s infinite;
+    -moz-animation: btnRippleOuter 2s infinite;	/* Firefox */
+    -webkit-animation: btnRippleOuter 2s infinite;	/* Safari 和 Chrome */
+    -o-animation: btnRippleOuter 2s infinite;
 }
 
 /*^_^*------------debug------------*^_^*/
