@@ -121,6 +121,9 @@ html, body {
 .QuGuiBackgroundColorBlack {
     background: black;
 }
+.QuGuiBackgroundColorWhite {
+     background: white;
+ }
 .QuGuiBackgroundColorGray {
     background: #CFCFCF;
 }
@@ -246,6 +249,10 @@ html, body {
 {
     width: 10%;
 }
+.QuGuiWidth15pc
+{
+    width: 15%;
+}
 .QuGuiWidth20pc
 {
     width: 20%;
@@ -257,6 +264,14 @@ html, body {
 .QuGuiWidth30pc
 {
     width: 30%;
+}
+.QuGuiWidth31pc
+{
+    width: 31%;
+}
+.QuGuiWidth33pc
+{
+    width: 33%;
 }
 .QuGuiWidth40pc
 {
@@ -357,6 +372,13 @@ html, body {
     /*flex-direction: column;!*主轴方向，默认row*!*/
     justify-content: center; /*主轴对齐方式*/
     align-items: flex-end; /*交叉轴对齐方式*/
+}
+.QuGuiBoxAlignColumnBottomFlex
+{
+    display: flex;
+    flex-direction: column;/*主轴方向，默认row*/
+    justify-content: flex-end; /*主轴对齐方式*/
+    align-items: center; /*交叉轴对齐方式*/
 }
 .QuGuiBoxAlignRowEndFlex {
     display: flex;
@@ -504,6 +526,14 @@ html, body {
 {
     border: 2px solid #FFFFFF;
 }
+.QuGuiBorderBlack3px
+{
+    border: 3px solid #000000;
+}
+.QuGuiBorderWhite3px
+{
+    border: 3px solid #FFFFFF;
+}
 .QuGuiBorderBottomNone
 {
     border-bottom: none;
@@ -511,6 +541,14 @@ html, body {
 .QuGuiBorderTopNone
 {
     border-top: none;
+}
+.QuGuiBorderLeftNone
+{
+    border-left: none;
+}
+.QuGuiBorderRightNone
+{
+    border-right: none;
 }
 .QuGuiTitleBorder
 {
@@ -582,6 +620,12 @@ html, body {
 
 .QuGuiTextSize14 {
     font-size: 1.4em;
+}
+.QuGuiTextSize18 {
+    font-size: 1.8em;
+}
+.QuGuiTextSize20 {
+    font-size: 2.0em;
 }
 .QuGuiTextSize22 {
     font-size: 2.2em;
@@ -701,6 +745,21 @@ html, body {
 {
     color: #FFFFFF;
 }
+
+.QuGuiTextOmit
+{
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+.QuGuiTextOmit8And3pc
+ {
+     word-break:break-all;
+     display:-webkit-box;
+     -webkit-box-orient:vertical;
+     overflow:hidden;
+ }
 
 /*^_^*------------按钮样式------------*^_^*/
 .QuGuiBtn {
@@ -944,6 +1003,21 @@ html, body {
 
 .QuGuiMarginLeft30 {
     margin-left: 30px;
+}
+.QuGuiMarginLeft30pc {
+    margin-left: 30%;
+}
+.QuGuiMarginLeft50pc {
+    margin-left: 50%;
+}
+.QuGuiMarginLeft60pc {
+    margin-left: 60%;
+}
+.QuGuiMarginRight30pc {
+    margin-right: 30%;
+}
+.QuGuiMarginRight20pc {
+    margin-right: 20%;
 }
 
 .QuGuiMarginTop5 {
