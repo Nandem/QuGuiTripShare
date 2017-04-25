@@ -79,6 +79,9 @@
         <!-- Guava版本号 -->
         <guava.version>21.0</guava.version>
 
+        <!-- Thymeleaf版本号 -->
+        <thymeleaf.version>3.0.5.RELEASE</thymeleaf.version>
+
     </properties>
 
 

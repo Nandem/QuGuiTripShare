@@ -44,6 +44,12 @@ public class UserController
         logger.info("login...");
         return "/user/login";
     }
+    @RequestMapping("/toShare")
+    public String toShare()
+    {
+        logger.info("login...");
+        return "/trip/share";
+    }
 
     @RequestMapping("/loginResult")
     public String loginResult(Model model, String userName, String password)
