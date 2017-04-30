@@ -13,16 +13,53 @@
     <!--<![endif]&ndash;&gt;-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../js/libs/jq/jquery-3.1.1.min.js"></script>
-    <script src="../js/libs/fullPage/fullPage.min.js"></script>
+    <script src="../js/libs/fullPage/jquery.fullpage.js"></script>
     <script src="../js/jquery.leoweather.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/libs/bootstrap/bootstrap.min.js"></script>
 
     <script src="../js/qugui/index.js"></script>
     <link href="../css/qugui/quguiStyle.css" rel="stylesheet">
-    <link href="../css/qugui/user/index.css" rel="stylesheet">
+    <link href="../css/qugui/index.css" rel="stylesheet">
     <title>首页</title>
 </head>
 <body>
+<div class="QuGuiLayoutCenterH QuGuiFullScreenContainer QuGuiBackgroundColorBlack">
+    <div class=" QuGuiLayoutCenterV QuGuiWidth40pc QuGuiHeight100pc">
+        <div class="QuGuiBorderWhite1px QuGuiBorderLeftNone QuGuiBorderTopNone QuGuiBorderRightNone QuGuiLayoutLeftH QuGuiWidth100pc QuGuiHeight10pc">
+            <span class="QuGuiMarginTop5 QuGuiMarginLeft20 QuGuiHeight100pc QuGuiTextColorGray QuGuiLayoutLeftH QuGuiMarginRight10 QuGuiTextSize66">去归</span>
+            <span class="QuGuiMarginTop5 " style="background: #fff; width: 2px; height: 40%;"></span>
+            <span class="QuGuiMarginTop5  QuGuiHeight100pc QuGuiMarginLeft10 QuGuiLayoutLeftH QuGuiTextColorGray QuGuiTextSize30">您的个性化旅行分享平台</span>
+        </div>
+        <div class="QuGuiLayoutLeftH QuGuiWidth100pc QuGuiHeight70pc">
+            <span class=" QuGuiMarginLeft50 QuGuiWidth80pc QuGuiTextSize35 QuGuiTextIndent2em QuGuiTextColorGray">人生就像一场旅行，不必在乎目的地，在乎的，是沿途的风景，以及看风景的心情。<i id="sideBarToggleBtn" class="iconfont QuGuiTextColorWhite QuGuiTextSize8 QuGuiTextHoverChinaRed QuGuiPointerCursor QuGuiAllDelay">&#xe67b;</i> </span>
+        </div>
+        <div class=" QuGuiWidth100pc QuGuiHeight20pc QuGuiLayoutLeftH">
+            <div class="QuGuiWidth80pc QuGuiMarginLeft20 QuGuiHeight30pc QuGuiBorderWhite1px QuGuiLayoutLeftH">
+                <input placeholder="搜索你想去的地方吧" class="QuGuiWidth80pc QuGuiHeight100pc QuGuiBorderNone QuGuiTextIndentHalfEm QuGuiTextSize30 QuGuiOutLineNone QuGuiBackgroundTransparent QuGuiTextColorWhite" />
+                <button class="QuGuiWidth20pc QuGuiHeight100pc QuGuiBorderTopNone QuGuiBorderBottomNone QuGuiBorderRightNone QuGuiBorderWhite1px QuGuiTextSize25 QuGuiTextColorWhite QuGuiBackgroundTransparent">搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class=" QuGuiWidth60pc QuGuiHeight100pc QuGuiLayoutBottomH" style="background: url('../imgs/index/indexBackground2.jpg'); background-size: cover; position: relative">
+        <div id="sideBoxMask" style="left: 0; top: 0; opacity: 0" class="QuGuiFrostedGlass QuGuiLayoutCenterV QuGuiWidth100pc QuGuiHeight100pc">
+            <!--<div class="QuGuiWidth50pc QuGuiHeight50 debugBorder"></div>-->
+        </div>
+        <div id="sideBox" style="opacity: 0; width: 300px; height: 300px; left: 50%; top: 50%; margin-left: -150px; margin-top: -150px; position: absolute;" class="QuGuiLayoutCenterH">
+            <div class="QuGuiWidth50pc QuGuiHeight100pc QuGuiLayoutRightH">
+                <div class="QuGuiTextHoverChinaRed QuGuiMarginRight10 QuGuiPointerCursor QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight30pc">
+                    <span class="QuGuiTextColorWhite"><i class="iconfont QuGuiTextSize66">&#xe728;</i></span>
+                    <span class="QuGuiTextColorWhite QuGuiTextSize30">登录</span>
+                </div>
+            </div>
+            <div class="QuGuiWidth50pc QuGuiHeight100pc QuGuiLayoutLeftH">
+                <div class="QuGuiTextHoverChinaRed QuGuiMarginLeft10 QuGuiPointerCursor QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight30pc">
+                    <span class="QuGuiTextColorWhite"><i class="iconfont QuGuiTextSize66">&#xe608;</i></span>
+                    <span class="QuGuiTextColorWhite QuGuiTextSize30">注册</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

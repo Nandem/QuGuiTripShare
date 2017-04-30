@@ -27,40 +27,40 @@
 </head>
 <body>
 <div class="QuGuiFullScreenContainer boxContainer">
-    <div class="QuGuiBoxAlignColumnCenterFlex QuGuiBox60And100pc">
-        <div class="leftContentBox QuGuiBoxAlignColumnCenterFlex">
-            <div class="QuGuiBoxAlignColumnCenterFlex" style="width: 100%; height: 30%;">
+    <div class="QuGuiLayoutCenterV QuGuiBox60And100pc">
+        <div class="leftContentBox QuGuiLayoutCenterV">
+            <div class="QuGuiLayoutCenterV" style="width: 100%; height: 30%;">
                 <img class="QuGuiPointerCursor QuiGuiHoverShadowChinaRed" src="../../imgs/logo.png" id="headIcon">
                 <!--<input type="image" />-->
             </div>
-            <div class="QuGuiBoxAlignColumnCenterFlex" style="width: 100%; height: 10%;">
-                <div class="profileNav QuGuiBoxAlignRowCenterFlex">
+            <div class="QuGuiLayoutCenterV" style="width: 100%; height: 10%;">
+                <div class="profileNav QuGuiLayoutCenterH">
                     <div class="QuGuiHorizontalListBox">
-                        <div class="QuGuiBoxAlignRowCenterFlex" title="行程"><i class="iconfont QuGuiTextSize12">&#xe632;</i></div>
-                        <div class="QuGuiBoxAlignRowCenterFlex" title="攻略"><i class="iconfont QuGuiTextSize12">&#xe62f;</i></div>
-                        <div class="QuGuiBoxAlignRowCenterFlex" title="组队"><i class="iconfont QuGuiTextSize12">&#xe610;</i></div>
-                        <div class="QuGuiBoxAlignRowCenterFlex" title="足迹"><i class="iconfont QuGuiTextSize12">&#xe7cc;</i></div>
-                        <div class="QuGuiBoxAlignRowCenterFlex" title="寻找"><i class="iconfont QuGuiTextSize12">&#xe604;</i></div>
+                        <div class="QuGuiLayoutCenterH" title="行程"><i class="iconfont QuGuiTextSize12">&#xe632;</i></div>
+                        <div class="QuGuiLayoutCenterH" title="攻略"><i class="iconfont QuGuiTextSize12">&#xe62f;</i></div>
+                        <div class="QuGuiLayoutCenterH" title="组队"><i class="iconfont QuGuiTextSize12">&#xe610;</i></div>
+                        <div class="QuGuiLayoutCenterH" title="足迹"><i class="iconfont QuGuiTextSize12">&#xe7cc;</i></div>
+                        <div class="QuGuiLayoutCenterH" title="寻找"><i class="iconfont QuGuiTextSize12">&#xe604;</i></div>
                     </div>
                 </div>
             </div>
-            <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 10%;">
-                <div id="slogan" class="QuGuiBoxAlignRowCenterFlex">
+            <div class="QuGuiLayoutCenterH" style="width: 100%; height: 10%;">
+                <div id="slogan" class="QuGuiLayoutCenterH">
                     向来心是看客心，奈何人是剧中人
                 </div>
             </div>
-            <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 40%;">
+            <div class="QuGuiLayoutCenterH" style="width: 100%; height: 40%;">
                 <img id="summary" src="../../imgs/favorite.jpg" />
             </div>
-            <div class="QuGuiBoxAlignRowCenterFlex" style="width: 100%; height: 10%;">
+            <div class="QuGuiLayoutCenterH" style="width: 100%; height: 10%;">
                 <button id="moreBtn" class="profileBottomBtn QuGuiBtn"><i class="iconfont">&#xe600;</i></button>
                 <button id="indexBtn" class="profileBottomBtn QuGuiBtn"><i class="iconfont">&#xe6a6;</i></button>
             </div>
         </div>
     </div>
-    <div class="QuGuiBoxAlignColumnCenterFlex QuGuiBox40And100pc QuGuiBackgroundColorBlack">
-        <div class="visitedPlaceBox QuGuiBoxAlignColumnCenterFlex">
-            <div class="visitedPlaceBoxCenter QuGuiBoxAlignRowCenterFlex">
+    <div class="QuGuiLayoutCenterV QuGuiBox40And100pc QuGuiBackgroundColorBlack">
+        <div class="visitedPlaceBox QuGuiLayoutCenterV">
+            <div class="visitedPlaceBoxCenter QuGuiLayoutCenterH">
                 <div class="visitedPlace QuiGuiHoverShadowWhite">
                     <img src="../../imgs/visitedPlace1.jpg">
                 </div>
@@ -71,8 +71,8 @@
                     <!--<img src="../../imgs/visitedPlace3.jpg">-->
                 <!--</div>-->
             </div>
-            <div class="visitedPlaceBoxBottom QuGuiBoxAlignColumnCenterFlex">
-                <div class="navBtnBox QuGuiBoxAlignRowCenterFlex">
+            <div class="visitedPlaceBoxBottom QuGuiLayoutCenterV">
+                <div class="navBtnBox QuGuiLayoutCenterH">
                     <button class="navBtn  QuiGuiHoverShadowWhite"><</button>
                     <button class="navBtn QuiGuiHoverShadowWhite">></button>
                 </div>
