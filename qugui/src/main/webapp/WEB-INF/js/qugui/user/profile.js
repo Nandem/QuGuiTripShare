@@ -11,6 +11,7 @@ function initVariable()
     QuGui.Profile.$recommendTab = $("#recommendTab");
     QuGui.Profile.$tripTab = $("#tripTab");
     QuGui.Profile.$schedulingTab = $("#schedulingTab");
+    QuGui.Profile.$createTab = $("#createTab");
     QuGui.Profile.$friendsTab = $("#friendsTab");
     QuGui.Profile.$shareTab = $("#shareTab");
     QuGui.Profile.$personalInfoTab = $("#personalInfoTab");
@@ -18,6 +19,7 @@ function initVariable()
     QuGui.Profile.$recommendBox = $("#recommendBox");
     QuGui.Profile.$tripBox = $("#tripBox");
     QuGui.Profile.$schedulingBox = $("#schedulingBox");
+    QuGui.Profile.$createBox = $("#createBox");
     QuGui.Profile.$friendsBox = $("#friendsBox");
     QuGui.Profile.$personalInfoBox = $("#personalInfoBox");
 
@@ -102,6 +104,14 @@ function initTabClickEvent()
         highLightTab(QuGui.Profile.$schedulingTab);
         showBox(QuGui.Profile.$schedulingBox);
     });
+    QuGui.Profile.$createTab.click(function ()
+    {
+        if(checkIsHighlight(QuGui.Profile.$createTab))
+            return;
+        changeTitle(QuGui.Profile.$createTab);
+        highLightTab(QuGui.Profile.$createTab);
+        showBox(QuGui.Profile.$createBox);
+    });
     QuGui.Profile.$friendsTab.click(function ()
     {
         if(checkIsHighlight(QuGui.Profile.$friendsTab))
@@ -128,6 +138,7 @@ function highLightTab($tabToBeHighLight)
     QuGui.Profile.$recommendTab.removeClass("btnHighlight");
     QuGui.Profile.$tripTab.removeClass("btnHighlight");
     QuGui.Profile.$schedulingTab.removeClass("btnHighlight");
+    QuGui.Profile.$createTab.removeClass("btnHighlight");
     QuGui.Profile.$friendsTab.removeClass("btnHighlight");
     QuGui.Profile.$personalInfoTab.removeClass("btnHighlight");
 
@@ -141,6 +152,8 @@ function showBox($boxToBeShow)
     QuGui.Profile.$tripBox.css({opacity:0});
     QuGui.Profile.$schedulingBox.addClass("QuGuiHide");
     QuGui.Profile.$schedulingBox.css({opacity:0});
+    QuGui.Profile.$createBox.addClass("QuGuiHide");
+    QuGui.Profile.$createBox.css({opacity:0});
     QuGui.Profile.$friendsBox.addClass("QuGuiHide");
     QuGui.Profile.$friendsBox.css({opacity:0});
     QuGui.Profile.$personalInfoBox.addClass("QuGuiHide");
@@ -174,10 +187,41 @@ function changeTitle($objToBeChangeTitle)
     });
 }
 
+function initSomePlugs()
+{
+    $("#goDate").dateDropper({
+        animate: false,
+        format: 'Y-m-d',
+        maxYear: '2099'
+    });
+    $("#backDate").dateDropper({
+        animate: false,
+        format: 'Y-m-d',
+        maxYear: '2099'
+    });
+}
+function initFlip() {
+    var $oViewMore = $("#viewMore");
+    var $oBackBtn = $("#backBtn");
+    var $oFlipToggle = $("#flipToggle");
+
+    $oViewMore.click(function ()
+    {
+        $oFlipToggle.addClass("flipStart");
+    });
+    $oBackBtn.click(function ()
+    {
+        $oFlipToggle.removeClass("flipStart");
+    });
+}
 /*^_^*------入口*^_^*/
 $().ready(function ()
 {
     initVariable();
     initTabClickEvent();
     initPersonalInfo();
+
+    initSomePlugs();
+
+    initFlip();
 });

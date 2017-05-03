@@ -215,6 +215,10 @@ html, body {
 {
     height: 20%;
 }
+.QuGuiHeight25pc
+{
+    height: 25%;
+}
 .QuGuiHeight30pc
 {
     height: 30%;
@@ -230,6 +234,10 @@ html, body {
 .QuGuiHeight50pc
 {
     height: 50%;
+}
+.QuGuiHeight55pc
+{
+    height: 55%;
 }
 .QuGuiHeight60pc
 {
@@ -254,6 +262,10 @@ html, body {
 .QuGuiHeight90pc
 {
     height: 90%;
+}
+.QuGuiHeight95pc
+{
+    height: 95%;
 }
 .QuGuiHeight100pc
 {
@@ -286,6 +298,10 @@ html, body {
 .QuGuiWidth33pc
 {
     width: 33%;
+}
+.QuGuiWidth35pc
+{
+    width: 35%;
 }
 .QuGuiWidth40pc
 {
@@ -514,6 +530,10 @@ html, body {
 .QuGuiPositionAbsolute
 {
     position: absolute;
+}
+.QuGuiPositionRelative
+{
+    position: relative;
 }
 .QuGuiLeft0
 {
@@ -966,6 +986,18 @@ html, body {
     -webkit-transition:box-shadow .3s; /* Safari and Chrome */
     -o-transition:box-shadow .3s; /* Opera */
 }
+.QuGuiTextInputLine1px {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #000000;
+
+
+    transition:box-shadow .3s;
+    -moz-transition:box-shadow .3s; /* Firefox 4 */
+    -webkit-transition:box-shadow .3s; /* Safari and Chrome */
+    -o-transition:box-shadow .3s; /* Opera */
+}
 
 .QuGuiTextInputLine2px:focus {
     outline: none;
@@ -974,8 +1006,15 @@ html, body {
     border-right: 0;
     border-bottom: 2px solid rgb(230, 0, 0);
 }
+.QuGuiTextInputLine1px:focus {
+     outline: none;
+     border-top: 0;
+     border-left: 0;
+     border-right: 0;
+     border-bottom: 1px solid rgb(230, 0, 0);
+ }
 
-.QuGuiTextInputLine2px:hover {
+.QuGuiTextInputLine1px:hover, .QuGuiTextInputLine2px:hover {
     -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
     -moz-box-shadow: 0 0 3px rgb(230, 0, 0);
     box-shadow: 0 0 3px rgb(230, 0, 0);
@@ -1212,6 +1251,19 @@ html, body {
     -moz-transition: all .3s; /* Firefox 4 */
     -webkit-transition: all .3s; /* Safari and Chrome */
     -o-transition: all .3s; /* Opera */
+}
+
+.QuGuiRotate180
+{
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+
+    -moz-transform:           rotate(180deg);
+    -webkit-transform:        rotate(180deg);
+    -o-transform:             rotate(180deg);
+    transform:                rotate(180deg);
 }
 
 .QuGuiFrostedGlass
