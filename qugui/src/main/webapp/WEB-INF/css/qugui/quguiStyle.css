@@ -223,6 +223,18 @@ html, body {
 {
     height: 30%;
 }
+.QuGuiHeight30px
+{
+    height: 30px;
+}
+.QuGuiHeight60px
+{
+    height: 60px;
+}
+.QuGuiHeight120px
+{
+    height: 120px;
+}
 .QuGuiHeight35pc
 {
     height: 35%;
@@ -234,6 +246,10 @@ html, body {
 .QuGuiHeight50pc
 {
     height: 50%;
+}
+.QuGuiHeight50px
+{
+    height: 50px;
 }
 .QuGuiHeight55pc
 {
@@ -270,6 +286,10 @@ html, body {
 .QuGuiHeight100pc
 {
     height: 100%;
+}
+.QuGuiWidth5pc
+{
+    width: 5%;
 }
 .QuGuiWidth10pc
 {
@@ -314,6 +334,10 @@ html, body {
 .QuGuiWidth50pc
 {
     width: 50%;
+}
+.QuGuiWidth55pc
+{
+    width: 55%;
 }
 .QuGuiWidth60pc
 {
@@ -418,6 +442,15 @@ html, body {
      justify-content: center; /*主轴对齐方式*/
      align-items: flex-start; /*交叉轴对齐方式*/
  }
+.QuGuiWrap
+{
+    flex-wrap: wrap;
+}
+.QuGuiWrapReverse
+{
+    flex-wrap: wrap-reverse;
+}
+
 .QuGuiBoxAlignColumnBottomFlex
 {
     display: flex;
@@ -444,7 +477,7 @@ html, body {
     justify-content: center; /*主轴对齐方式*/
     align-items: center; /*交叉轴对齐方式*/
 }
-.QuGuiBoxAlignRowBetweenFlex {
+.QuGuiLayoutBetweenH {
     display: flex;
     /*flex-direction: column;!*主轴方向，默认row*!*/
     justify-content: space-between; /*主轴对齐方式*/
@@ -534,6 +567,10 @@ html, body {
 .QuGuiPositionRelative
 {
     position: relative;
+}
+.QuGuiFloatLeft
+{
+    float: left;
 }
 .QuGuiLeft0
 {
@@ -1105,7 +1142,10 @@ html, body {
 .QuGuiMarginRight10 {
     margin-right: 10px;
 }
-.QuGuiMarginLeft20 {
+.QuGuiMarginRight30 {
+    margin-right: 10px;
+}
+.QuGuiMarginLeft30 {
     margin-left: 20px;
 }
 .QuGuiMarginLeft30 {

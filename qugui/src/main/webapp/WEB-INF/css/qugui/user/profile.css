@@ -81,7 +81,7 @@
 {
     transform: scale(1.015);
 }
-#tripBox
+#tripBox, #friendsBox
 {
     /*border-width: 10px;*/
     border-left-width: 0;
