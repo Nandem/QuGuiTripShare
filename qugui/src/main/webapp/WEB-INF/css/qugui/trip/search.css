@@ -6,3 +6,33 @@
     margin: 0;
     padding: 0;
 }
+
+.temB
+{
+    background: #000;
+    margin-top: 4px;
+    display: inline-block;
+    width: 210px;
+    height: 1px;
+    _overflow: hidden;
+    vertical-align: middle;
+
+}
+.temSpan
+{
+    display: inline-block;
+    width: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+.selectionForeColor
+{
+    transition:text-shadow .3s;
+    -moz-transition:text-shadow .3s; /* Firefox 4 */
+    -webkit-transition:text-shadow .3s; /* Safari and Chrome */
+    -o-transition:text-shadow .3s; /* Opera */
+}
+.selectionForeColor:hover
+{
+    color: rgb(230, 0, 0);
+}

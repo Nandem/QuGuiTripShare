@@ -12,6 +12,7 @@ $().ready(function ()
     {
         if(!sideBarToggleFlag)
         {
+            $oSideBarToggle.addClass("QuGuiRotate180");
             $oSideBoxMask.animate({opacity: 1}, 600, function ()
             {
                 $oSideBox.animate({opacity: 1}, 2000)
@@ -19,6 +20,7 @@ $().ready(function ()
         }
         else
         {
+            $oSideBarToggle.removeClass("QuGuiRotate180");
             $oSideBox.animate({opacity: 0}, 600, function ()
             {
                 $oSideBoxMask.animate({opacity: 0}, 600)
