@@ -135,6 +135,9 @@ html, body {
 .QuGuiBackgroundColorGray {
     background: #CFCFCF;
 }
+.QuGuiBackgroundColorGray2 {
+    background: #efefef;
+}
 
 .QuGuiBackgroundColorChinaRed {
     background: rgb(230, 0, 0);
@@ -244,6 +247,18 @@ html, body {
 .QuGuiHeight120px
 {
     height: 120px;
+}
+.QuGuiWidth120px
+{
+    width: 120px;
+}
+.QuGuiHeight300px
+{
+    height: 300px;
+}
+.QuGuiWidth300px
+{
+    width: 300px;
 }
 .QuGuiHeight35pc
 {
@@ -490,6 +505,12 @@ html, body {
     /*flex-direction: column;!*主轴方向，默认row*!*/
     justify-content: flex-start; /*主轴对齐方式*/
     align-items: center; /*交叉轴对齐方式*/
+}
+.QuGuiLayoutLeftV {
+    display: flex;
+    flex-direction: column;/*主轴方向，默认row*/
+    justify-content: center; /*主轴对齐方式*/
+    align-items: flex-start; /*交叉轴对齐方式*/
 }
 
 .QuGuiLayoutCenterH {
@@ -1244,6 +1265,18 @@ html, body {
 .QuGuiPadding10
 {
     padding: 10px;
+}
+.QuGuiPadding5
+{
+    padding: 5px;
+}
+.QuGuiPaddingLeft5
+{
+    padding-left: 5px;
+}
+.QuGuiPaddingRight5
+{
+    padding-right: 5px;
 }
 
 /*^_^*------------显示方式------------*^_^*/

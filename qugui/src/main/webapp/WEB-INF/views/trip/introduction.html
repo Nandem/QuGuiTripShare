@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../css/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../../css/libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">-->
+    <link href="../../css/qugui/quguiStyle.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../../js/libs/html5shiv.min.js"></script>
+    <script src="../../js/libs/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../../js/libs/jq/jquery-3.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../js/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="../../js/libs/layer/layer.js"></script>
+    <!--<link  href="../../css/libs/typo/typo.css" rel="stylesheet">-->
+    <!--<script src="../../js/libs/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>-->
+    <link href="../../css/qugui/trip/introduction.css" rel="stylesheet">
+    <title>旅行地-官方介绍</title>
+</head>
+<body>
+<div class="QuGuiWidth100pc QuGuiHeight100pc QuGuiBackgroundColorGray2 QuGuiLayoutCenterV QuGuiPositionRelative">
+    <!-- 背景图片层 -->
+    <div class="QuGuiWidth100pc QuGuiHeight60pc ">
+        <img src="../../imgs/chengdu.jpg" width="100%" height="100%">
+    </div>
+    <div class="QuGuiWidth100pc QuGuiHeight40pc"></div>
+    <!-- 中间显示层 -->
+    <div class="QuGuiWidth100pc QuGuiLayoutCenterH QuGuiHeight100pc" style="position:absolute;left:0;top: 0;">
+        <!-- 这两层是一个小技巧 -->
+        <div class="QuGuiLayoutCenterV QuGuiWidth70pc QuGuiHeight80pc ">
+            <div class=" QuGuiLayoutCenterV QuGuiWidth100pc QuGuiHeight30pc ">
+                <div class="QuGuiLayoutLeftV QuGuiWidth60pc QuGuiHeight80pc ">
+                    <span class="QuGuiTextSize90 QuGuiTextColorWhite">▪成都▪</span>
+                    <span class="QuGuiTextSize35 QuGuiTextColorWhite">一座来了就不想走的城市</span>
+                    <span class="QuGuiTextSize35 QuGuiBorderRadius5px QuGuiPaddingLeft5 QuGuiPaddingRight5 QuGuiBackgroundColorWhite QuGuiTextColorBlack">查看旅行</span>
+                </div>
+            </div>
+            <div class="QuGuiLayoutCenterH QuGuiPositionRelative QuGuiBackgroundTransparent QuGuiWidth100pc QuGuiHeight70pc">
+                <div style="left: 0; top: 0;" class="frostedGlass QuGuiBackgroundColorWhite QuGuiWidth100pc QuGuiHeight100pc QuGuiPositionAbsolute">
+
+                </div>
+                <div style="left: 0; top: 0;" class="QuGuiWidth100pc QuGuiLayoutCenterH QuGuiHeight100pc QuGuiPositionAbsolute">
+                    <div class="QuGuiLayoutCenterH QuGuiWidth40pc QuGuiHeight100pc">
+                        <div class="QuGuiWidth300px QuGuiPositionRelative QuGuiLayoutCenterV QuGuiHeight300px">
+                            <div class="QuGuiLayoutCenterH QuGuiWidth100pc QuGuiHeight50pc">
+                                <div id="introductionBtn" class="QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiAllDelay QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight100pc QuGuiBorderBlack2px">
+                                    <i class="iconfont QuGuiTextSize66">&#xe6ce;</i>
+                                    <span class="QuGuiTextSize30">简介</span>
+                                </div>
+                                <div id="folkCustomBtn" class="QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiAllDelay QuGuiLayoutCenterV QuGuiWidth50pc QuGuiBorderLeftNone QuGuiHeight100pc QuGuiBorderBlack2px">
+                                    <i class="iconfont QuGuiTextSize66">&#xe603;</i>
+                                    <span class="QuGuiTextSize30">民俗</span>
+                                </div>
+                            </div>
+                            <div class="QuGuiLayoutCenterH QuGuiWidth100pc QuGuiHeight50pc">
+                                <div id="characteristicBtn" class="QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiAllDelay QuGuiLayoutCenterV QuGuiWidth50pc QuGuiBorderTopNone QuGuiHeight100pc QuGuiBorderBlack2px">
+                                    <i class="iconfont QuGuiTextSize66">&#xe6d5;</i>
+                                    <span class="QuGuiTextSize30">特色</span>
+                                </div>
+                                <div id="viewpointBtn" class="QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiAllDelay QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight100pc QuGuiBorderLeftNone QuGuiBorderTopNone QuGuiBorderBlack2px">
+                                    <i class="iconfont QuGuiTextSize66">&#xe611;</i>
+                                    <span class="QuGuiTextSize30">去归</span>
+                                </div>
+                            </div>
+                            <div style="" class="centerCircle QuGuiAllDelay QuGuiBackgroundColorWhite QuGuiBorderBlack2px QuGuiLayoutCenterH">
+                                <span style="width: 14px; height: 14px; border-radius: 7px; background: black"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="QuGuiWidth60pc QuGuiHeight100pc QuGuiLayoutCenterH">
+                        <div class="QuGuiWidth90pc QuGuiScrollBar QuGuiPadding10  QuGuiBorderBlack2px QuGuiHeight90pc">
+                            <div id="introductionBox" class="QuGuiAllDelay QuGuiWidth100pc QuGuiHeight100pc ">
+                                <h3>简介</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
+                                    成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
+                                    成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
+                                </p>
+                                <h3>基础文化设施</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
+                                </p>
+                            </div>
+                            <div id="folkCustomBox" class="QuGuiAllDelay QuGuiHide QuGuiWidth100pc QuGuiHeight100pc ">
+                                <h3>民俗</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
+                                    成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
+                                    成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
+                                </p>
+                                <h3>基础文化设施</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
+                                </p>
+                            </div>
+                            <div id="characteristicBox" class="QuGuiAllDelay QuGuiHide QuGuiWidth100pc QuGuiHeight100pc ">
+                                <h3>旅行特色</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
+                                    成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
+                                    成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
+                                </p>
+                                <h3>基础文化设施</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
+                                </p>
+                            </div>
+                            <div id="viewpointBox" class="QuGuiAllDelay QuGuiHide QuGuiWidth100pc QuGuiHeight100pc ">
+                                <h3>用户评论</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
+                                    成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
+                                    成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
+                                </p>
+                                <h3>基础文化设施</h3>
+                                <p class="QuGuiTextIndent2em">
+                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/libs/markdown/marked.js"></script>
+<script src="../../js/qugui/trip/introduction.js"></script>
+</body>
+</html>
