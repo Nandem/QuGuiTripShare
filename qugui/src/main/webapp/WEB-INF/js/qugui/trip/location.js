@@ -14,9 +14,11 @@ function initTabEvent() {
 
     var btnArray = [];
     var bodyArray = [];
+    var imgArray = [];
     for (var i = 0; i < 6; i++) {
         btnArray[i] = $("#" + (i + 1) + "NavBtn");
         bodyArray[i] = $("#" + (i + 1) + "NavBody");
+        imgArray[i] = $("#" + (i + 1) + "Img");
         bodyArray[i].hide();
         // bodyArray[i].mCustomScrollbar(
         // {
@@ -30,15 +32,37 @@ function initTabEvent() {
 
     btnArray.forEach(function (item, index) {
         item.click(function () {
+            hideAllBtnSelectedStat(btnArray);
             hideAllElements(bodyArray);
+            hideAllImg(imgArray);
             bodyArray[index].show();
+            $(btnArray[index]).addClass("navBtnSelected");
+            $(imgArray[index]).removeClass("QuGuiHide");
+
         })
     });
 }
 
-function hideAllElements(elementsArray) {
-    elementsArray.forEach(function (item) {
+function hideAllImg(imgArray)
+{
+    imgArray.forEach(function (item)
+    {
+        $(item).addClass("QuGuiHide") ;
+    });
+}
+
+function hideAllBtnSelectedStat(btnArray)
+{
+    btnArray.forEach(function (item)
+    {
+       $(item).removeClass("navBtnSelected") ;
+    });
+}
+
+function hideAllElements(bodyArray) {
+    bodyArray.forEach(function (item) {
         item.hide();
+        // $(btnArray[1]).removeClass("navBtnSelected");
     })
 }
 /*^_^*-------------zoom event---------------*^_^*/

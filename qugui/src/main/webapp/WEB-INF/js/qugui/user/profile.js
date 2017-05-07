@@ -191,12 +191,12 @@ function initSomePlugs()
 {
     $("#goDate").dateDropper({
         animate: false,
-        format: 'Y-m-d',
+        format: 'Y/m/d',
         maxYear: '2099'
     });
     $("#backDate").dateDropper({
         animate: false,
-        format: 'Y-m-d',
+        format: 'Y/m/d',
         maxYear: '2099'
     });
 }

@@ -30,6 +30,7 @@
         <div class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnEndFlex">
             <img class="QuGuiCircleHeadIconBox" src="../../imgs/logo.png">
             <h3 class="QuGuiTextColorGray">我的虚幻岁月</h3>
+            <span class="QuGuiTextColorGray">向来心是看客心，奈何人是剧中人。</span>
         </div>
         <div class="QuGuiSeparatorWhite"></div>
         <div id="recommendTab" class="btnHighlight settingBtn">☷ 推荐</div>
@@ -47,9 +48,30 @@
                 <span id="boxTitle">推荐</span>
             </h1>
             <div id="recommendBox"
-                 class="  QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
+                 class="QuGuiScrollBar QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
                 <input id="recommendBoxHidden" type="hidden" value="推荐"/>
-
+                <div style="background: #eeeeee"
+                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
+                    <div class="QuGuiWidth15pc QuGuiLayoutLeftH QuGuiHeight100pc">
+                        <span class="QuGuiBackgroundColorBlack QuGuiTextColorWhite QuGuiTextSize30 QuGuiWidth100pc QuGuiLayoutCenterV">
+                            西南
+                        </span>
+                    </div>
+                    <div class="QuGuiLayoutCenterV QuGuiBorderLeftBlack1px QuGuiWidth70pc QuGuiHeight100pc">
+                        <span class=" QuGuiTextSize66  QuGuiWidth100pc QuGuiLayoutCenterH QuGuiHeight80pc">成都</span>
+                        <span class="QuGuiWidth100pc QuGuiHeight20pc QuGuiLayoutCenterH ">
+                            <span style="height: 1px; background: #cccccc" class="QuGuiTextColorGray QuGuiWidth20pc QuGuiBackgroundColorBlack"></span>
+                            <span class="QuGuiTextColorGray ">&nbsp;去归&nbsp;</span>
+                            <span style="height: 1px; background: #cccccc" class="QuGuiTextColorGray QuGuiWidth20pc QuGuiBackgroundColorBlack"></span>
+                        </span>
+                    </div>
+                    <div class="QuGuiWidth15pc QuGuiLayoutCenterV QuGuiBorderLeftBlack1px QuGuiHeight100pc">
+                        <label class="QuGuiPointerCursor QuGuiLayoutCenterV selectionForeColor">
+                            <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
+                            <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
+                        </label>
+                    </div>
+                </div>
             </div>
             <div id="tripBox" style=""
                  class="QuGuiScrollBar QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
@@ -308,8 +330,33 @@
                 </div>
             </div>
             <div id="schedulingBox"
-                 class=" QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
+                 class=" QuGuiHide QuGuiScrollBar QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
                 <input id="schedulingBoxHidden" type="hidden" value="行程安排"/>
+                <div style="background: #eeeeee"
+                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
+                    <div class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc ">
+                        <div class="QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH QuGuiBorderBottomBlack1px">
+                            <span class="QuGuiTextSize66">南京</span>
+                            <span class="QuGuiTextSize66"> - </span>
+                            <span class="QuGuiTextSize66">成都</span>
+                        </div>
+                        <div class="QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutCenterH">
+                            <span class="QuGuiTextSize30">2017/05/07</span>
+                            <span class="QuGuiTextSize30"> - </span>
+                            <span class="QuGuiTextSize30">2017/05/09</span>
+                        </div>
+                    </div>
+                    <div class="QuGuiLayoutCenterV QuGuiWidth20pc QuGuiHeight100pc QuGuiBorderLeftBlack1px">
+                        <div class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight80pc ">
+                            <span th:if="${1>1}" class="QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30">准备中</span>
+                            <span style="border-radius: 50%" class="QuGuiHide QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30 QuGuiBtnRipple ">进行中</span>
+                            <span class="QuGuiHide QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
+                                <i class="iconfont QuGuiTextSize12 QuGuiMarginBottom5px">&#xe605;</i>
+                                分享
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="createBox"
                  class="flipContainer QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
@@ -369,7 +416,7 @@
                  class="QuGuiScrollBar QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
                 <input id="friendsBoxHidden" type="hidden" value="朋友们"/>
                 <div class="QuGuiWidth100pc QuGuiHeight100pc QuGuiPositionRelative " style="text-align: center">
-                    <div class="QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
+                    <div class="tripBorderShadow QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
                         <div class="QuGuiLayoutCenterH QuGuiWidth95pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPositionRelative">
                             <div class="QuGuiLayoutCenterH QuGuiWidth35pc QuGuiHeight100pc ">
                                 <div style="width: 80px; height:80px; border-radius: 40px; background: url('../../imgs/logo.png'); background-size: cover"></div>
@@ -387,7 +434,7 @@
                         </div>
                     </div>
 
-                    <div class="QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
+                    <div class="tripBorderShadow QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
                         <div class="QuGuiLayoutCenterH QuGuiWidth95pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPositionRelative">
                             <div class="QuGuiLayoutCenterH QuGuiWidth35pc QuGuiHeight100pc ">
                                 <div style="width: 80px; height:80px; border-radius: 40px; background: url('../../imgs/logo.png'); background-size: cover"></div>
@@ -405,7 +452,7 @@
                         </div>
                     </div>
 
-                    <div class="QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
+                    <div class="tripBorderShadow QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
                         <div class="QuGuiLayoutCenterH QuGuiWidth95pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPositionRelative">
                             <div class="QuGuiLayoutCenterH QuGuiWidth35pc QuGuiHeight100pc ">
                                 <div style="width: 80px; height:80px; border-radius: 40px; background: url('../../imgs/logo.png'); background-size: cover"></div>
@@ -423,7 +470,7 @@
                         </div>
                     </div>
 
-                    <div class="QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
+                    <div class="tripBorderShadow QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight20pc QuGuiFloatLeft">
                         <div class="QuGuiLayoutCenterH QuGuiWidth95pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPositionRelative">
                             <div class="QuGuiLayoutCenterH QuGuiWidth35pc QuGuiHeight100pc ">
                                 <div style="width: 80px; height:80px; border-radius: 40px; background: url('../../imgs/logo.png'); background-size: cover"></div>

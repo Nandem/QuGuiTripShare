@@ -15,20 +15,34 @@ $().ready(function ()
 
     $oIntroductionBtn.click(function ()
     {
+        highlightBtn($(this));
         showBox($oIntroductionBox);
     });
     $oFolkCustomBtn.click(function ()
     {
+        highlightBtn($(this));
         showBox($oFolkCustomBox);
     });
     $oCharacteristicBtn.click(function ()
     {
+        highlightBtn($(this));
         showBox($oCharacteristicBox);
     });
     $oViewpointBtn.click(function ()
     {
+        highlightBtn($(this));
         showBox($oViewpointBox);
     });
+
+    function highlightBtn($btnToBeHightlight)
+    {
+        $oIntroductionBtn.removeClass("QuGuiTextChinaRed");
+        $oFolkCustomBtn.removeClass("QuGuiTextChinaRed");
+        $oCharacteristicBtn.removeClass("QuGuiTextChinaRed");
+        $oViewpointBtn.removeClass("QuGuiTextChinaRed");
+
+        $btnToBeHightlight.addClass("QuGuiTextChinaRed");
+    }
 
     function showBox($objToBeShow)
     {

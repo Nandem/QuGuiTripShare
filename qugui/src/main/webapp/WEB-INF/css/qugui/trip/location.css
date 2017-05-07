@@ -147,6 +147,11 @@
     width: 100%;
     height: 90%;
 }
+.navBtnSelected
+{
+    background: black;
+    color: white;
+}
 
 .everyDayMsg
 {

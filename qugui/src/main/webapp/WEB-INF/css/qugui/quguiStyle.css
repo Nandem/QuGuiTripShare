@@ -601,6 +601,7 @@ html, body {
 
 }
 
+
 /*^_^*------------布局方式------------*^_^*/
 .QuGuiPositionAbsolute
 {
@@ -650,6 +651,14 @@ html, body {
 {
     border-top: 1px solid #000000;
 }
+.QuGuiBorderBottomBlack1px
+{
+    border-bottom: 1px solid #000000;
+}
+.QuGuiBorderLeftBlack1px
+{
+    border-left: 1px solid #000000;
+}
 .QuGuiBorderTopGray1px
 {
     border-top: 1px solid #cccccc;
@@ -661,6 +670,10 @@ html, body {
 .QuGuiBorderLeftWhite1px
 {
     border-left: 1px solid #FFFFFF;
+}
+.QuGuiBorderLeftGray1px
+{
+    border-left: 1px solid #CCCCCC;
 }
 .QuGuiBorderBlack2px
 {
@@ -677,6 +690,10 @@ html, body {
 .QuGuiBorderWhite1px
 {
     border: 1px solid #FFFFFF;
+}
+.QuGuiBorderGray1px
+{
+    border: 1px solid #CCCCCC;
 }
 .QuGuiBorderWhite2px
 {
@@ -997,6 +1014,10 @@ html, body {
 {
     color: rgb(230, 0, 0) !important;
 }
+.QuGuiTextChinaRed
+{
+    color: rgb(230, 0, 0) !important;
+}
 
 /*^_^*------------输入框样式------------*^_^*/
 .QuGuiTextInput {
@@ -1250,6 +1271,9 @@ html, body {
 }
 .QuGuiMarginBottom5pc {
     margin-bottom: 5%;
+}
+.QuGuiMarginBottom5px {
+    margin-bottom: 5px;
 }
 .QuGuiMarginBottom10px {
     margin-bottom: 10px;
