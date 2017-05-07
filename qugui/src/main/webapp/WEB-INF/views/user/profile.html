@@ -38,9 +38,9 @@
         <div id="schedulingTab" class="settingBtn">☷ 行程</div>
         <div id="createTab" class="settingBtn">☷ 创建</div>
         <div id="friendsTab" class="settingBtn">☷ 朋友</div>
-        <a id="temShareLink" href="../trip/share.html" th:href="@{/user/toShare}" target="_blank" class="QuGuiHide"> ☷ 分享</a>
-        <div id="shareTab" class="settingBtn" onclick="window.open($('#temShareLink').attr('href'))">☷ 分享</div>
         <div id="personalInfoTab" class="settingBtn">☷ 资料</div>
+        <a id="temIndexLink" href="../index.html" target="_blank" class="QuGuiHide"></a>
+        <div id="shareTab" class="settingBtn" onclick="redirectOpen('temIndexLink')">☷ 首页</div>
     </div>
     <div class=" QuGuiLayoutCenterH QuGuiWidth80pc QuGuiHeight100pc">
         <div class=" QuGuiBoxAlignColumnStartFlex QuGuiWidth70pc QuGuiHeight100pc">
@@ -348,9 +348,10 @@
                     </div>
                     <div class="QuGuiLayoutCenterV QuGuiWidth20pc QuGuiHeight100pc QuGuiBorderLeftBlack1px">
                         <div class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight80pc ">
-                            <span th:if="${1>1}" class="QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30">准备中</span>
+                            <span th:if="${1>1}" class="QuGuiHide QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30">准备中</span>
                             <span style="border-radius: 50%" class="QuGuiHide QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30 QuGuiBtnRipple ">进行中</span>
-                            <span class="QuGuiHide QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
+                            <a id="temShareLink" href="../trip/share.html" class="QuGuiHide"></a>
+                            <span onclick="redirectLink('temShareLink')" class=" QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
                                 <i class="iconfont QuGuiTextSize12 QuGuiMarginBottom5px">&#xe605;</i>
                                 分享
                             </span>
@@ -561,6 +562,7 @@
     </div>
 </div>
 <script src="../../js/libs/datepicker/datedropper.js"></script>
+<script src="../../js/qugui/common/linkUtils.js"></script>
 <script src="../../js/qugui/user/profile.js"></script>
 </body>
 </html>

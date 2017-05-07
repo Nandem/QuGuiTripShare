@@ -208,13 +208,17 @@ html, body {
 
 /*pc= percent*/
 
+.QuGuiHeight5pc
+{
+    height: 5%;
+}
 .QuGuiHeight10pc
 {
     height: 10%;
 }
 .QuGuiHeight5pc
 {
-    height: 5%;
+    height: 7%;
 }
 .QuGuiHeight8pc
 {
@@ -303,6 +307,10 @@ html, body {
 .QuGuiHeight90pc
 {
     height: 90%;
+}
+.QuGuiHeight93pc
+{
+    height: 93%;
 }
 .QuGuiHeight95pc
 {
@@ -654,6 +662,10 @@ html, body {
 .QuGuiBorderBottomBlack1px
 {
     border-bottom: 1px solid #000000;
+}
+.QuGuiBorderBottomBlack2px
+{
+    border-bottom: 2px solid #000000;
 }
 .QuGuiBorderLeftBlack1px
 {

@@ -4,27 +4,16 @@
     <!-- 自定义返回结果集 -->
     <resultMap id="userMap" type="internal.persistence.model.User">
         <id property="id" column="id" javaType="java.lang.Integer" />
-        <result property="userID" column="userID" javaType="java.lang.String" />
-        <result property="nickName" column="nickName" javaType="java.lang.String" />
-        <result property="idCard" column="idCard" javaType="java.lang.String" />
-        <result property="tel" column="tel" javaType="java.lang.String" />
+        <result property="nickName" column="nickname" javaType="java.lang.String" />
+        <result property="realName" column="real_name" javaType="java.lang.String" />
         <result property="email" column="email" javaType="java.lang.String" />
+        <result property="phoneNumber" column="phone_number" javaType="java.lang.String" />
+        <result property="idCardNo" column="id_card_no" javaType="java.lang.String" />
+        <result property="registerTime" column="register_time" javaType="java.lang.String" />
+        <result property="registerOrder" column="register_order" javaType="java.lang.Integer" />
+        <result property="meaningOfTrip" column="meaning_of_trip" javaType="java.lang.String" />
+        <result property="headIcon" column="head_icon" javaType="java.lang.String" />
         <result property="password" column="password" javaType="java.lang.String" />
-        <result property="headIconPath" column="headIconPath" javaType="java.lang.String" />
-        <result property="registerDate" column="registerDate" javaType="java.lang.String" />
     </resultMap>
-
-    <insert id="addUser" parameterType="internal.persistence.model.User" useGeneratedKeys="true" keyProperty="id">
-      INSERT INTO qugui_user(
-      nickName, userID, idCard, tel,
-      email, password, headIconPath, registerDate)
-      VALUES (
-      #{nickName}, #{userID}, #{idCard}, #{tel},
-      #{email}, #{password}, #{headIconPath}, #{registerDate})
-    </insert>
-
-    <select id="selectAll">
-        SELECT * FROM qugui_user
-    </select>
 
 </mapper>

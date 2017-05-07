@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="internal.persistence.dao.UserDao">
+    <!-- 自定义返回结果集 -->
+    <resultMap id="userMap" type="internal.persistence.model.User">
+        <id property="id" column="id" javaType="java.lang.Integer" />
+        <result property="affiliationUser" column="affiliation_user" javaType="java.lang.Integer" />
+        <result property="likeAmount" column="like_amount" javaType="java.lang.Integer" />
+        <result property="commentsAmount" column="comments_amount" javaType="java.lang.Integer" />
+        <result property="readAmount" column="read_amount" javaType="java.lang.Integer" />
+        <result property="name" column="name" javaType="java.lang.String" />
+        <result property="country" column="country" javaType="java.lang.String" />
+        <result property="province" column="province" javaType="java.lang.String" />
+        <result property="state" column="state" javaType="java.lang.Integer" />
+        <result property="describe1" column="describe1" javaType="java.lang.String" />
+        <result property="describe2" column="describe2" javaType="java.lang.String" />
+        <result property="describe3" column="describe3" javaType="java.lang.String" />
+        <result property="describe4" column="describe4" javaType="java.lang.String" />
+        <result property="describe5" column="describe5" javaType="java.lang.String" />
+        <result property="describe6" column="describe6" javaType="java.lang.String" />
+        <result property="image1" column="image1" javaType="java.lang.String" />
+        <result property="image2" column="image2" javaType="java.lang.String" />
+        <result property="image3" column="image3" javaType="java.lang.Integer" />
+        <result property="image4" column="image4" javaType="java.lang.String" />
+        <result property="image5" column="image5" javaType="java.lang.String" />
+        <result property="image6" column="image6" javaType="java.lang.String" />
+    </resultMap>
+
+</mapper>
