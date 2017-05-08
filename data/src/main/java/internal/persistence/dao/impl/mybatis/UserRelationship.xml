@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="internal.persistence.dao.UserRelationshipDao">
+    <!-- 自定义返回结果集 -->
+    <resultMap id="userRelationshipMap" type="internal.persistence.model.UserRelationship">
+        <id property="id" column="id" javaType="java.lang.Integer" />
+        <result property="userFollow" column="user_follow" javaType="java.lang.Integer" />
+        <result property="userBeFollowed" column="user_be_followed" javaType="java.lang.Integer" />
+    </resultMap>
+
+</mapper>

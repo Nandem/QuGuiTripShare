@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="internal.persistence.dao.LabelDao">
+    <!-- 自定义返回结果集 -->
+    <resultMap id="labelMap" type="internal.persistence.model.Label">
+        <id property="id" column="id" javaType="java.lang.Integer" />
+        <result property="content" column="content" javaType="java.lang.String" />
+    </resultMap>
+
+</mapper>

@@ -16,4 +16,20 @@
         <result property="password" column="password" javaType="java.lang.String" />
     </resultMap>
 
+    <insert id="add" parameterType="internal.persistence.model.User" useGeneratedKeys="true">
+        INSERT INTO qg_user(nickname, real_name, email, phone_number,
+        id_card_no, register_time, register_order,
+          meaning_of_trip, head_icon, password)
+        VALUES (#{nickName}, #{realName}, #{email}, #{phoneNumber},
+        #{idCardNo}, #{registerTime}, #{registerOrder},
+          #{meaningOfTrip}, #{headIcon}, #{password})
+    </insert>
+
+    <select id="retrievePasswordByAccount" resultType="java.lang.String">
+        SELECT password FROM qg_user WHERE nickname = #{account} OR real_name = #{account} OR email = #{account} OR phone_number = #{account}
+    </select>
+
+    <select id="getUserAmount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM qg_user;
+    </select>
 </mapper>

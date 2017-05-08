@@ -12,6 +12,7 @@
         <module>qugui</module>
         <module>data</module>
         <module>personalization</module>
+        <module>common</module>
     </modules>
 
     <properties>

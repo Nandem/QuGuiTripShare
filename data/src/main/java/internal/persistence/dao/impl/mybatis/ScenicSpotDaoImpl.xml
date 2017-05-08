@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="internal.persistence.dao.ScenicSpotDao">
+    <!-- 自定义返回结果集 -->
+    <resultMap id="scenicSpotMap" type="internal.persistence.model.ScenicSpot">
+        <id property="id" column="id" javaType="java.lang.Integer" />
+        <result property="name" column="name" javaType="java.lang.String" />
+        <result property="country" column="country" javaType="java.lang.String" />
+        <result property="province" column="province" javaType="java.lang.String" />
+        <result property="briefIntroduction" column="brief_introduction" javaType="java.lang.String" />
+        <result property="folkCulture" column="folk_culture" javaType="java.lang.String" />
+        <result property="feature" column="feature" javaType="java.lang.String" />
+        <result property="officialComments" column="official_comments" javaType="java.lang.String" />
+    </resultMap>
+</mapper>

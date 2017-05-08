@@ -1,10 +1,20 @@
 package cn.nandem.qugui.controller;
 
+import cn.nandem.qugui.utils.QuGuiConstants;
+import com.alibaba.fastjson.JSON;
+import date.TimeUtils;
+import internal.persistence.model.User;
+import internal.persistence.service.UserService;
+import message.Message;
+import message.MessageEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * @author Nandem on 2017-02-02.
@@ -15,61 +25,49 @@ public class UserController
 {
     private final Logger logger  =  LoggerFactory.getLogger(UserController.class);
 
+    @Resource
+    private UserService userService;
+
+    @RequestMapping("/link/register")
+    public String registerLink()
+    {
+        logger.debug("进入用户注册页面...");
+        return QuGuiConstants.URLS.REGISTER;
+    }
     @RequestMapping("/register")
-    public String register()
+    public String register(User user)
     {
         logger.debug("注册用户...");
+
+        user.setRegisterOrder(userService.getRegisterOrder());
+        user.setRegisterTime(TimeUtils.getCurrentFormatDateWithTime());
+
+        userService.register(user);
+
         return "/user/register";
     }
 
-    @RequestMapping("/registerResult")
-    public String registerResult(Model model)
+    @RequestMapping("/link/login")
+    public String loginLink()
     {
-        if(true)
-        {
-            //注册成功界面，即个人主页
-            return this.profile();
-        }
-        else
-        {
-            model.addAttribute("message", "注册失败");
-            //注册失败界面，即提示信息页面
-            return "/message";
-        }
+        logger.info("进入登录页面...");
+        return QuGuiConstants.URLS.LOGIN;
     }
 
+    @ResponseBody
     @RequestMapping("/login")
-    public String login()
+    public String login(String account, String password)
     {
-        logger.info("login...");
-        return "/user/login";
-    }
-    @RequestMapping("/toShare")
-    public String toShare()
-    {
-        logger.info("login...");
-        return "/trip/share";
-    }
-
-    @RequestMapping("/loginResult")
-    public String loginResult(Model model, String userName, String password)
-    {
-        if(userName.trim().equals("Nandem") && password.trim().equals("nandem123"))
+        logger.info("LOGIN...");
+        //登录失败的处理
+        if(account == null || password == null || !userService.login(account, password))
         {
-            //登录成功界面，即个人主页
-            return this.profile();
+            return JSON.toJSONString(new Message(MessageEnum.NAME_OR_PASSWORD_WRONG));
         }
         else
         {
-            model.addAttribute("message", "登录失败");
-            //注册失败界面，即提示信息页面
-            return "/message";
+            return QuGuiConstants.URLS.PROFILE;
         }
     }
 
-    @RequestMapping("/profile")
-    public String profile()
-    {
-        return "/user/profile";
-    }
 }

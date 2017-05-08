@@ -1,5 +1,6 @@
-package external.weather;
+package data.external.weather;
 
+import external.weather.WeatherDataManager;
 import external.weather.model.Weather;
 import org.junit.Test;
 

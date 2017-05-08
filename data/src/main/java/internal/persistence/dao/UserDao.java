@@ -1,6 +1,7 @@
 package internal.persistence.dao;
 
 import internal.persistence.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -9,5 +10,7 @@ import org.mybatis.spring.annotation.MapperScan;
 @MapperScan
 public interface UserDao extends BaseDao<User>
 {
+    String retrievePasswordByAccount(@Param("account") String account);
 
+    int getUserAmount();
 }

@@ -6,9 +6,9 @@ package internal.persistence.model;
 public class Notification
 {
     private int id;
+    private int state;
     private int affiliationUser;
     private String time;
-    private int state;
     private String content;
 
     public int getId()
