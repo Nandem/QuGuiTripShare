@@ -17,4 +17,6 @@ public interface UserDao extends BaseDao<User>
     User getUserByAccountAndPassword(@Param("account") String account, @Param("password") String password);
 
     int getUserAmount();
+
+    User duplicationValidation(@Param("account") String account);
 }

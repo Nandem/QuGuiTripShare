@@ -2,6 +2,7 @@ package internal.persistence.dao;
 
 import internal.persistence.model.InviteCode;
 import internal.persistence.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -10,5 +11,6 @@ import org.mybatis.spring.annotation.MapperScan;
 @MapperScan
 public interface InviteCodeDao extends BaseDao<InviteCode>
 {
-
+    int retrieveRemainingTimes(@Param("inviteCode") String inviteCode);
+    void decreaseTimes(@Param("inviteCode") String inviteCode);
 }

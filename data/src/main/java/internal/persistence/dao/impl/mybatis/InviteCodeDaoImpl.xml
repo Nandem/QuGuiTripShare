@@ -4,10 +4,19 @@
     <!-- 自定义返回结果集 -->
     <resultMap id="inviteCodeMap" type="internal.persistence.model.InviteCode">
         <id property="id" column="id" javaType="java.lang.Integer" />
-        <result property="remainingTimes" column="nickname" javaType="java.lang.Integer" />
-        <result property="inviteCode" column="real_name" javaType="java.lang.String" />
+        <result property="remainingTimes" column="remaining_times" javaType="java.lang.Integer" />
+        <result property="inviteCode" column="invite_code" javaType="java.lang.String" />
     </resultMap>
 
+    <update id="decreaseTimes">
+        UPDATE qg_invite_code SET remaining_times = remaining_times - 1 WHERE invite_code = #{inviteCode}
+    </update>
 
+    <select id="retrieveRemainingTimes" resultType="java.lang.Integer">
+        SELECT remaining_times FROM qg_invite_code WHERE invite_code = #{inviteCode}
+    </select>
 
+    <insert id="add" parameterType="internal.persistence.model.InviteCode">
+        INSERT INTO qg_invite_code(invite_code, remaining_times) VALUE (#{inviteCode}, #{remainingTimes})
+    </insert>
 </mapper>

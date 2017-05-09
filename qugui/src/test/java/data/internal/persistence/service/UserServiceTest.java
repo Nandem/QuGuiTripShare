@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:spring-mybatis.xml")
-public class TestUserService
+public class UserServiceTest
 {
     @Resource
     private UserService userService;
@@ -45,7 +45,7 @@ public class TestUserService
         user.setRegisterOrder(userService.getRegisterOrder());
         user.setRegisterTime(TimeUtils.getCurrentFormatDateWithTime());
 
-        Message message = userService.register(user);
+        Message message = userService.registerWithMessage(user);
 
         System.out.println(message.getMessageContent());
     }

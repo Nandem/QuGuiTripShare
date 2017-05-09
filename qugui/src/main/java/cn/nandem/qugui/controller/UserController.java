@@ -4,13 +4,13 @@ import cn.nandem.qugui.utils.QuGuiConstants;
 import com.alibaba.fastjson.JSON;
 import date.TimeUtils;
 import internal.persistence.model.User;
+import internal.persistence.service.InviteCodeService;
 import internal.persistence.service.UserService;
 import message.Message;
 import message.MessageEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,6 +29,8 @@ public class UserController
 
     @Resource
     private UserService userService;
+    @Resource
+    private InviteCodeService inviteCodeService;
 
     @RequestMapping("/link/register")
     public String registerLink()
@@ -36,17 +38,53 @@ public class UserController
         logger.debug("进入用户注册页面...");
         return QuGuiConstants.URLS.REGISTER;
     }
+
+    @ResponseBody
+    @RequestMapping("/validation/duplication")
+    public boolean duplicationValidation(String account)
+    {
+        return userService.duplicationValidation(account);
+    }
+
+    @ResponseBody
     @RequestMapping("/register")
-    public String register(User user)
+    public String register(String inviteCode, User user)
     {
         logger.debug("注册用户...");
+        Map map = new HashMap();
 
-        user.setRegisterOrder(userService.getRegisterOrder());
-        user.setRegisterTime(TimeUtils.getCurrentFormatDateWithTime());
+        int rt = inviteCodeService.retrieveRemainingTimes(inviteCode);
+        if(rt > 0)
+        {
+            int registerOrder = userService.getRegisterOrder();
+            String currentDateWithTime = TimeUtils.getCurrentFormatDateWithTime();
 
-        userService.register(user);
+            user.setRegisterOrder(registerOrder);
+            user.setRegisterTime(currentDateWithTime);
 
-        return "/user/register";
+            if(userService.register(user))
+            {
+                //TODO 注册成功
+                map.put("registerCode", 1);
+                map.put("registerOrder", registerOrder);
+                map.put("registerDate", currentDateWithTime.split(" ")[0]);
+                //注册成功后，验证码使用次数减少一次
+                inviteCodeService.decreaseTimes(inviteCode);
+            }
+            else
+            {
+                //TODO 注册失败
+                map.put("registerCode", 2);
+                map.put("error", MessageEnum.REGISTER_FAIL.getContent());
+            }
+
+        }
+        else
+        {
+            map.put("registerCode", 0);
+        }
+
+        return JSON.toJSONString(map);
     }
 
     @RequestMapping("/link/login")

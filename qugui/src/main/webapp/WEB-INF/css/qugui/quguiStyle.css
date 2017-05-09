@@ -1100,6 +1100,11 @@ html, body {
     border-bottom: 1px solid rgb(230, 0, 0);
 }
 
+.QuGuiTextWarning
+{
+    color: rgb(230, 0, 0);
+}
+
 .QuGuiTextInputLine:hover {
     -webkit-box-shadow: 0 0 3px rgb(230, 0, 0);
     -moz-box-shadow: 0 0 3px rgb(230, 0, 0);

@@ -26,7 +26,7 @@
     </insert>
 
     <select id="retrievePasswordByAccount" resultType="java.lang.String">
-        SELECT password FROM qg_user WHERE nickname = #{account} OR real_name = #{account} OR email = #{account} OR phone_number = #{account}
+        SELECT password FROM qg_user WHERE nickname = #{account} OR id_card_no = #{account} OR email = #{account} OR phone_number = #{account}
     </select>
 
     <select id="getUserAmount" resultType="java.lang.Integer">
@@ -38,6 +38,10 @@
     </select>
 
     <select id="getUserByAccountAndPassword" resultMap="userMap">
-        SELECT * FROM qg_user WHERE (nickname = #{account} OR real_name = #{account} OR email = #{account} OR phone_number = #{account}) AND password = #{password}
+        SELECT * FROM qg_user WHERE (nickname = #{account} OR id_card_no = #{account} OR email = #{account} OR phone_number = #{account}) AND password = #{password}
+    </select>
+
+    <select id="duplicationValidation" resultMap="userMap">
+        SELECT * FROM qg_user WHERE nickname = #{account} OR id_card_no = #{account} OR email = #{account} OR phone_number = #{account}
     </select>
 </mapper>

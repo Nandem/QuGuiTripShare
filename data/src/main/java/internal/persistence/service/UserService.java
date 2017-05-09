@@ -19,7 +19,7 @@ public class UserService
     @Resource
     private UserDao userDao;
 
-    public Message register(User user)
+    public Message registerWithMessage(User user)
     {
         try
         {
@@ -29,6 +29,18 @@ public class UserService
         catch(Exception e)
         {
             return new Message(MessageEnum.REGISTER_FAIL);
+        }
+    }
+    public boolean register(User user)
+    {
+        try
+        {
+            userDao.add(user);
+            return true;
+        }
+        catch(Exception e)
+        {
+            return false;
         }
     }
 
@@ -52,5 +64,16 @@ public class UserService
     public int getRegisterOrder()
     {
         return userDao.getUserAmount();
+    }
+
+    /**
+     * 用户重复注册验证，同一个昵称、身份证号、手机号 、邮箱只能注册一次
+     * @param account 账号
+     * @return true：已注册，false：未注册。
+     */
+    public boolean duplicationValidation(String account)
+    {
+        User user = userDao.duplicationValidation(account);
+        return user != null;
     }
 }
