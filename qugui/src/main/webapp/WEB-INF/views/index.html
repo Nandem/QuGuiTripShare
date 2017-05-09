@@ -55,14 +55,14 @@
         </div>
         <div id="sideBox" style="opacity: 0; width: 300px; height: 300px; left: 50%; top: 50%; margin-left: -150px; margin-top: -150px; position: absolute;" class="QuGuiLayoutCenterH">
             <div class="QuGuiWidth50pc QuGuiHeight100pc QuGuiLayoutRightH">
-                <a id="temLoginLink" href="user/login.html" class="QuGuiHide"></a>
+                <a id="temLoginLink" th:href="@{/user/link/login}" href="user/login.html" class="QuGuiHide"></a>
                 <div onclick="redirectLink('temLoginLink')" class="QuGuiTextHoverChinaRed QuGuiMarginRight10 QuGuiPointerCursor QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight30pc">
                     <span class="QuGuiTextColorWhite"><i class="iconfont QuGuiTextSize66">&#xe728;</i></span>
                     <span class="QuGuiTextColorWhite QuGuiTextSize30">登录</span>
                 </div>
             </div>
             <div class="QuGuiWidth50pc QuGuiHeight100pc QuGuiLayoutLeftH">
-                <a id="temRegisterLink" href="user/register.html" class="QuGuiHide"></a>
+                <a id="temRegisterLink" th:href="@{/user/link/register}" href="user/register.html" class="QuGuiHide"></a>
                 <div onclick="redirectLink('temRegisterLink')" class="QuGuiTextHoverChinaRed QuGuiMarginLeft10 QuGuiPointerCursor QuGuiLayoutCenterV QuGuiWidth50pc QuGuiHeight30pc">
                     <span class="QuGuiTextColorWhite"><i class="iconfont QuGuiTextSize66">&#xe608;</i></span>
                     <span class="QuGuiTextColorWhite QuGuiTextSize30">注册</span>

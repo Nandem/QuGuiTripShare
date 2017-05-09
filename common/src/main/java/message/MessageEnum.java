@@ -9,7 +9,8 @@ public enum MessageEnum
     NAME_OR_PASSWORD_WRONG(1, "用户名或密码错误"),
     USER_ALREADY_EXIST(2, "该用户已存在"),
     REGISTER_SUCCESS(3, "注册成功"),
-    REGISTER_FAIL(4, "注册失败")
+    REGISTER_FAIL(4, "注册失败"),
+    USER_DATA_ERROR(5, "用户数据异常")
     ;
 
     private int code;

@@ -39,6 +39,16 @@ public class UserService
         return temPassword != null && temPassword.equals(password);
     }
 
+    public User getUserByUseIDAndPassword(String userID, String password)
+    {
+        return userDao.getUserByUserIDAndPassword(userID, password);
+    }
+
+    public User getUserByAccountAndPassword(String account, String password)
+    {
+        return userDao.getUserByAccountAndPassword(account, password);
+    }
+
     public int getRegisterOrder()
     {
         return userDao.getUserAmount();

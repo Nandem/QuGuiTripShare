@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../css/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/libs/datepicker/datedropper.css" rel="stylesheet">
+    <link th:href="@{/css/libs/bootstrap/bootstrap.min.css}" href="../../css/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/libs/datepicker/datedropper.css}" href="../../css/libs/datepicker/datedropper.css" rel="stylesheet">
     <!--<link href="../../css/libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">-->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="../../js/libs/html5shiv.min.js"></script>
-    <script src="../../js/libs/respond.min.js"></script>
+    <script th:src="@{/js/libs/html5shiv.min.js}" src="../../js/libs/html5shiv.min.js"></script>
+    <script th:src="@{/js/libs/respond.min.js}" src="../../js/libs/respond.min.js"></script>
     <!--<![endif]&ndash;&gt;-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../../js/libs/jq/jquery-3.1.1.min.js"></script>
-    <script src="../../js/jquery.leoweather.min.js"></script>
+    <script th:src="@{/js/libs/jq/jquery-3.1.1.min.js}" src="../../js/libs/jq/jquery-3.1.1.min.js"></script>
+    <script th:src="@{/js/jquery.leoweather.min.js}" src="../../js/jquery.leoweather.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../../js/libs/bootstrap/bootstrap.min.js"></script>
-    <script src="../../js/libs/layer/layer.js"></script>
-    <link href="../../css/qugui/user/profile.css" rel="stylesheet">
-    <link href="../../css/qugui/quguiStyle.css" rel="stylesheet">
+    <script th:src="@{/js/libs/bootstrap/bootstrap.min.js}" src="../../js/libs/bootstrap/bootstrap.min.js"></script>
+    <script th:src="@{/js/libs/layer/layer.js}" src="../../js/libs/layer/layer.js"></script>
+    <link th:href="@{/css/qugui/user/profile.css}" href="../../css/qugui/user/profile.css" rel="stylesheet">
+    <link th:href="@{/css/qugui/quguiStyle.css}" href="../../css/qugui/quguiStyle.css" rel="stylesheet">
 
     <title>个人中心</title>
 </head>
@@ -29,8 +29,8 @@
     <div class="QuGuiBoxAlignColumnStartFlex  QuGuiBackgroundColorBlack QuGuiWidth20pc QuGuiHeight100pc">
         <div class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnEndFlex">
             <img class="QuGuiCircleHeadIconBox" src="../../imgs/logo.png">
-            <h3 class="QuGuiTextColorGray">我的虚幻岁月</h3>
-            <span class="QuGuiTextColorGray">向来心是看客心，奈何人是剧中人。</span>
+            <h3 class="QuGuiTextColorGray" th:text="${session.user.nickName}">我的虚幻岁月</h3>
+            <span class="QuGuiTextColorGray" th:text="${session.user.meaningOfTrip}">向来心是看客心，奈何人是剧中人。</span>
         </div>
         <div class="QuGuiSeparatorWhite"></div>
         <div id="recommendTab" class="btnHighlight settingBtn">☷ 推荐</div>
@@ -498,21 +498,21 @@
                             个人资料
                         </legend>
                         <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
-                            <input readonly type="text" value="昵称：我的虚幻岁月"
+                            <input readonly type="text" th:value="'昵称：'+${session.user.nickName}" value="昵称：我的虚幻岁月"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                            <input readonly type="text" value="性别：男"
-                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                        </div>
-                        <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
-                            <input readonly type="text" value="邮箱：nandem@126.com"
-                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                            <input readonly type="text" value="手机号：13551274792"
+                            <input readonly type="text" th:value="'旅行的意义：'+${session.user.meaningOfTrip}" value="旅行的意义：向来心是看客心，奈何人是剧中人。"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
                         </div>
                         <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
-                            <input readonly type="text" value="身份证号：320123199304014811"
+                            <input readonly type="text" th:value="'邮箱：'+${session.user.email}" value="邮箱：nandem@126.com"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                            <input readonly type="text" value="真实姓名：叶明"
+                            <input readonly type="text" th:value="'手机号：'+${session.user.phoneNumber}" value="手机号：13551274792"
+                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                        </div>
+                        <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
+                            <input readonly type="text" th:value="'身份证号：'+${session.user.idCardNo}" value="身份证号：320123199304014811"
+                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                            <input readonly type="text" th:value="'真实姓名：'+${session.user.realName}" value="真实姓名：叶明"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
                         </div>
                     </fieldset>
@@ -561,8 +561,8 @@
         </div>
     </div>
 </div>
-<script src="../../js/libs/datepicker/datedropper.js"></script>
-<script src="../../js/qugui/common/linkUtils.js"></script>
-<script src="../../js/qugui/user/profile.js"></script>
+<script th:src="@{/js/libs/datepicker/datedropper.js}" src="../../js/libs/datepicker/datedropper.js"></script>
+<script th:src="@{/js/qugui/common/linkUtils.js}" src="../../js/qugui/common/linkUtils.js"></script>
+<script th:src="@{/js/qugui/user/profile.js}" src="../../js/qugui/user/profile.js"></script>
 </body>
 </html>

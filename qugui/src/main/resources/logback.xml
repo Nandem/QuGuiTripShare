@@ -4,7 +4,7 @@
         <Target>System.out</Target>
         <Encoding>UTF-8</Encoding>
         <encoder>
-            <pattern>%msg%n[QuGui %d{yyyy-MM-dd HH:mm:ss}] %c:%L</pattern>
+            <pattern>%msg%n[QuGui %d{yyyy-MM-dd HH:mm:ss}] %c:%L%n</pattern>
         </encoder>
     </appender>
     <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">

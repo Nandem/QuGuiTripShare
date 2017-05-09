@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../css/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/libs/bootstrap/bootstrap.min.css}" href="../../css/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!--<link href="../../css/libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">-->
-    <link href="../../css/qugui/quguiStyle.css" rel="stylesheet">
+    <link th:href="@{/css/qugui/quguiStyle.css}" href="../../css/qugui/quguiStyle.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="../../js/libs/html5shiv.min.js"></script>
-    <script src="../../js/libs/respond.min.js"></script>
+    <script th:src="@{/js/libs/html5shiv.min.js}" src="../../js/libs/html5shiv.min.js"></script>
+    <script th:src="@{/js/libs/respond.min.js}" src="../../js/libs/respond.min.js"></script>
     <!--<![endif]&ndash;&gt;-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../../js/libs/jq/jquery-3.1.1.min.js"></script>
+    <script th:src="@{/js/libs/jq/jquery-3.1.1.min.js}" src="../../js/libs/jq/jquery-3.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../../js/libs/bootstrap/bootstrap.min.js"></script>
-    <script src="../../js/libs/layer/layer.js"></script>
+    <script th:src="@{/js/libs/bootstrap/bootstrap.min.js}" src="../../js/libs/bootstrap/bootstrap.min.js"></script>
+    <script th:src="@{/js/libs/layer/layer.js}" src="../../js/libs/layer/layer.js"></script>
     <!--<link  href="../../css/libs/typo/typo.css" rel="stylesheet">-->
     <!--<script src="../../js/libs/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>-->
-    <link href="../../css/qugui/common/message.css" rel="stylesheet">
+    <link th:href="@{/css/qugui/common/message.css}" href="../../css/qugui/common/message.css" rel="stylesheet">
     <title>消息页面</title>
 </head>
 <body>
@@ -31,15 +31,15 @@
     <div class="QuGuiWidth40pc QuGuiHeight93pc">
         <fieldset class="QuGuiMarginTop10 QuGuiWidth100pc QuGuiHeight30pc">
             <legend class="QuGuiBorderBottomBlack2px QuGuiTextSize45">消息</legend>
-            <span class="QuGuiTextSize30 QuGuiWidth100pc">登录失败</span>
+            <span class="QuGuiTextSize30 QuGuiWidth100pc" th:text="${message.messageResult}">操作失败</span>
         </fieldset>
         <fieldset class="QuGuiMarginTop10 QuGuiWidth100pc QuGuiHeight60pc">
             <legend class="QuGuiBorderBottomBlack2px QuGuiTextSize45">可能原因</legend>
-            <span class="QuGuiTextSize30">用户名或密码错误</span>
+            <span class="QuGuiTextSize30" th:text="${message.messageContent}">错误提示消息</span>
         </fieldset>
     </div>
 </div>
-<script src="../../js/libs/markdown/marked.js"></script>
-<script src="../../js/qugui/common/message.js"></script>
+<script th:src="@{/js/libs/markdown/marked.js}" src="../../js/libs/markdown/marked.js"></script>
+<script th:src="@{/js/qugui/common/message.js}" src="../../js/qugui/common/message.js"></script>
 </body>
 </html>

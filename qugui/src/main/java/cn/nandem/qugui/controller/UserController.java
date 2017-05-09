@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Nandem on 2017-02-02.
@@ -59,14 +61,20 @@ public class UserController
     public String login(String account, String password)
     {
         logger.info("LOGIN...");
+        Map map = new HashMap<>();
+        User user = userService.getUserByAccountAndPassword(account, password);
         //登录失败的处理
-        if(account == null || password == null || !userService.login(account, password))
+        if(user == null)
         {
-            return JSON.toJSONString(new Message(MessageEnum.NAME_OR_PASSWORD_WRONG));
+            map.put("resultCode", false);
+            map.put("result", new Message(MessageEnum.NAME_OR_PASSWORD_WRONG));
+            return JSON.toJSONString(map);
         }
         else
         {
-            return QuGuiConstants.URLS.PROFILE;
+            map.put("resultCode", true);
+            map.put("result", user);
+            return JSON.toJSONString(map);
         }
     }
 

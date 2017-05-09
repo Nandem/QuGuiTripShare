@@ -13,52 +13,57 @@
     <!--<![endif]&ndash;&gt;-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../../js/libs/jq/jquery-3.1.1.min.js"></script>
+    <script th:src="@{/js/libs/layer/layer.js}" src="../../js/libs/layer/layer.js"></script>
     <script src="../../js/jquery.leoweather.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../../js/libs/bootstrap/bootstrap.min.js"></script>
 
+    <script src="../../js/qugui/common/linkUtils.js"></script>
     <script src="../../js/qugui/user/login.js"></script>
     <link href="../../css/qugui/quguiStyle.css" rel="stylesheet">
     <link href="../../css/qugui/user/login.css" rel="stylesheet">
     <title>登录</title>
 </head>
 <body>
-    <div class="QuGuiFullScreenContainer">
-        <div class="topBox">
-            <div id="weather">
-                <script>
-                    $('#weather').leoweather(
-                            {
-                                format:'<i class="icon-{图标}">{气温}℃</i>'
-                            });
-                </script>
-            </div>
-            <span class="vline QuGuiMarginLeft30"></span>
-            <div class="introduction QuGuiMarginLeft30">
-                <p class="text-center QuGuiTextSize66">去归</p>
-                <p class="lead text-center">
-                    你的个性化旅行分享平台
-                </p>
-            </div>
+<div class="QuGuiFullScreenContainer">
+    <div class="topBox">
+        <div id="weather">
+            <script>
+                $('#weather').leoweather(
+                    {
+                        format: '<i class="icon-{图标}">{气温}℃</i>'
+                    });
+            </script>
         </div>
-        <div class="bottomBox">
-            <div class="loginBox">
-                <form class="loginBox" method="post" action="/user/loginResult">
-                    <input name="userName" placeholder="用户名/邮箱/手机号" type="text" class="QuGuiTextInput QuGuiSizeLarge QuGuiMarginTop30" />
-                    <input name="password" placeholder="密码" type="password" class="QuGuiTextInput QuGuiMarginTop10 QuGuiSizeLarge" />
-                    <button type="submit" class="QuGuiBtn QuGuiBlackBtnStyle QuGuiMarginTop10 QuGuiSizeLarge QuGuiTextSize30" onclick="login()">登录</button>
-                </form>
-                <div class="QuGuiSizeLarge registerAndForgotPassword QuGuiMarginTop5">
-                    <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleBlack QuGuiTextOpacity07">忘记密码</p>
-                    <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleBlack QuGuiTextOpacity07" onclick="window.location.href = 'register.html'">免费注册</p>
-                </div>
+        <span class="vline QuGuiMarginLeft30"></span>
+        <div class="introduction QuGuiMarginLeft30">
+            <p class="text-center QuGuiTextSize66">去归</p>
+            <p class="lead text-center">
+                你的个性化旅行分享平台
+            </p>
+        </div>
+    </div>
+    <div class="bottomBox">
+        <div class="loginBox">
+            <input id="account" name="account" placeholder="用户名/邮箱/手机号" type="text"
+                   class="QuGuiTextInput QuGuiSizeLarge QuGuiMarginTop30"/>
+            <input id="password" name="password" placeholder="密码" type="password"
+                   class="QuGuiTextInput QuGuiMarginTop10 QuGuiSizeLarge"/>
+            <div id="loginBtn" class="QuGuiBtn QuGuiBlackBtnStyle QuGuiMarginTop10 QuGuiSizeLarge QuGuiTextSize30">登录
+            </div>
+            <div class="QuGuiSizeLarge registerAndForgotPassword QuGuiMarginTop5">
+                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleBlack QuGuiTextOpacity07">
+                    忘记密码</p>
+                <p class="QuGuiPointerCursor QuGuiTextSize25 QuGuiTextColorLinkBlack QuGuiTextBold QuGuiTextSelectionStyleBlack QuGuiTextOpacity07"
+                   onclick="window.location.href = 'register.html'">免费注册</p>
+            </div>
 
-                <div class="footer QuGuiTextSize12">
-                    关于去归 | 诚征英才 | 联系我们 | International Business | About QuGui<br>
-                    去归版权所有 2013-2017 蜀IPC备15025050
-                </div>
+            <div class="footer QuGuiTextSize12">
+                关于去归 | 诚征英才 | 联系我们 | International Business | About QuGui<br>
+                去归版权所有 2013-2017 蜀IPC备15025050
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

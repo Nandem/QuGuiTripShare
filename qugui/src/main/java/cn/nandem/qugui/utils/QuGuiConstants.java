@@ -11,15 +11,15 @@ public class QuGuiConstants
     //页面url
     public final static class URLS
     {
-        private static final String BASE = "/views";
+        public static final String INDEX = "/index";
 
-        public static final String PROFILE  = BASE + "/user/profile";
+        public static final String PROFILE  = "/user/profile";
 
-        public static final  String MESSAGE = BASE + "/common/message";
+        public static final  String MESSAGE = "/common/message";
 
-        public static final String REGISTER = BASE + "/user/REGISTER";
+        public static final String REGISTER = "/user/register";
 
-        public static final String LOGIN = BASE + "/user/LOGIN";
+        public static final String LOGIN = "/user/login";
     }
 
 }
