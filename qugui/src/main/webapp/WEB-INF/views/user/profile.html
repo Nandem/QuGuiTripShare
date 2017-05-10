@@ -21,6 +21,7 @@
     <script th:src="@{/js/libs/layer/layer.js}" src="../../js/libs/layer/layer.js"></script>
     <link th:href="@{/css/qugui/user/profile.css}" href="../../css/qugui/user/profile.css" rel="stylesheet">
     <link th:href="@{/css/qugui/quguiStyle.css}" href="../../css/qugui/quguiStyle.css" rel="stylesheet">
+    <link th:href="@{/css/qugui/common/Modal.css}" href="../../css/qugui/common/Modal.css" rel="stylesheet">
 
     <title>个人中心</title>
 </head>
@@ -28,8 +29,9 @@
 <div class="QuGuiFullScreenContainer QuGuiLayoutCenterH">
     <div class="QuGuiBoxAlignColumnStartFlex  QuGuiBackgroundColorBlack QuGuiWidth20pc QuGuiHeight100pc">
         <div class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnEndFlex">
-            <img class="QuGuiCircleHeadIconBox" src="../../imgs/logo.png">
+            <img id="headIcon" th:src="${session.user.headIcon}==''?'../../imgs/logo.png':${session.user.headIcon}" class="QuGuiPointerCursor QuGuiCircleHeadIconBox" src="../../imgs/logo.png">
             <h3 class="QuGuiTextColorGray" th:text="${session.user.nickName}">我的虚幻岁月</h3>
+            <input id="userID" type="hidden" th:value="${session.user.id}">
             <span class="QuGuiTextColorGray" th:text="${session.user.meaningOfTrip}">向来心是看客心，奈何人是剧中人。</span>
         </div>
         <div class="QuGuiSeparatorWhite"></div>
@@ -498,21 +500,22 @@
                             个人资料
                         </legend>
                         <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
-                            <input readonly type="text" th:value="'昵称：'+${session.user.nickName}" value="昵称：我的虚幻岁月"
+                            <input readonly id="nickName" type="text" th:value="'昵称：'+${session.user.nickName}" value="昵称：我的虚幻岁月"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                            <input readonly type="text" th:value="'旅行的意义：'+${session.user.meaningOfTrip}" value="旅行的意义：向来心是看客心，奈何人是剧中人。"
-                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                        </div>
-                        <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
-                            <input readonly type="text" th:value="'邮箱：'+${session.user.email}" value="邮箱：nandem@126.com"
-                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                            <input readonly type="text" th:value="'手机号：'+${session.user.phoneNumber}" value="手机号：13551274792"
+                            <input readonly id="meaningOfTrip" type="text" th:value="'旅行的意义：'+${session.user.meaningOfTrip}" value="旅行的意义：向来心是看客心，奈何人是剧中人。"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
                         </div>
                         <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
-                            <input readonly type="text" th:value="'身份证号：'+${session.user.idCardNo}" value="身份证号：320123199304014811"
+                            <input readonly id="email" type="text" th:value="'邮箱：'+${session.user.email}" value="邮箱：nandem@126.com"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
-                            <input readonly type="text" th:value="'真实姓名：'+${session.user.realName}" value="真实姓名：叶明"
+                            <input readonly id="phoneNumber" type="text" th:value="'手机号：'+${session.user.phoneNumber}" value="手机号：13551274792"
+                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                        </div>
+                        <input type="hidden" value="不许看" th:value="${session.token}" id="token">
+                        <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
+                            <input readonly id="idCardNo" type="text" th:value="'身份证号：'+${session.user.idCardNo}" value="身份证号：320123199304014811"
+                                   class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
+                            <input readonly id="realName" type="text" th:value="'真实姓名：'+${session.user.realName}" value="真实姓名：叶明"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
                         </div>
                     </fieldset>
@@ -520,14 +523,14 @@
                 <div style="margin-bottom: 7px;width: 90%; height: 2px; background: #000000"></div>
                 <div style="width: 90%; height: 30px; margin-bottom: 45px;" class=" QuGuiLayoutBetweenH">
                     <div style="width: 50%; height: 30px;" class=" QuGuiLayoutLeftH">
-                        <span class="QuGuiTextSize25 QuGuiTextBold">第234位申请者资料</span>
-                        <span class="QuGuiTextSize22">&nbsp;&nbsp;2017年3月21日</span>
+                        <span class="QuGuiTextSize25 QuGuiTextBold" th:text="|第申${session.user.registerOrder}位请者资料|">第234位申请者资料</span>
+                        <span class="QuGuiTextSize22" th:text="${session.user.registerTime}">&nbsp;&nbsp;2017年3月21日</span>
                     </div>
                     <div style="width: 50%; height: 30px;" class=" QuGuiLayoutRightH">
                         <button id="modifyBtn" style="line-height: 7px;"
                                 class="QuGuiBtn QuGuiTextSize25 QuGuiWidth80px QuGuiHeight100pc QuGuiBlackBtnStyle">修改
                         </button>
-                        <button style="line-height: 7px;"
+                        <button id="infoModifySubmit" style="line-height: 7px;"
                                 class="QuGuiBtn QuGuiTextSize25 QuGuiMarginLeft5 QuGuiWidth80px QuGuiHeight100pc QuGuiBlackBtnStyle">
                             提交
                         </button>
@@ -561,8 +564,24 @@
         </div>
     </div>
 </div>
+
+<div id="headIconModal" toggle="#headIcon">
+    <div class="QuGuiWidth100pc QuGuiHeight70pc QuGuiMarginBottom10px">
+        <canvas id="crop" class=" QuGuiPositionAbsolute"></canvas>
+        <canvas id="origin"  class=" QuGuiPositionAbsolute QuGuiBorderBottomBlack2px"></canvas>
+    </div>
+    <div class="QuGuiWidth100pc QuGuiHeight30pc QuGuiPositionAbsolute QuGuiLayoutCenterH" style="top: 73%;">
+        <input id="imgChosenInput" type="file" style="display: none" class="QuGuiHide"/>
+        <div class="QuGuiPointerCursor QuGuiBlackBtnStyle QuGuiWidth20pc QuGuiHeight30pc QuGuiOutLineNone QuGuiBorderNone QuGuiTextSize30" onclick="$('#imgChosenInput').click()">选择</div>
+        <!--<button class="ButtonBlackLarge MarginLeft10px">放大</button>-->
+        <!--<button class="ButtonBlackLarge MarginLeft10px">缩小</button>-->
+        <div id="confirm" class="QuGuiPointerCursor QuGuiBlackBtnStyle QuGuiWidth20pc QuGuiHeight30pc QuGuiOutLineNone QuGuiBorderNone QuGuiTextSize30 QuGuiMarginLeft10">确定</div>
+    </div>
+</div>
 <script th:src="@{/js/libs/datepicker/datedropper.js}" src="../../js/libs/datepicker/datedropper.js"></script>
 <script th:src="@{/js/qugui/common/utils.js}" src="../../js/qugui/common/utils.js"></script>
+<script th:src="@{/js/qugui/common/jquery.nandem.modal.js}" src="../../js/qugui/common/jquery.nandem.modal.js"></script>
+<script th:src="@{/js/qugui/common/jquery.nandem.imgcrop.js}" src="../../js/qugui/common/jquery.nandem.imgcrop.js"></script>
 <script th:src="@{/js/qugui/user/profile.js}" src="../../js/qugui/user/profile.js"></script>
 </body>
 </html>

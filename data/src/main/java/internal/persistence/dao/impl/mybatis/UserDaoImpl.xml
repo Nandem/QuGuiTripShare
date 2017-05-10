@@ -17,9 +17,17 @@
     </resultMap>
 
     <insert id="add" parameterType="internal.persistence.model.User" useGeneratedKeys="true">
-        INSERT INTO qg_user(nickname, real_name, email, phone_number,
-        id_card_no, register_time, register_order,
-          meaning_of_trip, head_icon, password)
+        INSERT INTO qg_user(
+        nickname,
+        real_name,
+        email,
+        phone_number,
+        id_card_no,
+        register_time,
+        register_order,
+          meaning_of_trip,
+          head_icon,
+          password)
         VALUES (#{nickName}, #{realName}, #{email}, #{phoneNumber},
         #{idCardNo}, #{registerTime}, #{registerOrder},
           #{meaningOfTrip}, #{headIcon}, #{password})
@@ -44,4 +52,41 @@
     <select id="duplicationValidation" resultMap="userMap">
         SELECT * FROM qg_user WHERE nickname = #{account} OR id_card_no = #{account} OR email = #{account} OR phone_number = #{account}
     </select>
+
+    <update id="modify" parameterType="internal.persistence.model.User">
+        UPDATE qg_user
+        <set>
+            <if test="nickName !=null and nickName != ''">
+                nickname = #{nickName},
+            </if>
+            <if test="realName !=null and realName != ''">
+                real_name = #{realName},
+            </if>
+            <if test="email !=null and email != ''">
+                email = #{email},
+            </if>
+            <if test="phoneNumber !=null and phoneNumber != ''">
+                phone_number = #{phoneNumber},
+            </if>
+            <if test="idCardNo !=null and idCardNo != ''">
+                id_card_no = #{idCardNo},
+            </if>
+            <if test="registerTime !=null and registerTime != ''">
+                register_time = #{registerTime},
+            </if>
+            <if test="registerOrder !=null and registerOrder != ''">
+                register_order = #{registerOrder},
+            </if>
+            <if test="meaningOfTrip !=null and meaningOfTrip != ''">
+                meaning_of_trip = #{meaningOfTrip},
+            </if>
+            <if test="headIcon !=null and headIcon != ''">
+                head_icon = #{headIcon},
+            </if>
+            <if test="password !=null and password != ''">
+                password = #{password}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
 </mapper>

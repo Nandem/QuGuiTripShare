@@ -1,6 +1,7 @@
 package cn.nandem.qugui.controller;
 
 import cn.nandem.qugui.utils.QuGuiConstants;
+import cn.nandem.qugui.utils.TokenUtil;
 import com.alibaba.fastjson.JSON;
 import date.TimeUtils;
 import internal.persistence.model.User;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,7 +50,7 @@ public class UserController
 
     @ResponseBody
     @RequestMapping("/register")
-    public String register(String inviteCode, User user)
+    public String register(String inviteCode, User user, HttpSession session)
     {
         logger.debug("注册用户...");
         Map map = new HashMap();
@@ -56,11 +58,12 @@ public class UserController
         int rt = inviteCodeService.retrieveRemainingTimes(inviteCode);
         if(rt > 0)
         {
-            int registerOrder = userService.getRegisterOrder();
+            int registerOrder = userService.getRegisterOrder() + 1;
             String currentDateWithTime = TimeUtils.getCurrentFormatDateWithTime();
 
             user.setRegisterOrder(registerOrder);
             user.setRegisterTime(currentDateWithTime);
+            user.setHeadIcon("");
 
             if(userService.register(user))
             {
@@ -70,6 +73,9 @@ public class UserController
                 map.put("registerDate", currentDateWithTime.split(" ")[0]);
                 //注册成功后，验证码使用次数减少一次
                 inviteCodeService.decreaseTimes(inviteCode);
+                User userWidthID = userService.getUserByAccountAndPassword(user.getEmail(), user.getPassword());
+                session.setAttribute("user", userWidthID);
+                map.put("result", userWidthID);
             }
             else
             {
@@ -96,7 +102,7 @@ public class UserController
 
     @ResponseBody
     @RequestMapping("/login")
-    public String login(String account, String password)
+    public String login(String account, String password, HttpSession session)
     {
         logger.info("LOGIN...");
         Map map = new HashMap<>();
@@ -112,6 +118,7 @@ public class UserController
         {
             map.put("resultCode", true);
             map.put("result", user);
+            session.setAttribute("token", TokenUtil.generateToken(user.getNickName(), user.getPassword()));
             return JSON.toJSONString(map);
         }
     }

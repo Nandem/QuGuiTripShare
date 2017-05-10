@@ -121,6 +121,11 @@ $().ready(function ()
                                 {
                                     $tip.css({opacity:1, width: "100px", height:"100px", lineHeight: "100px", borderWidth: "2px"});
                                     clearInterval(delayId);
+                                    layer.msg("3秒后将跳转至个人中心");
+                                    setTimeout(function ()
+                                    {
+                                        window.location.replace("/profile/me?userID=" + value.result.id + "&password=" + value.result.password);
+                                    }, 3000)
                                 }
                                 else
                                 {

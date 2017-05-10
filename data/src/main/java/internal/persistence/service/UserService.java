@@ -76,4 +76,18 @@ public class UserService
         User user = userDao.duplicationValidation(account);
         return user != null;
     }
+
+    public boolean updateUser(User user)
+    {
+        try
+        {
+            userDao.modify(user);
+            return true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

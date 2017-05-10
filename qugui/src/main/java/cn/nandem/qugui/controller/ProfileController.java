@@ -1,6 +1,8 @@
 package cn.nandem.qugui.controller;
 
+import Image.ImageUtil;
 import cn.nandem.qugui.utils.QuGuiConstants;
+import cn.nandem.qugui.utils.TokenUtil;
 import internal.persistence.model.User;
 import internal.persistence.service.UserService;
 import message.Message;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -33,10 +37,31 @@ public class ProfileController
             return QuGuiConstants.URLS.MESSAGE;
         }
 
+        String temHeadIconStr = ImageUtil.getInstance().getImage(user.getId() + "", ImageUtil.ImageType.HEAD_ICON);
+        if(!temHeadIconStr.equals(""))
+            user.setHeadIcon("data:image/png;base64," + temHeadIconStr);
+
+        user.setPassword("");
+
         session.setAttribute("user", user);
+        session.setAttribute("token", TokenUtil.generateToken(user.getNickName(), user.getPassword()));
 
         return QuGuiConstants.URLS.PROFILE;
     }
 
+    @ResponseBody
+    @RequestMapping("/updateHeadIcon")
+    public boolean updateHeadIcon(String token, String userID, String headIconStr, HttpSession session)
+    {
+        return session.getAttribute("token").equals(token) && ImageUtil.getInstance().saveImage(userID, headIconStr, ImageUtil.ImageType.HEAD_ICON);
+    }
 
+
+    @ResponseBody
+    @RequestMapping("/updatePersonalInfo")
+    public boolean updatePersonalInfo(String token, User user, HttpSession session)
+    {
+        System.out.println(session.getAttribute("token").equals(token));
+        return session.getAttribute("token").equals(token) && userService.updateUser(user);
+    }
 }

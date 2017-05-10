@@ -75,6 +75,98 @@ function initPersonalInfo()
 
         modifyBtnFlag = !modifyBtnFlag;
     });
+
+
+    var $oNickName = $("#nickName");
+    var nickNameInput = $oNickName.val();
+    var $oMeaningOfTrip = $("#meaningOfTrip");
+    var meaningOfTripInput = $oMeaningOfTrip.val();
+    var $oEmail = $("#email");
+    var emailInput = $oEmail.val();
+    var $oPhoneNumber = $("#phoneNumber");
+    var phoneNumberInput = $oPhoneNumber.val();
+    var $oIdCardNo = $("#idCardNo");
+    var idCardNoInput = $oIdCardNo.val();
+    var $oRealName = $("#realName");
+    var realNameInput = $oRealName.val();
+
+    var $oInfoModifySubmit = $("#infoModifySubmit");
+
+    $oInfoModifySubmit.click(function ()
+    {
+        if(!checkModified(nickNameInput, $oNickName.val()) &&
+            !checkModified(meaningOfTripInput, $oMeaningOfTrip.val()) &&
+            !checkModified(emailInput, $oEmail.val()) &&
+            !checkModified(phoneNumberInput, $oPhoneNumber.val()) &&
+            !checkModified(idCardNoInput, $oIdCardNo.val()) &&
+            !checkModified(realNameInput, $oRealName.val()))
+        {
+            layer.msg("数据未修改，无需提交");
+            return;
+        }
+        else
+        {
+            $.ajax({
+                type: "POST",
+                url: "/profile/updatePersonalInfo",
+                data:
+                    {
+                        token: $("#token").val(),
+                        id: $("#userID").val(),
+                        nickName: $oNickName.val().split("：")[1],
+                        realName: $oRealName.val().split("：")[1],
+                        email: $oEmail.val().split("：")[1],
+                        phoneNumber: $oPhoneNumber.val().split("：")[1],
+                        idCardNo: $oIdCardNo.val().split("：")[1],
+                        meaningOfTrip: $oMeaningOfTrip.val().split("：")[1]
+                    },
+                dataType: "json",
+                contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                success: function (value)
+                {
+                    if(value === false)
+                    {
+                        layer.msg("修改失败");
+                    }
+                    else if(value === true)
+                    {
+                        layer.msg("修改成功");
+
+                        nickNameInput = $oNickName.val();
+                        meaningOfTripInput = $oMeaningOfTrip.val();
+                        emailInput = $oEmail.val();
+                        phoneNumberInput = $oPhoneNumber.val();
+                        idCardNoInput = $oIdCardNo.val();
+                        realNameInput = $oRealName.val();
+
+                        modifyBtnFlag = !modifyBtnFlag;
+                        QuGui.Profile.$modifyBtn.text("修改");
+                        QuGui.Profile.$infoInput.attr("readonly",true);
+                        QuGui.Profile.$infoInput.each(function()
+                        {
+                            $(this).addClass("QuGuiTextInputLineCancelShadow QuGuiTextColorGray");
+                            $(this).unbind();
+                        });
+                    }
+                },
+                error: function ()
+                {
+
+                }
+            });
+        }
+    });
+
+    /**
+     * 检查数据有没有被修改过
+     * @param oldValue 旧值
+     * @param newValue 新值
+     * @returns {boolean} true：修改过，false：未修改过
+     */
+    function checkModified(oldValue, newValue)
+    {
+        return oldValue !== newValue;
+    }
 }
 
 /*^_^*------tab点击事件*^_^*/
@@ -214,6 +306,67 @@ function initFlip() {
         $oFlipToggle.removeClass("flipStart");
     });
 }
+
+
+function intiImgCrop()
+{
+    var $oHeadIconModal = $("#headIconModal");
+
+    var $oOriginCanvas = $("#origin");
+    var $oCropCanvas = $("#crop");
+    var $oConfirmBtn = $("#confirm");
+    var $oHeadIcon = $("#headIcon");
+    var $oImgChosenInput = $("#imgChosenInput");
+
+    $oHeadIconModal.initModal("选择头像")
+        .size(600, 500);
+
+    //*/
+    $.fn.initCropper(
+    {
+        $originCanvas: $oOriginCanvas,
+        $cropCanvas: $oCropCanvas,
+        $confirmBtn: $oConfirmBtn,
+        $imgCarrier: $oHeadIcon,
+        $imgChosenInput: $oImgChosenInput,
+        canvasWidth: 600,
+        canvasHeight: 500*0.7,
+        fnConfirmCallBack: function ()
+        {
+            $oHeadIconModal.fadeOut();
+            $(".MaskLayer").fadeOut();
+
+
+            setTimeout(function ()
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "/profile/updateHeadIcon",
+                    data: {token: $("#token").val(), userID: $("#userID").val(), headIconStr: $oHeadIcon[0].src},
+                    dataType: "json",
+                    contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                    success: function (value)
+                    {
+                        if(value === false)
+                        {
+                            layer.msg("头像上传失败");
+                        }
+                        else if(value === true)
+                        {
+                            layer.msg("头像上传成功");
+                        }
+                    },
+                    error: function ()
+                    {
+
+                    }
+                });
+            }, 1000)
+        }
+    });
+    //*/
+}
+
 /*^_^*------入口*^_^*/
 $().ready(function ()
 {
@@ -224,4 +377,6 @@ $().ready(function ()
     initSomePlugs();
 
     initFlip();
+
+    intiImgCrop();
 });
