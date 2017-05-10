@@ -2,11 +2,18 @@ package external.weather.model;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import string.EncodingUtil;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 
 /**
  * 天气采集器抽象接口
@@ -33,44 +40,22 @@ public interface WeatherCollector
      */
     default String getNetDataByURL(String url)
     {
-        String result = "";
-        BufferedReader in = null;
+        OkHttpClient mOkHttpClient=new OkHttpClient();
+        Request.Builder requestBuilder = new Request.Builder().url(url);
+        //可以省略，默认是GET请求
+        requestBuilder.method("GET",null);
+        Request request = requestBuilder.build();
+        Call mcall= mOkHttpClient.newCall(request);
         try
         {
-            //生成URL
-            URL realUrl = new URL(url);
-            //初始化连接到特定URL的连接通道
-            URLConnection connection = realUrl.openConnection();
-            //开始实际连接
-            connection.connect();
-            //数据读取
-            in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            //临时存储一行数据
-            String line;
-            while((line = in.readLine()) != null)
-            {
-               result += line + "\n";//加入换行，防止出现获取的数据只有一整行不方便处理的情况。
-            }
+            Response response = mcall.execute();
+            return response.body().string();
         }
-        catch(Exception e)
+        catch(IOException e)
         {
-            e.printStackTrace();
+            return "";
         }
-        finally
-        {
-            try
-            {
-                if(in != null)
-                {
-                    in.close();
-                }
-            }
-            catch(Exception e2)
-            {
-                e2.printStackTrace();
-            }
-        }
-        return result;
+        //        return EncodingUtil.transcoding(result, "UTF-8");
     }
 
     /**

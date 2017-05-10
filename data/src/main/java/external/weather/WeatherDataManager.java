@@ -7,11 +7,14 @@ import external.weather.model.WeatherCollector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 数据管理器，负责调度各个天气接口的具体实现类的方法
  * 考虑到可能使用不同天气数据接口，故这里统一使用接口调度方法
  * 每个方法具体实现，请参照各自实现代码
+ *
  * @author Nandem on 2017-02-05.
  */
 public class WeatherDataManager
@@ -19,7 +22,9 @@ public class WeatherDataManager
     private static volatile WeatherDataManager instance;
     private WeatherCollector weatherCollector = new HeWeatherCollector();
 
-    private WeatherDataManager() { }
+    private WeatherDataManager()
+    {
+    }
 
     /**
      * 获取唯一实例
@@ -43,18 +48,22 @@ public class WeatherDataManager
 
     /*^_^*--------------------天气接口------------------------------*^_^*/
 
+    private static Lock lock = new ReentrantLock();
+
     /**
      * 根据城市名称获取实时天气
      * 此天气仅表示查询的时刻的实时天气，不表示整天的天气或者预报天气
+     *
      * @param cityName 城市名称
      * @return 天气bean
      */
     public Weather getLiveWeather(String cityName)
     {
-        synchronized(WeatherDataManager.class)
+        lock.lock();
+
+        try
         {
             Weather weather = new Weather();
-
             JSONObject rootObject = weatherCollector.getLiveRootJsonObject(cityName);
             JSONObject nowObject = weatherCollector.getObjectByLayerFromJSONObject(rootObject, "now");
 
@@ -63,13 +72,22 @@ public class WeatherDataManager
             weather.setWeatherTxt(weatherCollector.getWeatherTxt(cityName));
             weather.setWeatherPicURL(weatherCollector.getWeatherPicPath(cityName));
             weather.setHumidity(nowObject.get("hum").toString());
-
             return weather;
         }
+        catch(Exception e)
+        {
+        }
+        finally
+        {
+            lock.unlock();
+        }
+
+        return null;
     }
 
     /**
      * 根据城市名称获取预报天气
+     *
      * @param cityName 城市名称
      * @return 未来7~10天预报天气，具体看各自数据接口所提供的数据
      */
@@ -84,11 +102,11 @@ public class WeatherDataManager
             for(Object weatherObject : weatherForecastArray)
             {
                 Weather weather = new Weather();
-                weather.setWeatherPicURL(weatherCollector.getWeatherPicPathFromObject(((JSONObject)weatherObject)));
-                weather.setWeatherTxt(((JSONObject)weatherObject).getJSONObject("cond").getString("txt_d"));
-                weather.setHumidity(((JSONObject)weatherObject).getString("hum"));
-                weather.setMaxT(((JSONObject)weatherObject).getJSONObject("tmp").getString("max"));
-                weather.setMinT(((JSONObject)weatherObject).getJSONObject("tmp").getString("min"));
+                weather.setWeatherPicURL(weatherCollector.getWeatherPicPathFromObject(((JSONObject) weatherObject)));
+                weather.setWeatherTxt(((JSONObject) weatherObject).getJSONObject("cond").getString("txt_d"));
+                weather.setHumidity(((JSONObject) weatherObject).getString("hum"));
+                weather.setMaxT(((JSONObject) weatherObject).getJSONObject("tmp").getString("max"));
+                weather.setMinT(((JSONObject) weatherObject).getJSONObject("tmp").getString("min"));
                 forecastWeather.add(weather);
             }
 

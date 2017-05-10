@@ -366,9 +366,9 @@
                 <input id="createBoxHidden" type="hidden" value="创建行程"/>
                 <div class="QuGuiLayoutCenterV QuGuiPositionRelative QuGuiWidth90pc QuGuiHeight95pc QuGuiBorderBlack2px">
                     <div class="QuGuiHeight40pc QuGuiWidth100pc QuGuiBackgroundColorBlack QuGuiLayoutCenterH">
-                        <input class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBackgroundTransparent QuGuiTextInputLine1px QuGuiTextAlignCenter QuGuiWidth25pc" style="border-color: white" placeholder="来自何方">
-                        <span class="QuGuiTextColorWhite QuGuiTextAlignCenter QuGuiTextSize66 QuGuiWidth10pc">-</span>
-                        <input class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBackgroundTransparent QuGuiTextInputLine1px QuGuiTextAlignCenter QuGuiWidth25pc" style="border-color: white" placeholder="去往何处">
+                        <!--<input id="createSchedulingFrom" class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBackgroundTransparent QuGuiTextInputLine1px QuGuiTextAlignCenter QuGuiWidth25pc" style="border-color: white" placeholder="来自何方">-->
+                        <!--<span class="QuGuiTextColorWhite QuGuiTextAlignCenter QuGuiTextSize66 QuGuiWidth10pc">-</span>-->
+                        <input id="createSchedulingTo" class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiBackgroundTransparent QuGuiTextInputLine1px QuGuiTextAlignCenter QuGuiWidth25pc" style="border-color: white" placeholder="去往何处">
                     </div>
                     <div class="QuGuiLayoutCenterV QuGuiHeight60pc QuGuiWidth100pc QuGuiBackgroundColorWhite">
                         <span class="QuGuiTextSize22">你看不见我，哈哈！</span>
@@ -394,8 +394,8 @@
                             </div>
                             <div class="QuGuiLayoutCenterH QuGuiMarginTop10 QuGuiMarginBottom10px QuGuiBorderBlack1px QuGuiBorderRightNone QuGuiBorderLeftNone QuGuiWidth100pc QuGuiHeight60pc">
                                 <div class="QuGuiLayoutCenterV QuGuiWidth40pc QuGuiHeight100pc">
-                                    <span class="QuGuiTextSize45">21℃</span>
-                                    <span class="QuGuiTextSize30">晴</span>
+                                    <span id="createSchedulingTemp" class="QuGuiTextSize45">21℃</span>
+                                    <span id="createSchedulingWeatherTxt" class="QuGuiTextSize30">晴</span>
                                 </div>
                                 <div class="QuGuiLayoutCenterV QuGuiWidth60pc QuGuiHeight100pc">
                                     <span class="QuGuiWidth100pc QuGuiMarginLeft5 QuGuiMarginRight10 QuGuiTextIndent2em QuGuiTextSize22 QuGuiTextAlignLeft">真的不知道该怎么写，反正我觉的挺开心的！</span>
@@ -407,7 +407,7 @@
                                 <div id="backBtn" title="看看日期" class="QuGuiRotate180 QuGuiBackgroundColorBlack QuGuiLayoutCenterH QuGuiBtnRadiusMiddle QuGuiBorderNone QuGuiOutLineNone QuGuiBtnRipple">
                                     <i  class="iconfont QuGuiTextSize25 QuGuiWidth100pc QuGuiHeight100pc QuGuiLayoutCenterV QuGuiTextColorWhite QuGuiTextSize8 QuGuiTextHoverChinaRed QuGuiPointerCursor QuGuiAllDelay">&#xe67b;</i>
                                 </div>
-                                <div id="confirmBtn" title="确定" class="QuGuiMarginLeft5 QuGuiBackgroundColorBlack QuGuiLayoutCenterH QuGuiBtnRadiusMiddle QuGuiBorderNone QuGuiOutLineNone QuGuiBtnRipple">
+                                <div id="createSchedulingConfirmBtn" title="确定" class="QuGuiMarginLeft5 QuGuiBackgroundColorBlack QuGuiLayoutCenterH QuGuiBtnRadiusMiddle QuGuiBorderNone QuGuiOutLineNone QuGuiBtnRipple">
                                     <i class="iconfont QuGuiTextSize25 QuGuiWidth100pc QuGuiHeight100pc QuGuiLayoutCenterV QuGuiTextColorWhite QuGuiTextSize8 QuGuiTextHoverChinaRed QuGuiPointerCursor QuGuiAllDelay">&#xe632;</i>
                                 </div>
                             </div>

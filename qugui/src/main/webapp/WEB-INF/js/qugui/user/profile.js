@@ -367,6 +367,72 @@ function intiImgCrop()
     //*/
 }
 
+function initCreateScheduling()
+{
+    var $oCreateSchedulingConfirmBtn = $("#createSchedulingConfirmBtn");
+    // var $oCreateSchedulingFrom = $("#createSchedulingFrom");
+    var $oCreateSchedulingTo = $("#createSchedulingTo");
+    var $oCreateSchedulingStartTime = $("#goDate");
+    var $oCreateSchedulingEndTime = $("#backDate");
+    var $oCreateSchedulingTemp = $("#createSchedulingTemp");
+    var $oCreateSchedulingWeatherTxt = $("#createSchedulingWeatherTxt");
+
+    $oCreateSchedulingTo.change(function ()
+    {
+        $.ajax({
+            type: "POST",
+            url: "/profile/scenicSpotWeather",
+            data: {scenicSpot: $oCreateSchedulingTo.val()},
+            dataType: "json",
+            scriptCharset: 'utf-8',
+            success: function (value)
+            {
+                console.log(value);
+                $oCreateSchedulingTemp.text(value.weather.liveT + "℃");
+                $oCreateSchedulingWeatherTxt.text(value.weather.weatherTxt);
+            },
+            error: function ()
+            {
+
+            }
+        });
+    });
+
+    $oCreateSchedulingConfirmBtn.click(function ()
+    {
+        /*/
+        if($oCreateSchedulingFrom.val() === "")
+        {
+            layer.msg("请输入");
+            return;
+        }
+        //*/
+        if(checkArgsNull($oCreateSchedulingTo, "请输入目的地（去往何处）") ||
+        checkArgsNull($oCreateSchedulingStartTime, "请输入开始时间（去时）") ||
+        checkArgsNull($oCreateSchedulingEndTime, "请输入预计结束时间（归期）"))
+        {
+            return;
+        }
+        layer.msg("创建行程");
+    });
+
+    /**
+     * 检查参数是否为空
+     * @param $arg 包含参数的jq对象
+     * @param tips 参数为空时的提示
+     * @returns {boolean} true：参数为空，false：参数不为空。
+     */
+    function checkArgsNull($arg, tips)
+    {
+        if($arg.val() === "")
+        {
+            layer.msg(tips);
+            return true;
+        }
+        else
+            return false;
+    }
+}
 /*^_^*------入口*^_^*/
 $().ready(function ()
 {
@@ -379,4 +445,6 @@ $().ready(function ()
     initFlip();
 
     intiImgCrop();
+
+    initCreateScheduling();
 });

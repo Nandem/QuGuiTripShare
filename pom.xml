@@ -217,6 +217,18 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
+        <!-- okhttp3 测试Android端调用接口时使用 -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp-ws</artifactId>
+            <version>3.4.1</version>
+        </dependency>
     </dependencies>
 
     <build>

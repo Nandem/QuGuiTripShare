@@ -12,7 +12,21 @@
 
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="cn.nandem.qugui.controller"/>
-    <mvc:annotation-driven/>
+    <!-- 处理@Response 返回字符串中文乱码问题-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="cn.nandem.qugui.utils.HttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <mvc:resources location="/WEB-INF/imgs/" mapping="/imgs/**"/>
     <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
