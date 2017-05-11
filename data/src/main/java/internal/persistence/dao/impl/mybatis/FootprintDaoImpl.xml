@@ -12,6 +12,8 @@
         <result property="country" column="country" javaType="java.lang.String" />
         <result property="province" column="province" javaType="java.lang.String" />
         <result property="state" column="state" javaType="java.lang.Integer" />
+        <result property="startDate" column="start_date" javaType="java.lang.String" />
+        <result property="endDate" column="end_date" javaType="java.lang.String" />
         <result property="describe1" column="describe1" javaType="java.lang.String" />
         <result property="describe2" column="describe2" javaType="java.lang.String" />
         <result property="describe3" column="describe3" javaType="java.lang.String" />
@@ -20,10 +22,137 @@
         <result property="describe6" column="describe6" javaType="java.lang.String" />
         <result property="image1" column="image1" javaType="java.lang.String" />
         <result property="image2" column="image2" javaType="java.lang.String" />
-        <result property="image3" column="image3" javaType="java.lang.Integer" />
+        <result property="image3" column="image3" javaType="java.lang.String" />
         <result property="image4" column="image4" javaType="java.lang.String" />
         <result property="image5" column="image5" javaType="java.lang.String" />
         <result property="image6" column="image6" javaType="java.lang.String" />
     </resultMap>
 
+    <insert id="add" parameterType="internal.persistence.model.Footprint">
+        INSERT INTO qg_footprint
+        (
+        affiliation_user,
+        like_amount,
+        comments_amount,
+        read_amount,
+        name,
+        country,
+        province,
+        start_date,
+        end_date,
+        state,
+        describe1,
+        describe2,
+        describe3,
+        describe4,
+        describe5,
+        describe6,
+        image1,
+        image2,
+        image3,
+        image4,
+        image5,
+        image6)
+        VALUES
+        (
+        #{affiliationUser},
+        #{likeAmount},
+        #{commentsAmount},
+        #{readAmount},
+        #{name},
+        #{country},
+        #{province},
+        #{startDate},
+        #{endDate},
+        #{state},
+        #{describe1},
+        #{describe2},
+        #{describe3},
+        #{describe4},
+        #{describe5},
+        #{describe6},
+        #{image1},
+        #{image2},
+        #{image3},
+        #{image4},
+        #{image5},
+        #{image6})
+    </insert>
+
+    <update id="modify" parameterType="internal.persistence.model.Footprint">
+        UPDATE qg_footprint
+        <set>
+            <if test="affiliationUser !=null and affiliationUser != ''">
+                affiliation_user = #{affiliationUser},
+            </if>
+            <if test="likeAmount !=null and likeAmount != ''">
+                like_amount = #{likeAmount},
+            </if>
+            <if test="commentsAmount !=null and commentsAmount != ''">
+                comments_amount = #{commentsAmount},
+            </if>
+            <if test="readAmount !=null and readAmount != ''">
+                read_amount = #{readAmount},
+            </if>
+            <if test="name !=null and name != ''">
+                name = #{name},
+            </if>
+            <if test="country !=null and country != ''">
+                country = #{country},
+            </if>
+            <if test="province !=null and province != ''">
+                province = #{province},
+            </if>
+            <if test="state !=null and state != ''">
+                state = #{state},
+            </if>
+            <if test="describe1 !=null and describe1 != ''">
+                describe1 = #{describe1},
+            </if>
+            <if test="describe2 !=null and describe2 != ''">
+                describe2 = #{describe2},
+            </if>
+            <if test="describe3 !=null and describe3 != ''">
+                describe3 = #{describe3},
+            </if>
+            <if test="describe4 !=null and describe4 != ''">
+                describe4 = #{describe4},
+            </if>
+            <if test="describe5 !=null and describe5 != ''">
+                describe5 = #{describe5},
+            </if>
+            <if test="describe6 !=null and describe6 != ''">
+                describe6 = #{describe6},
+            </if>
+            <if test="image1 !=null and image1 != ''">
+                image1 = #{image1},
+            </if>
+            <if test="image2 !=null and image2 != ''">
+                image2 = #{image2},
+            </if>
+            <if test="image3 !=null and image3 != ''">
+                image3 = #{image3},
+            </if>
+            <if test="image4 !=null and image4 != ''">
+                image4 = #{image4},
+            </if>
+            <if test="image5 !=null and image5 != ''">
+                image5 = #{image5},
+            </if>
+            <if test="image6 !=null and image6 != ''">
+                image6 = #{image6},
+            </if>
+            <if test="startDate !=null and startDate != ''">
+                start_date = #{startDate},
+            </if>
+            <if test="endDate !=null and endDate != ''">
+                end_date = #{endDate}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="getFootprintListByUser" resultMap="footprintMap">
+        SELECT * FROM qg_footprint WHERE affiliation_user = #{affiliationUser}
+    </select>
 </mapper>

@@ -32,6 +32,7 @@
             <img id="headIcon" th:src="${session.user.headIcon}==''?'../../imgs/logo.png':${session.user.headIcon}" class="QuGuiPointerCursor QuGuiCircleHeadIconBox" src="../../imgs/logo.png">
             <h3 class="QuGuiTextColorGray" th:text="${session.user.nickName}">我的虚幻岁月</h3>
             <input id="userID" type="hidden" th:value="${session.user.id}">
+            <input type="hidden" value="不许看" th:value="${session.token}" id="token">
             <span class="QuGuiTextColorGray" th:text="${session.user.meaningOfTrip}">向来心是看客心，奈何人是剧中人。</span>
         </div>
         <div class="QuGuiSeparatorWhite"></div>
@@ -335,25 +336,26 @@
                  class=" QuGuiHide QuGuiScrollBar QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
                 <input id="schedulingBoxHidden" type="hidden" value="行程安排"/>
                 <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
+                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow"
+                     th:each="footprint,footprintStat:${footprintList}">
                     <div class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc ">
                         <div class="QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH QuGuiBorderBottomBlack1px">
-                            <span class="QuGuiTextSize66">南京</span>
+                            <span class="QuGuiTextSize66">失落处</span>
                             <span class="QuGuiTextSize66"> - </span>
-                            <span class="QuGuiTextSize66">成都</span>
+                            <span class="QuGuiTextSize66" th:text="${footprint.name}">成都</span>
                         </div>
                         <div class="QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutCenterH">
-                            <span class="QuGuiTextSize30">2017/05/07</span>
+                            <span class="QuGuiTextSize30" th:text="${footprint.startDate}">2017/05/07</span>
                             <span class="QuGuiTextSize30"> - </span>
-                            <span class="QuGuiTextSize30">2017/05/09</span>
+                            <span class="QuGuiTextSize30" th:text="${footprint.endDate}">2017/05/09</span>
                         </div>
                     </div>
                     <div class="QuGuiLayoutCenterV QuGuiWidth20pc QuGuiHeight100pc QuGuiBorderLeftBlack1px">
                         <div class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight80pc ">
-                            <span th:if="${1>1}" class="QuGuiHide QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30">准备中</span>
-                            <span style="border-radius: 50%" class="QuGuiHide QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30 QuGuiBtnRipple ">进行中</span>
+                            <span th:if="${footprint.state==1}" class=" QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30">准备中</span>
+                            <span th:if="${footprint.state==2}" style="border-radius: 50%" class=" QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30 QuGuiBtnRipple ">进行中</span>
                             <a id="temShareLink" href="../trip/share.html" class="QuGuiHide"></a>
-                            <span onclick="redirectLink('temShareLink')" class=" QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
+                            <span th:if="${footprint.state==3}" onclick="redirectLink('temShareLink')" class=" QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
                                 <i class="iconfont QuGuiTextSize12 QuGuiMarginBottom5px">&#xe605;</i>
                                 分享
                             </span>
@@ -511,7 +513,6 @@
                             <input readonly id="phoneNumber" type="text" th:value="'手机号：'+${session.user.phoneNumber}" value="手机号：13551274792"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">
                         </div>
-                        <input type="hidden" value="不许看" th:value="${session.token}" id="token">
                         <div class="profileInputHeight QuGuiWidth100pc QuGuiBoxAlignRowAroundFlex">
                             <input readonly id="idCardNo" type="text" th:value="'身份证号：'+${session.user.idCardNo}" value="身份证号：320123199304014811"
                                    class="QuGuiTextColorGray QuGuiSize45pc QuGuiTextInputLine QuGuiTextSize35">

@@ -1,5 +1,7 @@
 package Image;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -13,6 +15,8 @@ import java.io.*;
  */
 public abstract class BaseImageUtil
 {
+    private final Logger logger  =  LoggerFactory.getLogger(BaseImageUtil.class);
+
     private static BASE64Encoder encoder = new BASE64Encoder();
     private static BASE64Decoder decoder = new BASE64Decoder();
     /**
@@ -33,7 +37,7 @@ public abstract class BaseImageUtil
             ImageIO.write(bi, imagePath.split("\\.")[1], baos);
             byte[] bytes = baos.toByteArray();
             result = encoder.encodeBuffer(bytes).trim();
-            System.out.println("将图片转换为BASE64加密字符串成功！");
+            logger.debug("将图片转换为BASE64加密字符串成功！");
         }
         catch(IOException e)
         {
@@ -52,7 +56,7 @@ public abstract class BaseImageUtil
             }
             catch(Exception e)
             {
-                System.out.println("关闭文件流发生异常: " + e);
+                logger.debug("关闭文件流发生异常: " + e);
             }
         }
         return result;
@@ -77,11 +81,11 @@ public abstract class BaseImageUtil
             ImageIO.write(bi, format == null ? "jpg" : format, baos);
             byte[] bytes = baos.toByteArray();
             result = encoder.encodeBuffer(bytes).trim();
-            System.out.println("将图片流转换为BASE64加密字符串成功！");
+            logger.debug("将图片流转换为BASE64加密字符串成功！");
         }
         catch(IOException e)
         {
-            System.out.println("将图片流转换为 BASE64加密字符串失败: " + e);
+            logger.debug("将图片流转换为 BASE64加密字符串失败: " + e);
         }
         finally
         {
@@ -95,7 +99,7 @@ public abstract class BaseImageUtil
             }
             catch(Exception e)
             {
-                System.out.println("关闭文件流发生异常: " + e);
+                logger.debug("关闭文件流发生异常: " + e);
             }
         }
         return result;
@@ -120,7 +124,7 @@ public abstract class BaseImageUtil
             bi = ImageIO.read(byteArrayInputStream);
             file = new File(imagePath);
             ImageIO.write(bi, imagePath.split("\\.")[1], file);
-            System.out.println("将BASE64加密字符串转换为图片成功！");
+            logger.debug("将BASE64加密字符串转换为图片成功！");
         }
         catch(IOException e)
         {
@@ -138,7 +142,7 @@ public abstract class BaseImageUtil
             }
             catch(Exception e)
             {
-                System.out.println("关闭文件流发生异常: " + e);
+                logger.debug("关闭文件流发生异常: " + e);
             }
         }
     }

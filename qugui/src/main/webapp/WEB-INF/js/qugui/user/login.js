@@ -24,9 +24,7 @@ $().ready(function()
             {
                 if(value.resultCode === true)
                 {
-                    // alert(window.location.href)
-                    // layer.msg("哈哈，登录成功啦！" + value.result.id + "/" + value.result.password);
-                    window.location.href = "/profile/me?userID=" + value.result.id + "&password=" + value.result.password;
+                    post("/profile/me", {userID: value.result.id, password: value.result.password})
                 }
                 else
                 {

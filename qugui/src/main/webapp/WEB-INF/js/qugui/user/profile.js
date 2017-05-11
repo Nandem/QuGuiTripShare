@@ -299,6 +299,7 @@ function initFlip() {
 
     $oViewMore.click(function ()
     {
+        // createSchedulingOnHtml();
         $oFlipToggle.addClass("flipStart");
     });
     $oBackBtn.click(function ()
@@ -307,6 +308,47 @@ function initFlip() {
     });
 }
 
+function createSchedulingOnHtml(from, to, startDate, endDate)
+{
+    var $temSchedulingBox = $("#schedulingBox");
+    var singleSchedulingBox = $("<div style='background: #eeeeee' class='QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow'>");
+
+    //-----------------------
+    var div1InSingleSchedulingBox = $("<div class='QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc'>");
+
+    var div1InDiv1InSingleSchedulingBox = $("<div class='QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH QuGuiBorderBottomBlack1px'>");
+    var span1InDivInDivInSingleSchedulingBox = $("<span class='QuGuiTextSize66'>" + from + "</span>");
+    var span2InDivInDivInSingleSchedulingBox = $("<span class='QuGuiTextSize66'> - </span>");
+    var span3InDivInDivInSingleSchedulingBox = $("<span class='QuGuiTextSize66'>" + to + "</span>");
+
+    span1InDivInDivInSingleSchedulingBox.appendTo(div1InDiv1InSingleSchedulingBox);
+    span2InDivInDivInSingleSchedulingBox.appendTo(div1InDiv1InSingleSchedulingBox);
+    span3InDivInDivInSingleSchedulingBox.appendTo(div1InDiv1InSingleSchedulingBox);
+
+    var div2InDivInSingleSchedulingBox = $("<div class='QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutCenterH'>");
+    var span1InDiv2InDivInSingleSchedulingBox = $("<span class='QuGuiTextSize30'>" + startDate + "</span>")
+    var span2InDiv2InDivInSingleSchedulingBox = $("<span class='QuGuiTextSize30'> - </span>")
+    var span3InDiv2InDivInSingleSchedulingBox = $("<span class='QuGuiTextSize30'>" + endDate + "</span>")
+
+    span1InDiv2InDivInSingleSchedulingBox.appendTo(div2InDivInSingleSchedulingBox);
+    span2InDiv2InDivInSingleSchedulingBox.appendTo(div2InDivInSingleSchedulingBox);
+    span3InDiv2InDivInSingleSchedulingBox.appendTo(div2InDivInSingleSchedulingBox);
+
+    div1InDiv1InSingleSchedulingBox.appendTo(div1InSingleSchedulingBox);
+    div2InDivInSingleSchedulingBox.appendTo(div1InSingleSchedulingBox);
+    //--------------
+    var div2InSingleSchedulingBox = $("<div class='QuGuiLayoutCenterV QuGuiWidth20pc QuGuiHeight100pc QuGuiBorderLeftBlack1px'>");
+    var divInDiv2InSingleSchedulingBox = $("<div class='QuGuiLayoutCenterV  QuGuiWidth80pc QuGuiHeight80pc'>");
+    var spanInDivInDiv2InSingleSchedulingBox = $("<span class='QuGuiWidth80pc  QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30'>准备中</span>");
+
+    spanInDivInDiv2InSingleSchedulingBox.appendTo(divInDiv2InSingleSchedulingBox);
+    divInDiv2InSingleSchedulingBox.appendTo(div2InSingleSchedulingBox);
+    div2InSingleSchedulingBox.appendTo(div2InSingleSchedulingBox);
+
+    div1InSingleSchedulingBox.appendTo(singleSchedulingBox);
+    div2InSingleSchedulingBox.appendTo(singleSchedulingBox);
+    singleSchedulingBox.appendTo($temSchedulingBox);
+}
 
 function intiImgCrop()
 {
@@ -400,20 +442,36 @@ function initCreateScheduling()
 
     $oCreateSchedulingConfirmBtn.click(function ()
     {
-        /*/
-        if($oCreateSchedulingFrom.val() === "")
-        {
-            layer.msg("请输入");
-            return;
-        }
-        //*/
         if(checkArgsNull($oCreateSchedulingTo, "请输入目的地（去往何处）") ||
         checkArgsNull($oCreateSchedulingStartTime, "请输入开始时间（去时）") ||
         checkArgsNull($oCreateSchedulingEndTime, "请输入预计结束时间（归期）"))
         {
             return;
         }
-        layer.msg("创建行程");
+
+        $.ajax({
+            type: "POST",
+            url: "/profile/createScheduling",
+            data: {token: $("#token").val(), name: $oCreateSchedulingTo.val(),startDate: $oCreateSchedulingStartTime.val(), endDate: $oCreateSchedulingEndTime.val(), affiliationUser: $("#userID").val()},
+            dataType: "json",
+            scriptCharset: 'utf-8',
+            success: function (value)
+            {
+                if(value === true)
+                {
+                    layer.msg("行程创建成功");
+                    createSchedulingOnHtml("失落处", $oCreateSchedulingTo.val(), $oCreateSchedulingStartTime.val(), $oCreateSchedulingEndTime.val());
+                }
+                else if(value === false)
+                {
+                    layer.msg("同名目的地时间冲突，行程创建失败");
+                }
+            },
+            error: function ()
+            {
+
+            }
+        });
     });
 
     /**

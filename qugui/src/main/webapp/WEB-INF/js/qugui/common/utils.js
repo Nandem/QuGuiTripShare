@@ -1,37 +1,32 @@
 /**
  * Created by Nandem on 2017-05-07.
  */
-function redirectReplace(id)
-{
+function redirectReplace(id) {
     var $objContainHref = $("#" + id);
     window.location.replace($objContainHref.attr("href"));
 }
-function redirectLink(id)
-{
+function redirectLink(id) {
     var $objContainHref = $("#" + id);
     window.location.href = $objContainHref.attr("href");
 }
-function redirectOpen(id)
-{
+function redirectOpen(id) {
     var $objContainHref = $("#" + id);
     window.open($objContainHref.attr("href"));
 }
 
-function getWebRootPath()
-{
+function getWebRootPath() {
     var webRoot = document.location.href;
-    webRoot = webRoot.substring(webRoot.indexOf('//')+2,webRoot.length);
-    webRoot = webRoot.substring(webRoot.indexOf('/')+1,webRoot.length);
-    webRoot = webRoot.substring(0,webRoot.indexOf('/'));
-    return "/"+webRoot;
+    webRoot = webRoot.substring(webRoot.indexOf('//') + 2, webRoot.length);
+    webRoot = webRoot.substring(webRoot.indexOf('/') + 1, webRoot.length);
+    webRoot = webRoot.substring(0, webRoot.indexOf('/'));
+    return "/" + webRoot;
 }
 
-function debounce(func, wait, immediate)
-{
+function debounce(func, wait, immediate) {
     // immediate默认为false
     var timeout, args, context, timestamp, result;
 
-    var later = function() {
+    var later = function () {
         // 当wait指定的时间间隔期间多次调用_.debounce返回的函数，则会不断更新timestamp的值，导致last < wait && last >= 0一直为true，从而不断启动新的计时器延时执行func
         var last = _.now() - timestamp;
 
@@ -46,7 +41,7 @@ function debounce(func, wait, immediate)
         }
     };
 
-    return function() {
+    return function () {
         context = this;
         args = arguments;
         timestamp = _.now();
@@ -61,4 +56,23 @@ function debounce(func, wait, immediate)
 
         return result;
     };
-};
+}
+
+function post(url, args)
+{
+    var body = $(document.body),
+        form = $("<form method='post'></form>"),
+        input;
+    form.attr({"action": url});
+    $.each(args, function (key, value)
+    {
+        input = $("<input type='hidden'>");
+        input.attr({"name": key});
+        input.val(value);
+        form.append(input);
+    });
+
+    form.appendTo(document.body);
+    form.submit();
+    document.body.removeChild(form[0]);
+}

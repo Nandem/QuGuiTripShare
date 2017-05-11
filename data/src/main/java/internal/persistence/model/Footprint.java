@@ -13,19 +13,48 @@ public class Footprint
     private String name;
     private String country;
     private String province;
+    private String startDate;
+    private String endDate;
     private int state;
-    private String describe1;
-    private String describe2;
-    private String describe3;
-    private String describe4;
-    private String describe5;
-    private String describe6;
-    private String image1;
-    private String image2;
-    private String image3;
-    private String image4;
-    private String image5;
-    private String image6;
+    private String describe1 = "describe1";
+    private String describe2 = "describe2";
+    private String describe3 = "describe3";
+    private String describe4 = "describe4";
+    private String describe5 = "describe5";
+    private String describe6 = "describe6";
+    private String image1 = "";
+    private String image2 = "";
+    private String image3 = "";
+    private String image4 = "";
+    private String image5 = "";
+    private String image6 = "";
+
+    @Override
+    public String toString()
+    {
+        return String.format("{id: %d, affiliationUser: %d, likeAmount: %d, commentsAmount: %d, readAmount: %d, name: %s, country: %s, province: %s, state: %d, startDate: %s,endDate: %s,describe1: %s, describe2: %s, describe3: %s, describe4: %s, describe5: %s, describe6: %s, image1: %s, image2: %s, image3: %s, image4: %s, image5: %s, image6: %s}", id, affiliationUser, likeAmount, commentsAmount, readAmount, name, country, province, state, startDate, endDate, describe1, describe2, describe3, describe4, describe5, describe6, image1, image2, image3, image4, image5, image6);
+    }
+
+
+    public String getStartDate()
+    {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate)
+    {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate()
+    {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate)
+    {
+        this.endDate = endDate;
+    }
 
     public int getId()
     {
