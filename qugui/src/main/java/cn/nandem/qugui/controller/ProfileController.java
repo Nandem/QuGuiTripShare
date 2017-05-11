@@ -21,9 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Nandem on 2017-05-09.
@@ -43,7 +41,7 @@ public class ProfileController
         User user = userService.getUserByUseIDAndPassword(userID, password);
         if(user == null)
         {
-            model.addAttribute(QuGuiConstants.ATTR_NAME_MESSAGE, new Message("未进入个人主页", MessageEnum.USER_DATA_ERROR));
+            model.addAttribute(QuGuiConstants.ATTR_NAME_MESSAGE, new Message("无法进入个人主页", MessageEnum.USER_DATA_ERROR));
             return QuGuiConstants.URLS.MESSAGE;
         }
 
@@ -64,6 +62,8 @@ public class ProfileController
     private void fillScheduling(String userID, Model model)
     {
         List<Footprint> footprintList = footprintService.getFootprintListByUser(userID);
+        footprintList.sort((o1, o2) -> new Integer(o1.getState()).compareTo(o2.getState()));
+
         model.addAttribute("footprintList", footprintList);
     }
 
@@ -102,5 +102,25 @@ public class ProfileController
         footprint.setProvince("河山");
         footprint.setState(1);
         return session.getAttribute("token").equals(token) && footprintService.createFootprint(footprint);
+    }
+
+    @RequestMapping("/share")
+    public String share(String token, String footprintID, Model model, HttpSession session)
+    {
+        if(!session.getAttribute("token").equals(token))
+        {
+            Message message = new Message("无法分享", MessageEnum.TOKEN_INVALIDATE);
+            model.addAttribute(QuGuiConstants.ATTR_NAME_MESSAGE, message);
+            return QuGuiConstants.URLS.MESSAGE;
+        }
+        Footprint footprint = footprintService.getFootprintById(footprintID);
+        footprint.setImage1("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-1", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage2("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-2", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage3("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-3", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage4("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-4", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage5("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-5", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage6("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-6", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        model.addAttribute("footprint", footprint);
+        return QuGuiConstants.URLS.SHARE;
     }
 }

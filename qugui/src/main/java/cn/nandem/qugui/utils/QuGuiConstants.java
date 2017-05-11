@@ -20,6 +20,8 @@ public class QuGuiConstants
         public static final String REGISTER = "/user/register";
 
         public static final String LOGIN = "/user/login";
+
+        public static final String SHARE = "/trip/share";
     }
 
 }

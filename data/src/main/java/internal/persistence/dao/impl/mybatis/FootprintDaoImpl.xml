@@ -12,6 +12,7 @@
         <result property="country" column="country" javaType="java.lang.String" />
         <result property="province" column="province" javaType="java.lang.String" />
         <result property="state" column="state" javaType="java.lang.Integer" />
+        <result property="summary" column="summary" javaType="java.lang.String" />
         <result property="startDate" column="start_date" javaType="java.lang.String" />
         <result property="endDate" column="end_date" javaType="java.lang.String" />
         <result property="describe1" column="describe1" javaType="java.lang.String" />
@@ -38,6 +39,7 @@
         name,
         country,
         province,
+        summary,
         start_date,
         end_date,
         state,
@@ -62,6 +64,7 @@
         #{name},
         #{country},
         #{province},
+        #{summary},
         #{startDate},
         #{endDate},
         #{state},
@@ -142,6 +145,9 @@
             <if test="image6 !=null and image6 != ''">
                 image6 = #{image6},
             </if>
+            <if test="summary !=null and summary != ''">
+                summary = #{summary},
+            </if>
             <if test="startDate !=null and startDate != ''">
                 start_date = #{startDate},
             </if>
@@ -154,5 +160,9 @@
 
     <select id="getFootprintListByUser" resultMap="footprintMap">
         SELECT * FROM qg_footprint WHERE affiliation_user = #{affiliationUser}
+    </select>
+
+    <select id="retrieve" parameterType="java.lang.String" resultType="internal.persistence.model.Footprint">
+        SELECT * FROM qg_footprint WHERE id = #{footprintID}
     </select>
 </mapper>

@@ -13,6 +13,7 @@ public class Footprint
     private String name;
     private String country;
     private String province;
+    private String summary;
     private String startDate;
     private String endDate;
     private int state;
@@ -35,6 +36,15 @@ public class Footprint
         return String.format("{id: %d, affiliationUser: %d, likeAmount: %d, commentsAmount: %d, readAmount: %d, name: %s, country: %s, province: %s, state: %d, startDate: %s,endDate: %s,describe1: %s, describe2: %s, describe3: %s, describe4: %s, describe5: %s, describe6: %s, image1: %s, image2: %s, image3: %s, image4: %s, image5: %s, image6: %s}", id, affiliationUser, likeAmount, commentsAmount, readAmount, name, country, province, state, startDate, endDate, describe1, describe2, describe3, describe4, describe5, describe6, image1, image2, image3, image4, image5, image6);
     }
 
+    public String getSummary()
+    {
+        return summary;
+    }
+
+    public void setSummary(String summary)
+    {
+        this.summary = summary;
+    }
 
     public String getStartDate()
     {

@@ -12,6 +12,8 @@
 <body>
 <div id="fullpage" class="typo">
     <div class="section active" id="page0">
+        <input type="hidden" id="token" th:value="${session.token}">
+        <input type="hidden" id="affiliationUser" th:value="${footprint.affiliationUser}">
         <div id="slideLeftBtn" class="QuGuiBtn QuGuiLayoutCenterH" style="color: #FFFFFF; z-index: 233; width: 80px; height: 35px; background: #000000; position: absolute; left: 10px; top: 10px;">
             <
         </div>
@@ -25,8 +27,8 @@
                 </div>
                 <div class="QuGuiLayoutCenterV" style="position:absolute; left: 50%; top: 50%; width: 50vw; height: 60vh; margin-left: -25vw; margin-top: -30vh;">
                     <div class=" QuGuiTextColorWhite QuGuiLayoutCenterV QuGuiBorderWhite2px QuGuiBorderBottomNone QuGuiWidth100pc QuGuiHeight50pc">
-                        <span class="QuGuiTextSize50">旅行地：成都</span>
-                        <span class="QuGuiTextSize35">一座来了就不想走的城市。</span>
+                        <span class="QuGuiTextSize50" th:text="'旅行地：'+${footprint.name}">旅行地：成都</span>
+                        <span class="QuGuiTextSize35" th:text="${footprint.summary}">一座来了就不想走的城市。</span>
                     </div>
                     <div class=" QuGuiLayoutCenterH QuGuiBorderBlack2px QuGuiBorderTopNone QuGuiWidth100pc QuGuiHeight50pc">
                         <span class="QuGuiTextSize66">现在开始分享吧！</span><span id="firstSlideNextBtn" class="QuGuiBtnRipple QuGuiTextSize30 QuGuiBtn QuGuiBlackBtnStyle QuGuiBtnRadiusMiddle"><i class="iconfont">&#xe67b;</i></span>
@@ -37,18 +39,18 @@
         <div class="slide">
             <div class=" QuGuiLayoutCenterH QuGuiWidth100pc QuGuiHeight100pc" style="position: relative">
                 <div class="QuGuiWidth30pc QuGuiHeight80pc QuGuiPositionAbsolute QuGuiBorderLeftNone"  style="right: 15%; top: 10%; background: pink;">
-                    <img src="../../imgs/visitedPlace2.jpg" class="QuGuiWidth100pc QuGuiHeight100pc QuGuiPositionAbsolute " style="left: 0; top: 3px; border: none;">
+                    <img th:src="${footprint.image1}" src="../../imgs/visitedPlace2.jpg" class="QuGuiWidth100pc QuGuiHeight100pc QuGuiPositionAbsolute " style="left: 0; top: 3px; border: none;">
                     <div class="QuGuiWidth50pc QuGuiBorderBlack3px QuGuiHeight100pc QuGuiPositionAbsolute QuGuiBorderRightNone"  style="left: 0; top: 0; background: transparent;"></div>
                     <div class="QuGuiWidth50pc QuGuiBorderWhite3px QuGuiHeight100pc QuGuiPositionAbsolute QuGuiBorderLeftNone"  style="left: 50%; top: 0; background: transparent;"></div>
                 </div>
                 <div class="QuGuiWidth70pc QuGuiHeight100pc QuGuiLayoutCenterV">
                     <div class="QuGuiMarginRight20pc QuGuiHeight80pc QuGuiWidth70pc QuGuiLayoutCenterV">
                         <div class="QuGuiWidth100pc QuGuiHeight15pc QuGuiLayoutLeftH">
-                            <input placeholder="地点名称" class="QuGuiTextSize50 QuGuiTextInputLine2px">
+                            <input id="placeName1" placeholder="地点名称" class="QuGuiTextSize50 QuGuiTextInputLine2px">
                         </div>
                         <div class="QuGuiWidth100pc QuGuiHeight85pc">
                             <span class="QuGuiTextSize25">
-                                <textarea placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe1" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
                             </span>
                         </div>
                     </div>
@@ -70,7 +72,7 @@
                     <div class="QuGuiHeight100pc QuGuiWidth50pc QuGuiLayoutCenterH">
                         <div class="QuGuiHeight80pc QuGuiWidth70pc">
                             <div class="QuGuiWidth100pc QuGuiHeight15pc QuGuiLayoutRightH">
-                                <input placeholder="地点名称" style="text-align: right;" class="QuGuiTextSize35 QuGuiTextInputLine2px">
+                                <input id="placeName2" placeholder="地点名称" style="text-align: right;" class="QuGuiTextSize35 QuGuiTextInputLine2px">
                                 <span class="QuGuiTextSize30" style=" margin-left: 10px;">
                                     2/6 ☳
                                 </span>
@@ -78,18 +80,18 @@
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop5">
                                 <span class="QuGuiTextSize22">
-                                    <textarea placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                    <textarea id="describe2" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <div class="QuGuiHeight100pc debugBorder QuGuiWidth50pc QuGuiBackgroundColorBlack QuGuiLayoutCenterH">
-                            <img src="../../imgs/visitedPlace2.jpg" width="500" height="300" class="  QuGuiBorderWhite3px"/>
+                    <div class="QuGuiHeight100pc QuGuiWidth50pc QuGuiBackgroundColorBlack QuGuiLayoutCenterH">
+                            <img th:src="${footprint.image2}" src="../../imgs/visitedPlace2.jpg" width="500" height="300" class="  QuGuiBorderWhite3px"/>
                     </div>
                 </div>
                 <div class="QuGuiHeight50pc QuGuiWidth100pc QuGuiLayoutCenterH">
                     <div class="QuGuiWidth50pc QuGuiHeight100pc QuGuiBackgroundColorBlack QuGuiLayoutCenterH">
-                        <img src="../../imgs/visitedPlace3.jpg" width="500" height="300" class="  QuGuiBorderWhite3px"/>
+                        <img th:src="${footprint.image3}" src="../../imgs/visitedPlace3.jpg" width="500" height="300" class="  QuGuiBorderWhite3px"/>
                     </div>
                     <div class="QuGuiHeight100pc QuGuiWidth50pc QuGuiLayoutCenterH">
                         <div class="QuGuiHeight80pc QuGuiWidth70pc">
@@ -98,11 +100,11 @@
                                 <span class="QuGuiTextSize30" style=" margin-right: 10px; margin-left: 10px;">
                                    ☱ 3/6
                                 </span>
-                                <input placeholder="地点名称" class="QuGuiTextSize35 QuGuiTextInputLine2px">
+                                <input id="placeName3" placeholder="地点名称" class="QuGuiTextSize35 QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop5">
                             <span class="QuGuiTextSize22">
-                                <textarea placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe3" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
                             </span>
                             </div>
                         </div>
@@ -114,7 +116,7 @@
             <div class="QuGuiLayoutCenterH QuGuiWidth100pc QuGuiHeight100pc">
                 <div class="QuGuiLayoutCenterV QuGuiHeight100pc QuGuiWidth33pc">
                     <div class="QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                        <img src="../../imgs/visitedPlace3.jpg" width="350" height="450" class="QuGuiBorderBlack3px">
+                        <img th:src="${footprint.image4}" src="../../imgs/visitedPlace3.jpg" width="350" height="450" class="QuGuiBorderBlack3px">
                     </div>
                     <div class="QuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnStartFlex">
                         <div class="QuGuiHeight80pc QuGuiWidth70pc">
@@ -122,11 +124,11 @@
                                 <span class="QuGuiTextSize30" style="color: rgb(103,103,103); margin-right: 10px;">
                                     ☰ 4/6
                                 </span>
-                                <input placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
+                                <input id="placeName4" placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop10">
                             <span class="QuGuiTextSize18">
-                                <textarea placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe4" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
                             </span>
                             </div>
                         </div>
@@ -134,7 +136,7 @@
                 </div>
                 <div class="QuGuiBackgroundColorBlack QuGuiLayoutCenterV QuGuiHeight100pc QuGuiWidth33pc">
                     <div class="QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                        <img src="../../imgs/visitedPlace3.jpg" style="border-color: rgb(103,103,103);" width="350" height="450" class="QuGuiBorderBlack3px">
+                        <img th:src="${footprint.image5}" src="../../imgs/visitedPlace3.jpg" style="border-color: rgb(103,103,103);" width="350" height="450" class="QuGuiBorderBlack3px">
                     </div>
                     <div class="QuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnStartFlex">
                         <div class="QuGuiHeight80pc QuGuiWidth70pc">
@@ -142,11 +144,11 @@
                                 <span class="QuGuiTextSize30" style="color: rgb(103,103,103); margin-right: 10px;">
                                     ☴ 5/6
                                 </span>
-                                <input placeholder="地点名称" style="border-color: rgb(103,103,103); background: transparent" class="QuGuiTextSize25 QuGuiTextInputLine2px">
+                                <input id="placeName5" placeholder="地点名称" style="border-color: rgb(103,103,103); background: transparent" class="QuGuiTextSize25 QuGuiTextColorGray QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop10">
                             <span class="QuGuiTextSize18">
-                                <textarea placeholder="你在此处的感受......" style="border-color: rgb(103,103,103);" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe5" placeholder="你在此处的感受......" style="border-color: rgb(103,103,103);" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiTextColorGray QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
                             </span>
                             </div>
                         </div>
@@ -154,7 +156,7 @@
                 </div>
                 <div class="QuGuiLayoutCenterV QuGuiHeight100pc QuGuiWidth33pc">
                     <div class="QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                        <img src="../../imgs/visitedPlace3.jpg" width="350" height="450" class="QuGuiBorderBlack3px">
+                        <img th:src="${footprint.image6}" src="../../imgs/visitedPlace3.jpg" width="350" height="450" class="QuGuiBorderBlack3px">
                     </div>
                     <div class="QuGuiWidth100pc QuGuiHeight30pc QuGuiBoxAlignColumnStartFlex">
                         <div class="QuGuiHeight80pc QuGuiWidth70pc">
@@ -162,11 +164,11 @@
                                 <span class="QuGuiTextSize30" style="color: rgb(103,103,103); margin-right: 10px;">
                                     ☶ 6/6
                                 </span>
-                                <input placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
+                                <input id="placeName6" placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop10">
                             <span class="QuGuiTextSize18">
-                                <textarea placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe6" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
                             </span>
                             </div>
                         </div>
@@ -179,30 +181,30 @@
         <div class="QuGuiWidth100pc QuGuiHeight100pc QuGuiLayoutCenterV">
             <div class="QuGuiLayoutCenterV QuGuiWidth70pc QuGuiHeight80pc">
                 <div class="QuGuiWidth100pc QuGuiBoxAlignColumnBottomFlex QuGuiHeight20pc">
-                    <span class="QuGuiTextSize66">成都</span>
-                    <span class="QuGuiTextSize30">一个来了就不想走的城市</span>
+                    <span class="QuGuiTextSize66" th:text="${footprint.name}">成都</span>
+                    <span class="QuGuiTextSize30" th:text="${footprint.summary}">一个来了就不想走的城市</span>
                 </div>
                 <div class="QuGuiWidth100pc QuGuiHeight80pc">
                     <div class="QuGuiWidth100pc QuGuiLayoutCenterH QuGuiHeight50pc">
                         <div class="QuGuiWidth33pc QuGuiLayoutCenterV QuGuiHeight100pc ">
                             <span class=" QuGuiTextSize35">☷</span>
-                            <span class=" QuGuiTextSize45">武侯祠</span>
-                            <span class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
+                            <span id="previewPlaceName1" class=" QuGuiTextSize45">（未填写）</span>
+                            <span id="previewDescribe1" class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
                                 武侯祠好啊，好看啊，特别好看。武侯祠好啊，好看啊，特别好看。武侯祠好啊，好看啊，特别好看。武侯祠好啊，好看啊，特别好看。
                             </span>
                         </div>
                         <div class="QuGuiWidth33pc QuGuiLayoutCenterV QuGuiHeight100pc ">
                             <span class="QuGuiTextSize35">☳</span>
-                            <span class=" QuGuiTextSize45">青羊宫</span>
-                            <span class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
+                            <span id="previewPlaceName2" class=" QuGuiTextSize45">（未填写）</span>
+                            <span id="previewDescribe2" class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
                                 青羊宫好啊，真的特别好，好好好。青羊宫好啊，真的特别好，好好好。青羊宫好啊，真的特别好，好好好。
                             </span>
 
                         </div>
                         <div class="QuGuiWidth33pc QuGuiLayoutCenterV QuGuiHeight100pc ">
                             <span class="QuGuiTextSize35">☱</span>
-                            <span class=" QuGuiTextSize45">锦里</span>
-                            <span class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
+                            <span id="previewPlaceName3" class=" QuGuiTextSize45">（未填写）</span>
+                            <span id="previewDescribe3" class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
                                 锦里也很好，我也不知道好在哪儿，吃的东西特别多，但是好像和外面的没有什么区别。
                             </span>
                         </div>
@@ -210,22 +212,22 @@
                     <div class="QuGuiWidth100pc QuGuiLayoutCenterH QuGuiHeight50pc">
                         <div class="QuGuiWidth33pc QuGuiLayoutCenterV QuGuiHeight100pc ">
                             <span class="QuGuiTextSize35">☰</span>
-                            <span class="QuGuiTextSize45">都江堰</span>
-                            <span class="QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
+                            <span id="previewPlaceName4" class="QuGuiTextSize45">（未填写）</span>
+                            <span id="previewDescribe4" class="QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
                                 千年的水利工程可不是吹出来的，真的特别棒。
                             </span>
                         </div>
                         <div class="QuGuiWidth33pc QuGuiLayoutCenterV QuGuiHeight100pc ">
                             <span class="QuGuiTextSize35">☴</span>
-                            <span class=" QuGuiTextSize45">青城山</span>
-                            <span class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
+                            <span id="previewPlaceName5" class=" QuGuiTextSize45">（未填写）</span>
+                            <span id="previewDescribe5" class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
                                 青城山是道教发源地之一，很好看的风景，我也不知道该怎么描述，反正就是好看。
                             </span>
                         </div>
                         <div class="QuGuiWidth33pc QuGuiLayoutCenterV QuGuiHeight100pc ">
                             <span class="QuGuiTextSize35">☶</span>
-                            <span class=" QuGuiTextSize45">方所</span>
-                            <span class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
+                            <span id="previewPlaceName6" class=" QuGuiTextSize45">（未填写）</span>
+                            <span id="previewDescribe6" class=" QuGuiWidth80pc QuGuiHeight20pc QuGuiTextSize22 QuGuiTextIndent2em QuGuiTextOmit" style="">
                                 方所是很有逼格的一家书店，全国就两家，一家在广州，另一家呢就在成都啦，反正还不错啦！
                             </span>
                         </div>
@@ -237,8 +239,8 @@
     <div class="section fp-auto-height" id="page7">
         <div class="QuGuiLayoutCenterH QuGuiWidth100pc QuGuiHeight30pc" style="height: 10vh;">
             <div class="QuGuiWidth90pc QuGuiHeight100pc QuGuiLayoutCenterH">
-                <button class="QuGuiBtn QuGuiBorderRadius3px QuGuiBlackBtnStyle QuGuiSizeMiddle QuGuiTextSize25">分享</button>
-                <button class="QuGuiBtn QuGuiBorderRadius3px QuGuiGrayBtnStyle QuGuiSizeMiddle QuGuiTextSize25 QuGuiMarginLeft10">暂存</button>
+                <button class="QuGuiBtn QuGuiBorderRadius3px QuGuiBlackBtnStyle QuGuiSizeMiddle QuGuiTextSize25" id="shareBtn">分享</button>
+                <button class="QuGuiBtn QuGuiBorderRadius3px QuGuiGrayBtnStyle QuGuiSizeMiddle QuGuiTextSize25 QuGuiMarginLeft10" id="cacheBtn">暂存</button>
             </div>
         </div>
     </div>

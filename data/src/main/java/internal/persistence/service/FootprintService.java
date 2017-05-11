@@ -50,4 +50,9 @@ public class FootprintService
     {
         return footprintDao.getFootprintListByUser(affiliationUser);
     }
+
+    public Footprint getFootprintById(String footprintID)
+    {
+        return footprintDao.retrieve(footprintID);
+    }
 }

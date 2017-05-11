@@ -10,7 +10,8 @@ public enum MessageEnum
     USER_ALREADY_EXIST(2, "该用户已存在"),
     REGISTER_SUCCESS(3, "注册成功"),
     REGISTER_FAIL(4, "注册失败"),
-    USER_DATA_ERROR(5, "用户数据异常")
+    USER_DATA_ERROR(5, "用户数据异常"),
+    TOKEN_INVALIDATE(6, "令牌无效")
     ;
 
     private int code;

@@ -354,8 +354,8 @@
                         <div class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight80pc ">
                             <span th:if="${footprint.state==1}" class=" QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30">准备中</span>
                             <span th:if="${footprint.state==2}" style="border-radius: 50%" class=" QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30 QuGuiBtnRipple ">进行中</span>
-                            <a id="temShareLink" href="../trip/share.html" class="QuGuiHide"></a>
-                            <span th:if="${footprint.state==3}" onclick="redirectLink('temShareLink')" class=" QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
+                            <!--<input id="temFootprintID " th:id="temFootprintID+ ${footprintStat}" type="hidden" value="haha" th:value="${footprint.id}"/>-->
+                            <span th:if="${footprint.state==3}"  th:temId="${footprint.id}" onclick="post('/profile/share', {token: $('#token').val(), footprintID: $(this).attr('temId')})" class=" QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
                                 <i class="iconfont QuGuiTextSize12 QuGuiMarginBottom5px">&#xe605;</i>
                                 分享
                             </span>
