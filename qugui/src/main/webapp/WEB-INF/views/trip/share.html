@@ -13,7 +13,7 @@
 <div id="fullpage" class="typo">
     <div class="section active" id="page0">
         <input type="hidden" id="token" th:value="${session.token}">
-        <input type="hidden" id="affiliationUser" th:value="${footprint.affiliationUser}">
+        <input type="hidden" id="footprintID" th:value="${footprint.id}">
         <div id="slideLeftBtn" class="QuGuiBtn QuGuiLayoutCenterH" style="color: #FFFFFF; z-index: 233; width: 80px; height: 35px; background: #000000; position: absolute; left: 10px; top: 10px;">
             <
         </div>
@@ -46,11 +46,11 @@
                 <div class="QuGuiWidth70pc QuGuiHeight100pc QuGuiLayoutCenterV">
                     <div class="QuGuiMarginRight20pc QuGuiHeight80pc QuGuiWidth70pc QuGuiLayoutCenterV">
                         <div class="QuGuiWidth100pc QuGuiHeight15pc QuGuiLayoutLeftH">
-                            <input id="placeName1" placeholder="地点名称" class="QuGuiTextSize50 QuGuiTextInputLine2px">
+                            <input id="placeName1" th:value="${footprint.describe1}" placeholder="地点名称" class="QuGuiTextSize50 QuGuiTextInputLine2px">
                         </div>
                         <div class="QuGuiWidth100pc QuGuiHeight85pc">
                             <span class="QuGuiTextSize25">
-                                <textarea id="describe1" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe1" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar" th:inline="text">[[${footprint.describe1}]]</textarea>
                             </span>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="QuGuiHeight100pc QuGuiWidth50pc QuGuiLayoutCenterH">
                         <div class="QuGuiHeight80pc QuGuiWidth70pc">
                             <div class="QuGuiWidth100pc QuGuiHeight15pc QuGuiLayoutRightH">
-                                <input id="placeName2" placeholder="地点名称" style="text-align: right;" class="QuGuiTextSize35 QuGuiTextInputLine2px">
+                                <input id="placeName2" th:value="${footprint.describe2}" placeholder="地点名称" style="text-align: right;" class="QuGuiTextSize35 QuGuiTextInputLine2px">
                                 <span class="QuGuiTextSize30" style=" margin-left: 10px;">
                                     2/6 ☳
                                 </span>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop5">
                                 <span class="QuGuiTextSize22">
-                                    <textarea id="describe2" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                    <textarea id="describe2" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar" th:inline="text">[[${footprint.describe2}]]</textarea>
                                 </span>
                             </div>
                         </div>
@@ -100,11 +100,11 @@
                                 <span class="QuGuiTextSize30" style=" margin-right: 10px; margin-left: 10px;">
                                    ☱ 3/6
                                 </span>
-                                <input id="placeName3" placeholder="地点名称" class="QuGuiTextSize35 QuGuiTextInputLine2px">
+                                <input id="placeName3" th:value="${footprint.describe3}" placeholder="地点名称" class="QuGuiTextSize35 QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop5">
                             <span class="QuGuiTextSize22">
-                                <textarea id="describe3" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe3" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight90pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar" th:inline="text">[[${footprint.describe3}]]</textarea>
                             </span>
                             </div>
                         </div>
@@ -124,11 +124,11 @@
                                 <span class="QuGuiTextSize30" style="color: rgb(103,103,103); margin-right: 10px;">
                                     ☰ 4/6
                                 </span>
-                                <input id="placeName4" placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
+                                <input id="placeName4" th:value="${footprint.describe4}" placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop10">
                             <span class="QuGuiTextSize18">
-                                <textarea id="describe4" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe4" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar" th:inline="text">[[${footprint.describe4}]]</textarea>
                             </span>
                             </div>
                         </div>
@@ -144,11 +144,11 @@
                                 <span class="QuGuiTextSize30" style="color: rgb(103,103,103); margin-right: 10px;">
                                     ☴ 5/6
                                 </span>
-                                <input id="placeName5" placeholder="地点名称" style="border-color: rgb(103,103,103); background: transparent" class="QuGuiTextSize25 QuGuiTextColorGray QuGuiTextInputLine2px">
+                                <input id="placeName5" th:value="${footprint.describe5}" placeholder="地点名称" style="border-color: rgb(103,103,103); background: transparent" class="QuGuiTextSize25 QuGuiTextColorGray QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop10">
                             <span class="QuGuiTextSize18">
-                                <textarea id="describe5" placeholder="你在此处的感受......" style="border-color: rgb(103,103,103);" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiTextColorGray QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe5" placeholder="你在此处的感受......" style="border-color: rgb(103,103,103);" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiTextColorGray QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar" th:inline="text">[[${footprint.describe5}]]</textarea>
                             </span>
                             </div>
                         </div>
@@ -164,11 +164,11 @@
                                 <span class="QuGuiTextSize30" style="color: rgb(103,103,103); margin-right: 10px;">
                                     ☶ 6/6
                                 </span>
-                                <input id="placeName6" placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
+                                <input id="placeName6" th:value="${footprint.describe6}" placeholder="地点名称" class="QuGuiTextSize25 QuGuiTextInputLine2px">
                             </div>
                             <div class="QuGuiWidth100pc QuGuiHeight85pc QuGuiMarginTop10">
                             <span class="QuGuiTextSize18">
-                                <textarea id="describe6" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar"></textarea>
+                                <textarea id="describe6" placeholder="你在此处的感受......" class="QuGuiTextArea QuGuiWidth90pc QuGuiHeight80pc QuGuiBorderBlack2px QuGuiPadding10 QuGuiScrollBar" th:inline="text">[[${footprint.describe6}]]</textarea>
                             </span>
                             </div>
                         </div>

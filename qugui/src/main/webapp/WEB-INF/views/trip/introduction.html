@@ -36,9 +36,9 @@
         <div class="QuGuiLayoutCenterV QuGuiWidth70pc QuGuiHeight80pc ">
             <div class=" QuGuiLayoutCenterV QuGuiWidth100pc QuGuiHeight30pc ">
                 <div class="QuGuiLayoutLeftV QuGuiWidth60pc QuGuiHeight80pc ">
-                    <span class="QuGuiTextSize90 QuGuiTextColorWhite">▪成都▪</span>
+                    <span class="QuGuiTextSize90 QuGuiTextColorWhite" id="temPlaceName" th:justTem="${scenicSpot.name}" th:text="'▪'+${scenicSpot.name}+'▪'">▪成都▪</span>
                     <span class="QuGuiTextSize35 QuGuiTextColorWhite">一座来了就不想走的城市</span>
-                    <span class="QuGuiPointerCursor QuGuiTextSize35 QuGuiBorderRadius5px QuGuiPaddingLeft5 QuGuiPaddingRight5 QuGuiBackgroundColorWhite QuGuiTextColorBlack">查看旅行</span>
+                    <span onclick="redirectOpenNewWindow('/search/searchPlaceFromIntroduction?key='+$('#temPlaceName').attr('justTem')+'&scenicSpotID='+$(this).attr('justTemToo'))" th:justTemToo="${scenicSpot.id}" title="查看就要点赞哟" class="QuGuiPointerCursor QuGuiTextSize35 QuGuiBorderRadius5px QuGuiPaddingLeft5 QuGuiPaddingRight5 QuGuiBackgroundColorWhite QuGuiTextColorBlack">查看旅行</span>
                 </div>
             </div>
             <div class="QuGuiLayoutCenterH QuGuiPositionRelative QuGuiBackgroundTransparent QuGuiWidth100pc QuGuiHeight70pc">
@@ -77,50 +77,34 @@
                         <div class="QuGuiWidth90pc QuGuiScrollBar QuGuiPadding10  QuGuiBorderBlack2px QuGuiHeight90pc">
                             <div id="introductionBox" class="QuGuiAllDelay QuGuiWidth100pc QuGuiHeight100pc ">
                                 <h3>简介</h3>
-                                <p class="QuGuiTextIndent2em">
+                                <p  th:text="${scenicSpot.briefIntroduction}" class="QuGuiTextIndent2em">
                                     成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
                                     成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
                                     成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
-                                </p>
-                                <h3>基础文化设施</h3>
-                                <p class="QuGuiTextIndent2em">
-                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
                                 </p>
                             </div>
                             <div id="folkCustomBox" class="QuGuiAllDelay QuGuiHide QuGuiWidth100pc QuGuiHeight100pc ">
                                 <h3>民俗</h3>
-                                <p class="QuGuiTextIndent2em">
+                                <p  th:text="${scenicSpot.folkCulture}" class="QuGuiTextIndent2em">
                                     成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
                                     成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
                                     成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
-                                </p>
-                                <h3>基础文化设施</h3>
-                                <p class="QuGuiTextIndent2em">
-                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
                                 </p>
                             </div>
                             <div id="characteristicBox" class="QuGuiAllDelay QuGuiHide QuGuiWidth100pc QuGuiHeight100pc ">
                                 <h3>旅行特色</h3>
-                                <p class="QuGuiTextIndent2em">
+                                <p th:text="${scenicSpot.feature}" class="QuGuiTextIndent2em">
                                     成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
                                     成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
                                     成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
-                                </p>
-                                <h3>基础文化设施</h3>
-                                <p class="QuGuiTextIndent2em">
-                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
                                 </p>
                             </div>
                             <div id="viewpointBox" class="QuGuiAllDelay QuGuiHide QuGuiWidth100pc QuGuiHeight100pc ">
-                                <h3>用户评论</h3>
-                                <p class="QuGuiTextIndent2em">
+                                <h3>官方推荐</h3>
+                                <p th:text="${scenicSpot.officialComments}" class="QuGuiTextIndent2em">
                                     成都，简称蓉，四川省省会、副省级市，中国西南地区的科技、商贸、金融中心和交通枢纽[1]  ，国家重要的高新技术产业基地、商贸物流中心和综合交通枢纽、西部地区重要的中心城市[2]  。
                                     成都位于四川盆地西部，成都平原腹地，境内地势平坦、河网纵横、物产丰富、农业发达，自古就有“天府之国”的美誉。成都下辖11个市辖区、4个县，代管5个县级市。截至2015年末，成都总面积14312平方千米，全市建成区面积1006.7平方公里，常住人口1572.8万，城镇人口640万，城镇化率70.3%[3]  ，是西部地区唯一的特大城市。
                                     成都是中国五大战区之一的西部战区司令部驻地[4]  ，是西部地区设立外国领事馆数量、开通国际航线数量最多的城市[5]  ，是联合国教科文组织命名的世界美食之都[6]  。
-                                </p>
-                                <h3>基础文化设施</h3>
-                                <p class="QuGuiTextIndent2em">
-                                    截至2015年末，成都市有博物馆33个，文化馆22个，公共图书馆22个，馆藏图书2210.1万册。年末全市拥有广播电台13座，制作广播节目17套；拥有电视台13座，制作电视节目19套。年末全市有线电视用户413.5万户，其中数字电视363.4万户。档案馆23个，其中国家综合档案馆20个，向社会开放各类档案576.8万卷。
                                 </p>
                             </div>
                         </div>
@@ -131,6 +115,7 @@
     </div>
 </div>
 <script src="../../js/libs/markdown/marked.js"></script>
+<script src="../../js/qugui/common/utils.js"></script>
 <script src="../../js/qugui/trip/introduction.js"></script>
 </body>
 </html>

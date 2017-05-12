@@ -22,6 +22,12 @@ public class QuGuiConstants
         public static final String LOGIN = "/user/login";
 
         public static final String SHARE = "/trip/share";
+
+        public static final String LOCATION = "/trip/location";
+
+        public static final String SEARCH = "/trip/search";
+
+        public static final String SCENICSPOT = "/trip/introduction";
     }
 
 }

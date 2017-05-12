@@ -29,19 +29,19 @@
     <div id="leftBox" class="QuGuiLayoutCenterV QuGuiBox60And100pc">
         <div id="info"  class=" leftContentBox QuGuiLayoutCenterV">
             <div class=" QuGuiLayoutCenterH" style="width: 100%; height: 20%;">
-                <img class="QuGuiPointerCursor QuiGuiHoverShadowChinaRed" src="../../imgs/logo.png" id="headIcon">
+                <img th:src="${user.headIcon}" class="QuGuiPointerCursor QuiGuiHoverShadowChinaRed" src="../../imgs/logo.png" id="headIcon">
                 <div class=" locationNameBox QuGuiLayoutCenterH QuGuiItemAlignBetween">
-                    <div id="locationName" class=" QuGuiTextSize90 QuGuiLayoutCenterH QuGuiItemAlignEnd">
+                    <div th:text="${footprint.name}" id="locationName" class=" QuGuiTextSize90 QuGuiLayoutCenterH QuGuiItemAlignEnd">
                         成都
                     </div>
                     <div style="width: 5px; height: 5px; background: #333333"></div>
-                    <div id="locationSummary" class="  QuGuiTextAlignLeft QuGuiTextSize25 QuGuiLayoutCenterH">
+                    <div th:text="${footprint.summary}" id="locationSummary" class="  QuGuiTextAlignLeft QuGuiTextSize25 QuGuiLayoutCenterH">
                         和我在成都的街头走一走，直到所有的灯都熄灭了也不停留。
                     </div>
                 </div>
             </div>
             <div class=" QuGuiLayoutCenterH" style="width: 100%; height: 8%;">
-                <div id="slogan" class="QuGuiLayoutCenterH">
+                <div th:text="${user.meaningOfTrip}" id="slogan" class="QuGuiLayoutCenterH">
                     向来心是看客心，奈何人是剧中人
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class=" QuGuiLayoutCenterH " style="width: 100%; height: 55%;">
-                <div id="1NavBody" class="navBody ">
+                <div th:text="${footprint.describe1}" id="1NavBody" class="navBody ">
                     <div class="navBodyContentBox ">
                         <span class="QuGuiTextSize90" style="font-family: 'Microsoft YaHei'">“</span>
                         <span class="QuGuiTextSize45">一座来了就不想走的城市？</span>
@@ -86,19 +86,19 @@
                         <span class="QuGuiTextSize90"  style="font-family: 'Microsoft YaHei'">”</span>
                     </div>
                 </div>
-                <div id="2NavBody" class="navBody QuGuiLayoutCenterH">
+                <div th:text="${footprint.describe2}" id="2NavBody" class="navBody QuGuiLayoutCenterH">
                     这里可以填写一些到达成都后，对成都的一些了解，比如那些有名的小吃，景点什么的
                 </div>
-                <div id="3NavBody" class="navBody QuGuiLayoutCenterH">
+                <div th:text="${footprint.describe3}" id="3NavBody" class="navBody QuGuiLayoutCenterH">
                     游走在成都的时候，自己的一些经历
                 </div>
-                <div id="4NavBody" class="navBody QuGuiLayoutCenterH">
+                <div th:text="${footprint.describe4}" id="4NavBody" class="navBody QuGuiLayoutCenterH">
                     成都的一些民俗、民风。比如怕老婆什么的
                 </div>
-                <div id="5NavBody" class="navBody QuGuiLayoutCenterH">
+                <div th:text="${footprint.describe5}" id="5NavBody" class="navBody QuGuiLayoutCenterH">
                     对成都某些景点或地点，产生的自己的一些感想
                 </div>
-                <div id="6NavBody" class="navBody QuGuiLayoutCenterH ">
+                <div th:text="${footprint.describe6}" id="6NavBody" class="navBody QuGuiLayoutCenterH ">
                     旅行的意义，这趟旅行，你有什么体会
                 </div>
             </div>
@@ -126,12 +126,12 @@
         <div class="visitedPlaceBox QuGuiLayoutCenterV">
             <div class="visitedPlaceBoxCenter QuGuiLayoutCenterH">
                 <div class="visitedPlace QuiGuiHoverShadowWhite">
-                    <img id="1Img" src="../../imgs/visitedPlace1.jpg" class="">
-                    <img id="2Img" src="../../imgs/visitedPlace2.jpg" class="QuGuiHide">
-                    <img id="3Img" src="../../imgs/visitedPlace3.jpg" class="QuGuiHide">
-                    <img id="4Img" src="../../imgs/visitedPlace1.jpg" class="QuGuiHide">
-                    <img id="5Img" src="../../imgs/visitedPlace2.jpg" class="QuGuiHide">
-                    <img id="6Img" src="../../imgs/visitedPlace3.jpg" class="QuGuiHide">
+                    <img th:src="${footprint.image1}" id="1Img" src="../../imgs/visitedPlace1.jpg" class="">
+                    <img th:src="${footprint.image2}" id="2Img" src="../../imgs/visitedPlace2.jpg" class="QuGuiHide">
+                    <img th:src="${footprint.image3}" id="3Img" src="../../imgs/visitedPlace3.jpg" class="QuGuiHide">
+                    <img th:src="${footprint.image4}" id="4Img" src="../../imgs/visitedPlace1.jpg" class="QuGuiHide">
+                    <img th:src="${footprint.image5}" id="5Img" src="../../imgs/visitedPlace2.jpg" class="QuGuiHide">
+                    <img th:src="${footprint.image6}" id="6Img" src="../../imgs/visitedPlace3.jpg" class="QuGuiHide">
                 </div>
             </div>
             <div class="visitedPlaceBoxBottom QuGuiLayoutCenterV">

@@ -17,6 +17,7 @@
     <script src="../js/jquery.leoweather.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/libs/layer/layer.js"></script>
     <script src="../js/qugui/common/utils.js"></script>
     <script src="../js/qugui/index.js"></script>
     <link href="../css/qugui/quguiStyle.css" rel="stylesheet">
@@ -34,8 +35,8 @@
         <div class="QuGuiLayoutCenterH QuGuiWidth100pc QuGuiHeight70pc">
             <!--<span class=" QuGuiMarginLeft50 QuGuiWidth80pc QuGuiTextSize35 QuGuiTextIndent2em QuGuiTextColorGray">人生就像一场旅行，不必在乎目的地，在乎的，是沿途的风景，以及看风景的心情。<i id="sideBarToggleBtn" class="iconfont QuGuiTextColorWhite QuGuiTextSize8 QuGuiTextHoverChinaRed QuGuiPointerCursor QuGuiAllDelay">&#xe67b;</i> </span>-->
             <div class="QuGuiWidth80pc QuGuiMarginLeft20 QuGuiHeight8pc QuGuiBorderWhite1px  QuGuiLayoutCenterH">
-                <input placeholder="搜索你想去的地方吧" class="QuGuiWidth80pc QuGuiHeight100pc QuGuiBorderNone QuGuiTextIndentHalfEm QuGuiTextSize30 QuGuiOutLineNone QuGuiBackgroundTransparent QuGuiTextColorWhite" />
-                <button class="QuGuiWidth20pc QuGuiHeight100pc QuGuiBorderTopNone QuGuiBorderBottomNone QuGuiBorderRightNone QuGuiBorderWhite1px QuGuiTextSize25 QuGuiTextColorWhite QuGuiBackgroundTransparent">搜索</button>
+                <input id="searchInput" placeholder="搜索你想去的地方吧" class="QuGuiWidth80pc QuGuiHeight100pc QuGuiBorderNone QuGuiTextIndentHalfEm QuGuiTextSize30 QuGuiOutLineNone QuGuiBackgroundTransparent QuGuiTextColorWhite" />
+                <button id="searchBtn" class="QuGuiWidth20pc QuGuiHeight100pc QuGuiBorderTopNone QuGuiBorderBottomNone QuGuiBorderRightNone QuGuiBorderWhite1px QuGuiTextSize25 QuGuiTextColorWhite QuGuiBackgroundTransparent">搜索</button>
             </div>
             <i id="sideBarToggleBtn" class="iconfont QuGuiAllDelay QuGuiTextColorWhite QuGuiMarginLeft30 QuGuiTextSize35 QuGuiBtnRipple QuGuiBtnRadiusMiddle QuGuiLayoutCenterH QuGuiTextHoverChinaRed QuGuiPointerCursor QuGuiAllDelay">&#xe67b;</i>
         </div>

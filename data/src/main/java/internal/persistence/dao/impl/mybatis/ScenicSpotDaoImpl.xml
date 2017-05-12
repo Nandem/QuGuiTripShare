@@ -4,6 +4,7 @@
     <!-- 自定义返回结果集 -->
     <resultMap id="scenicSpotMap" type="internal.persistence.model.ScenicSpot">
         <id property="id" column="id" javaType="java.lang.Integer" />
+        <result property="likeAmount" column="like_amount" javaType="java.lang.Integer" />
         <result property="name" column="name" javaType="java.lang.String" />
         <result property="country" column="country" javaType="java.lang.String" />
         <result property="province" column="province" javaType="java.lang.String" />
@@ -12,4 +13,52 @@
         <result property="feature" column="feature" javaType="java.lang.String" />
         <result property="officialComments" column="official_comments" javaType="java.lang.String" />
     </resultMap>
+
+    <insert id="add" parameterType="internal.persistence.model.ScenicSpot">
+        INSERT INTO qg_scenic_spots
+        (name, like_amount, country, province, brief_introduction, folk_culture,
+        feature, official_comments)
+        VALUES
+        (#{name}, #{likeAmount}, #{country}, #{province}, #{briefIntroduction}, #{folkCulture},
+        #{feature}, #{officialComments})
+    </insert>
+
+    <update id="modify" parameterType="internal.persistence.model.ScenicSpot">
+        UPDATE qg_scenic_spots
+        <set>
+            <if test="name != null and name !=''">
+                name = #{name},
+            </if>
+            <if test="likeAmount != null and likeAmount != -1">
+                like_amount = #{likeAmount},
+            </if>
+            <if test="country != null and country !=''">
+                country = #{country},
+            </if>
+            <if test="province != null and province !=''">
+                province = #{province},
+            </if>
+            <if test="briefIntroduction != null and briefIntroduction !=''">
+                brief_introduction = #{briefIntroduction},
+            </if>
+            <if test="folkCulture != null and folkCulture !=''">
+                folk_culture = #{folkCulture},
+            </if>
+            <if test="feature != null and feature !=''">
+                feature = #{feature},
+            </if>
+            <if test="officialComments != null and officialComments !=''">
+                official_comments = #{officialComments}
+            </if>
+            WHERE id = #{id}
+        </set>
+    </update>
+
+    <select id="retrieveAll" resultMap="scenicSpotMap">
+        SELECT * FROM qg_scenic_spots
+    </select>
+
+    <select id="retrieve" parameterType="java.lang.String" resultMap="scenicSpotMap">
+        select * from qg_scenic_spots WHERE id = #{id};
+    </select>
 </mapper>

@@ -85,16 +85,16 @@
     <update id="modify" parameterType="internal.persistence.model.Footprint">
         UPDATE qg_footprint
         <set>
-            <if test="affiliationUser !=null and affiliationUser != ''">
+            <if test="affiliationUser != -1">
                 affiliation_user = #{affiliationUser},
             </if>
-            <if test="likeAmount !=null and likeAmount != ''">
+            <if test="likeAmount != -1">
                 like_amount = #{likeAmount},
             </if>
-            <if test="commentsAmount !=null and commentsAmount != ''">
+            <if test="commentsAmount != -1">
                 comments_amount = #{commentsAmount},
             </if>
-            <if test="readAmount !=null and readAmount != ''">
+            <if test="readAmount != -1">
                 read_amount = #{readAmount},
             </if>
             <if test="name !=null and name != ''">
@@ -106,7 +106,7 @@
             <if test="province !=null and province != ''">
                 province = #{province},
             </if>
-            <if test="state !=null and state != ''">
+            <if test="state != null">
                 state = #{state},
             </if>
             <if test="describe1 !=null and describe1 != ''">
@@ -162,7 +162,18 @@
         SELECT * FROM qg_footprint WHERE affiliation_user = #{affiliationUser}
     </select>
 
-    <select id="retrieve" parameterType="java.lang.String" resultType="internal.persistence.model.Footprint">
+    <select id="retrieve" parameterType="java.lang.String" resultMap="footprintMap">
         SELECT * FROM qg_footprint WHERE id = #{footprintID}
+    </select>
+
+    <select id="getAffiliationUser" resultType="internal.persistence.model.User" parameterType="java.lang.String">
+        SELECT * FROM qg_user WHERE id IN
+        (
+        SELECT affiliation_user FROM qg_footprint WHERE id = #{footprintID}
+        )
+    </select>
+
+    <select id="getSearchResult" resultMap="footprintMap">
+        SELECT * FROM qg_footprint WHERE name LIKE concat(concat('%',#{key}),'%')
     </select>
 </mapper>

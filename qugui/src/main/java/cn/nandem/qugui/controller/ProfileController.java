@@ -7,8 +7,10 @@ import com.alibaba.fastjson.JSON;
 import external.weather.WeatherDataManager;
 import external.weather.model.Weather;
 import internal.persistence.model.Footprint;
+import internal.persistence.model.ScenicSpot;
 import internal.persistence.model.User;
 import internal.persistence.service.FootprintService;
+import internal.persistence.service.ScenicSpotService;
 import internal.persistence.service.UserService;
 import message.Message;
 import message.MessageEnum;
@@ -34,6 +36,8 @@ public class ProfileController
     private UserService userService;
     @Resource
     private FootprintService footprintService;
+    @Resource
+    private ScenicSpotService scenicSpotService;
 
     @RequestMapping(value = "/me")
     public String me(String userID, String password, HttpSession session, Model model)
@@ -54,17 +58,33 @@ public class ProfileController
         session.setAttribute("user", user);
         session.setAttribute("token", TokenUtil.generateToken(user.getNickName(), user.getPassword()));
 
+        fillScenicSpot(model);
+        fillFootprint(userID, model);
         fillScheduling(userID, model);
 
         return QuGuiConstants.URLS.PROFILE;
     }
 
+    private void fillScenicSpot(Model model)
+    {
+        List<ScenicSpot> scenicSpotList = scenicSpotService.retriveAll();
+        model.addAttribute("scenicSpotList", scenicSpotList);
+    }
+
+    private void fillFootprint(String userID, Model model)
+    {
+        List<Footprint> footprintListShared = footprintService.getSharedFootprintByUser(userID);
+        footprintListShared.sort(Comparator.comparing(Footprint::getEndDate));
+
+        model.addAttribute("footprintListShared", footprintListShared);
+    }
+
     private void fillScheduling(String userID, Model model)
     {
-        List<Footprint> footprintList = footprintService.getFootprintListByUser(userID);
-        footprintList.sort((o1, o2) -> new Integer(o1.getState()).compareTo(o2.getState()));
+        List<Footprint> footprintListNotShared = footprintService.getNotSharedFootprintByUser(userID);
+        footprintListNotShared.sort((o1, o2) -> new Integer(o1.getState()).compareTo(o2.getState()));
 
-        model.addAttribute("footprintList", footprintList);
+        model.addAttribute("footprintListNotShared", footprintListNotShared);
     }
 
     @ResponseBody
@@ -73,7 +93,6 @@ public class ProfileController
     {
         return session.getAttribute("token").equals(token) && ImageUtil.getInstance().saveImage(userID, headIconStr, ImageUtil.ImageType.HEAD_ICON);
     }
-
 
     @ResponseBody
     @RequestMapping("/updatePersonalInfo")
@@ -100,12 +119,19 @@ public class ProfileController
     {
         footprint.setCountry("中国");
         footprint.setProvince("河山");
+        footprint.setSummary("一个人，一条路，人在途中，心随景动，从起点，到尽头。");
+        footprint.setDescribe1("（未填写）:请输入50字以上描述");
+        footprint.setDescribe2("（未填写）:请输入50字以上描述");
+        footprint.setDescribe3("（未填写）:请输入50字以上描述");
+        footprint.setDescribe4("（未填写）:请输入50字以上描述");
+        footprint.setDescribe5("（未填写）:请输入50字以上描述");
+        footprint.setDescribe6("（未填写）:请输入50字以上描述");
         footprint.setState(1);
         return session.getAttribute("token").equals(token) && footprintService.createFootprint(footprint);
     }
 
-    @RequestMapping("/share")
-    public String share(String token, String footprintID, Model model, HttpSession session)
+    @RequestMapping("/link/share")
+    public String linkShare(String token, String footprintID, Model model, HttpSession session)
     {
         if(!session.getAttribute("token").equals(token))
         {
@@ -122,5 +148,78 @@ public class ProfileController
         footprint.setImage6("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-6", ImageUtil.ImageType.FOOTPRINT_IMAGE));
         model.addAttribute("footprint", footprint);
         return QuGuiConstants.URLS.SHARE;
+    }
+
+    @ResponseBody
+    @RequestMapping("/share")
+    public boolean share(String token, Footprint footprint, HttpSession session)
+    {
+        if(!session.getAttribute("token").equals(token))
+        {
+            return false;
+        }
+        else
+        {
+            Footprint footprint1 = footprintService.getFootprintById(String.valueOf(footprint.getId()));
+            copyFootprint(footprint1, footprint, 0);
+            return footprintService.updateFootprint(footprint1);
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/cache")
+    public boolean cache(String token, Footprint footprint, HttpSession session)
+    {
+        if(!session.getAttribute("token").equals(token))
+        {
+            return false;
+        }
+        else
+        {
+            Footprint footprint1 = footprintService.getFootprintById(String.valueOf(footprint.getId()));
+            copyFootprint(footprint1, footprint, 3);
+            return footprintService.updateFootprint(footprint1);
+        }
+    }
+
+    private void copyFootprint(Footprint footprint1, Footprint footprint, int state)
+    {
+        footprint1.setDescribe1(footprint.getDescribe1());
+        footprint1.setDescribe2(footprint.getDescribe2());
+        footprint1.setDescribe3(footprint.getDescribe3());
+        footprint1.setDescribe4(footprint.getDescribe4());
+        footprint1.setDescribe5(footprint.getDescribe5());
+        footprint1.setDescribe6(footprint.getDescribe6());
+        footprint1.setState(state);
+    }
+
+    @RequestMapping("/location")
+    public String location(String footprintID, Model model)
+    {
+        User user = footprintService.getAffiliationUser(footprintID);
+        user.setHeadIcon("data:image/png;base64," + ImageUtil.getInstance().getImage(String.valueOf(user.getId()), ImageUtil.ImageType.HEAD_ICON));
+        Footprint footprint = footprintService.getFootprintById(footprintID);
+        footprint.setReadAmount(footprint.getReadAmount() + 1);
+        footprintService.updateFootprint(footprint);
+        footprint.setImage1("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-1", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage2("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-2", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage3("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-3", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage4("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-4", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage5("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-5", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+        footprint.setImage6("data:image/png;base64," + ImageUtil.getInstance().getImage(footprint.getId() + "-6", ImageUtil.ImageType.FOOTPRINT_IMAGE));
+
+        model.addAttribute("footprint", footprint);
+        model.addAttribute("user", user);
+
+        return QuGuiConstants.URLS.LOCATION;
+    }
+
+    @RequestMapping("/scenicSpot")
+    public String scenicSpot(String scenicSpotID, Model model)
+    {
+        ScenicSpot scenicSpot = scenicSpotService.retrieve(scenicSpotID);
+        model.addAttribute("scenicSpot", scenicSpot);
+
+        return QuGuiConstants.URLS.SCENICSPOT;
     }
 }

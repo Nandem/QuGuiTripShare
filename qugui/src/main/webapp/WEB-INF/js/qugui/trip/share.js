@@ -199,8 +199,8 @@ function editInit()
             return;
         var data =
             {
-                token: $("#token"),
-                affiliationUser: $("#affiliationUser").val(),
+                token: $("#token").val(),
+                id: $("#footprintID").val(),
                 describe1: $oPlaceName1.val() + ":" + $oDescribe1.val(),
                 describe2: $oPlaceName2.val() + ":" + $oDescribe2.val(),
                 describe3: $oPlaceName3.val() + ":" + $oDescribe3.val(),
@@ -210,13 +210,20 @@ function editInit()
             };
         $.ajax({
             type: "POST",
-            url: url,
+            url: "/profile/share",
             data: data,
             dataType: "json",
             contentType: "application/x-www-form-urlencoded;charset=UTF-8",
             success: function (value)
             {
-
+                if(value === true)
+                {
+                    layer.msg("分享成功");
+                }
+                else if(value === false)
+                {
+                    layer.msg("分享失败");
+                }
             },
             error: function ()
             {
@@ -226,11 +233,69 @@ function editInit()
     });
     $oCacheBtn.click(function ()
     {
-        layer.msg("cache");
+        var data =
+            {
+                token: $("#token").val(),
+                id: $("#footprintID").val(),
+                describe1: $oPlaceName1.val() + ":" + $oDescribe1.val(),
+                describe2: $oPlaceName2.val() + ":" + $oDescribe2.val(),
+                describe3: $oPlaceName3.val() + ":" + $oDescribe3.val(),
+                describe4: $oPlaceName4.val() + ":" + $oDescribe4.val(),
+                describe5: $oPlaceName5.val() + ":" + $oDescribe5.val(),
+                describe6: $oPlaceName6.val() + ":" + $oDescribe6.val()
+            };
+        $.ajax({
+            type: "POST",
+            url: "/profile/cache",
+            data: data,
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+            success: function (value)
+            {
+                if(value === true)
+                {
+                    layer.msg("暂存成功");
+                }
+                else if(value === false)
+                {
+                    layer.msg("暂存失败");
+                }
+            },
+            error: function ()
+            {
+                layer.msg("出错啦，不要着急，待会儿再来~");
+            }
+        });
     });
 
     function editSync($input, $span)
     {
+        //textarea
+        if(typeof($input.attr("value"))==="undefined")
+        {
+            if($input.val() !== ":")
+            {
+                $input.val($input.val().split(":")[1]);
+                $span.text($input.val());
+            }
+            else
+            {
+                $span.text("请50字以上输入描述");
+            }
+        }
+        //input
+        else
+        {
+            if($input.val() !== ":")
+            {
+                $input.val($input.val().split(":")[0]);
+                $span.text($input.val());
+            }
+            else
+            {
+                $span.text("（未填写）");
+            }
+        }
         $input.keyup(function ()
         {
             $span.text($input.val());

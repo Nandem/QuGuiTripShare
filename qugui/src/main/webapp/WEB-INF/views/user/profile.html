@@ -40,7 +40,7 @@
         <div id="tripTab" class="settingBtn">☷ 足迹</div>
         <div id="schedulingTab" class="settingBtn">☷ 行程</div>
         <div id="createTab" class="settingBtn">☷ 创建</div>
-        <div id="friendsTab" class="settingBtn">☷ 朋友</div>
+        <div id="friendsTab" class="QuGuiHide settingBtn">☷ 朋友</div>
         <div id="personalInfoTab" class="settingBtn">☷ 资料</div>
         <a id="temIndexLink" href="../index.html" target="_blank" class="QuGuiHide"></a>
         <div id="shareTab" class="settingBtn" onclick="redirectOpen('temIndexLink')">☷ 首页</div>
@@ -54,278 +54,70 @@
                  class="QuGuiScrollBar QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
                 <input id="recommendBoxHidden" type="hidden" value="推荐"/>
                 <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
+                     th:each="scenicSpot,scenicSpotStat:${scenicSpotList}" class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
                     <div class="QuGuiWidth15pc QuGuiLayoutLeftH QuGuiHeight100pc">
                         <span class="QuGuiBackgroundColorBlack QuGuiTextColorWhite QuGuiTextSize30 QuGuiWidth100pc QuGuiLayoutCenterV">
-                            西南
+                            去归
                         </span>
                     </div>
-                    <div class="QuGuiLayoutCenterV QuGuiBorderLeftBlack1px QuGuiWidth70pc QuGuiHeight100pc">
-                        <span class=" QuGuiTextSize66  QuGuiWidth100pc QuGuiLayoutCenterH QuGuiHeight80pc">成都</span>
+                    <div th:temScenicSpotID="${scenicSpot.id}" onclick="redirectOpenNewWindow('/profile/scenicSpot?scenicSpotID='+$(this).attr('temScenicSpotID'))" class="QuGuiLayoutCenterV QuGuiBorderLeftBlack1px QuGuiWidth70pc QuGuiHeight100pc">
+                        <span class=" QuGuiTextSize66  QuGuiWidth100pc QuGuiLayoutCenterH QuGuiHeight80pc" th:text="${scenicSpot.name}">成都</span>
                         <span class="QuGuiWidth100pc QuGuiHeight20pc QuGuiLayoutCenterH ">
                             <span style="height: 1px; background: #cccccc" class="QuGuiTextColorGray QuGuiWidth20pc QuGuiBackgroundColorBlack"></span>
-                            <span class="QuGuiTextColorGray ">&nbsp;去归&nbsp;</span>
+                            <span class="QuGuiTextColorGray ">&nbsp;官方推荐&nbsp;</span>
                             <span style="height: 1px; background: #cccccc" class="QuGuiTextColorGray QuGuiWidth20pc QuGuiBackgroundColorBlack"></span>
                         </span>
                     </div>
                     <div class="QuGuiWidth15pc QuGuiLayoutCenterV QuGuiBorderLeftBlack1px QuGuiHeight100pc">
                         <label class="QuGuiPointerCursor QuGuiLayoutCenterV selectionForeColor">
                             <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
-                            <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
+                            <span class="QuGuiMarginLeft5  QuGuiTextSize22" th:text="${scenicSpot.likeAmount}">2342</span>
                         </label>
                     </div>
                 </div>
             </div>
             <div id="tripBox" style=""
-                 class="QuGuiScrollBar QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc ">
+                 class="QuGuiScrollBar QuGuiHide QuGuiBoxAlignColumnStartFlex QuGuiWidth90pc QuGuiMarginBottom5pc QuGuiHeight100pc "
+                 >
                 <input id="tripBoxHidden" type="hidden" value="我的旅行"/>
                 <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
+                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow"
+                      th:each="footprint,footprintStat:${footprintListShared}">
                     <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
                         <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight20pc"></span>
                         <span style="background: #000000"
-                              class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight40pc">大理</span>
-                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•云南</span>
+                              class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight40pc" th:text="${footprint.name}">大理</span>
+                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc" th:text="${footprint.country}+'•'+${footprint.province}">中国•云南</span>
                     </div>
-                    <div style="" class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc">
-                        <div class=" QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                            <div style="word-break:break-all; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; padding: 15px 5px 0 10px;"
+                    <div th:temFootprintID="${footprint.id}" onclick="redirectOpenNewWindow('/profile/location?footprintID='+ $(this).attr('temFootprintID'))" style="" class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc">
+                        <div class="QuGuiPointerCursor QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
+                            <div th:text="${footprint.describe1.split(':')[1]}" style="word-break:break-all; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; padding: 15px 5px 0 10px;"
                                  class="QuGuiWidth100pc QuGuiHeight90pc QuGuiTextSize22 QuGuiTextIndent2em">
                                 这是一个柔软的城市，你一伸手，就可以掠到一缕柔软的花香，一片未及化作雨的云，和一丝若隐若现的甜蜜。看着大理人平静而微笑着的眼睛，你或许无法想像，这里也曾经是一个王者之邦、一片戎马之地。这温柔的风，曾经吹起猎猎的战旗，而那湛蓝的天空，也曾经传递着萧萧的狼烟。
                             </div>
                         </div>
                         <div style="padding-right: 10px;"
                              class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutRightH">
-                            <div style="" class="QuGuiWidth40pc QuGuiHeight100pc QuGuiLayoutCenterH">
+                            <div style="" class="QuGuiWidth60pc QuGuiHeight100pc QuGuiLayoutCenterH">
                                 <b class="temB"></b><span class="temSpan QuGuiTextColorBlack">去|归</span><b
                                     class="temB"></b>
                             </div>
                             <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
                                 <label class="QuGuiPointerCursor selectionForeColor">
                                     <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
+                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22" th:text="${footprint.likeAmount}">2342</span>
                                 </label>
                             </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe61d;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">999</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe601;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">8565</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
-                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
-                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight20pc"></span>
-                        <span style="background: #000000"
-                              class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight40pc">大理</span>
-                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•云南</span>
-                    </div>
-                    <div style="" class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc">
-                        <div class=" QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                            <div style="word-break:break-all; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; padding: 15px 5px 0 10px;"
-                                 class="QuGuiWidth100pc QuGuiHeight90pc QuGuiTextSize22 QuGuiTextIndent2em">
-                                这是一个柔软的城市，你一伸手，就可以掠到一缕柔软的花香，一片未及化作雨的云，和一丝若隐若现的甜蜜。看着大理人平静而微笑着的眼睛，你或许无法想像，这里也曾经是一个王者之邦、一片戎马之地。这温柔的风，曾经吹起猎猎的战旗，而那湛蓝的天空，也曾经传递着萧萧的狼烟。
-                            </div>
-                        </div>
-                        <div style="padding-right: 10px;"
-                             class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutRightH">
-                            <div style="" class="QuGuiWidth40pc QuGuiHeight100pc QuGuiLayoutCenterH">
-                                <b class="temB"></b><span class="temSpan QuGuiTextColorBlack">去|归</span><b
-                                    class="temB"></b>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe61d;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">999</span>
-                                </label>
-                            </div>
+                            <!--<div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">-->
+                                <!--<label class="QuGuiPointerCursor selectionForeColor">-->
+                                    <!--<i class="iconfont  QuGuiTextSize30">&#xe61d;</i>-->
+                                    <!--<span class="QuGuiMarginLeft5  QuGuiTextSize22" th:text="${footprint.commentsAmount}">999</span>-->
+                                <!--</label>-->
+                            <!--</div>-->
                             <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
                                 <label class="QuGuiPointerCursor selectionForeColor">
                                     <i class="iconfont  QuGuiTextSize30">&#xe601;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">8565</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
-                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
-                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight20pc"></span>
-                        <span style="background: #000000"
-                              class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight40pc">大理</span>
-                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•云南</span>
-                    </div>
-                    <div style="" class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc">
-                        <div class=" QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                            <div style="word-break:break-all; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; padding: 15px 5px 0 10px;"
-                                 class="QuGuiWidth100pc QuGuiHeight90pc QuGuiTextSize22 QuGuiTextIndent2em">
-                                这是一个柔软的城市，你一伸手，就可以掠到一缕柔软的花香，一片未及化作雨的云，和一丝若隐若现的甜蜜。看着大理人平静而微笑着的眼睛，你或许无法想像，这里也曾经是一个王者之邦、一片戎马之地。这温柔的风，曾经吹起猎猎的战旗，而那湛蓝的天空，也曾经传递着萧萧的狼烟。
-                            </div>
-                        </div>
-                        <div style="padding-right: 10px;"
-                             class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutRightH">
-                            <div style="" class="QuGuiWidth40pc QuGuiHeight100pc QuGuiLayoutCenterH">
-                                <b class="temB"></b><span class="temSpan QuGuiTextColorBlack">去|归</span><b
-                                    class="temB"></b>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe61d;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">999</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe601;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">8565</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
-                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
-                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight20pc"></span>
-                        <span style="background: #000000"
-                              class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight40pc">大理</span>
-                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•云南</span>
-                    </div>
-                    <div style="" class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc">
-                        <div class=" QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                            <div style="word-break:break-all; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; padding: 15px 5px 0 10px;"
-                                 class="QuGuiWidth100pc QuGuiHeight90pc QuGuiTextSize22 QuGuiTextIndent2em">
-                                这是一个柔软的城市，你一伸手，就可以掠到一缕柔软的花香，一片未及化作雨的云，和一丝若隐若现的甜蜜。看着大理人平静而微笑着的眼睛，你或许无法想像，这里也曾经是一个王者之邦、一片戎马之地。这温柔的风，曾经吹起猎猎的战旗，而那湛蓝的天空，也曾经传递着萧萧的狼烟。
-                            </div>
-                        </div>
-                        <div style="padding-right: 10px;"
-                             class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutRightH">
-                            <div style="" class="QuGuiWidth40pc QuGuiHeight100pc QuGuiLayoutCenterH">
-                                <b class="temB"></b><span class="temSpan QuGuiTextColorBlack">去|归</span><b
-                                    class="temB"></b>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe61d;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">999</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe601;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">8565</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
-                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
-                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight20pc"></span>
-                        <span style="background: #000000"
-                              class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight40pc">大理</span>
-                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•云南</span>
-                    </div>
-                    <div style="" class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc">
-                        <div class=" QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                            <div style="word-break:break-all; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; padding: 15px 5px 0 10px;"
-                                 class="QuGuiWidth100pc QuGuiHeight90pc QuGuiTextSize22 QuGuiTextIndent2em">
-                                这是一个柔软的城市，你一伸手，就可以掠到一缕柔软的花香，一片未及化作雨的云，和一丝若隐若现的甜蜜。看着大理人平静而微笑着的眼睛，你或许无法想像，这里也曾经是一个王者之邦、一片戎马之地。这温柔的风，曾经吹起猎猎的战旗，而那湛蓝的天空，也曾经传递着萧萧的狼烟。
-                            </div>
-                        </div>
-                        <div style="padding-right: 10px;"
-                             class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutRightH">
-                            <div style="" class="QuGuiWidth40pc QuGuiHeight100pc QuGuiLayoutCenterH">
-                                <b class="temB"></b><span class="temSpan QuGuiTextColorBlack">去|归</span><b
-                                    class="temB"></b>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe61d;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">999</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe601;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">8565</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: #eeeeee"
-                     class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow">
-                    <div class="QuGuiBoxAlignColumnCenterCenterFlex QuGuiWidth20pc QuGuiHeight100pc">
-                        <span class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight20pc"></span>
-                        <span style="background: #000000"
-                              class="QuGuiTextColorWhite QuGuiTextSize50 QuGuiLayoutCenterH QuGuiHeight40pc">大理</span>
-                        <span class="QuGuiTextColorBlack QuGuiTextSize25 QuGuiTextBold QuGuiBoxAlignColumnStartFlex QuGuiHeight40pc">中国•云南</span>
-                    </div>
-                    <div style="" class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc">
-                        <div class=" QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH">
-                            <div style="word-break:break-all; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden; padding: 15px 5px 0 10px;"
-                                 class="QuGuiWidth100pc QuGuiHeight90pc QuGuiTextSize22 QuGuiTextIndent2em">
-                                这是一个柔软的城市，你一伸手，就可以掠到一缕柔软的花香，一片未及化作雨的云，和一丝若隐若现的甜蜜。看着大理人平静而微笑着的眼睛，你或许无法想像，这里也曾经是一个王者之邦、一片戎马之地。这温柔的风，曾经吹起猎猎的战旗，而那湛蓝的天空，也曾经传递着萧萧的狼烟。
-                            </div>
-                        </div>
-                        <div style="padding-right: 10px;"
-                             class=" QuGuiWidth100pc QuGuiHeight30pc QuGuiLayoutRightH">
-                            <div style="" class="QuGuiWidth40pc QuGuiHeight100pc QuGuiLayoutCenterH">
-                                <b class="temB"></b><span class="temSpan QuGuiTextColorBlack">去|归</span><b
-                                    class="temB"></b>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe620;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">2342</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe61d;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">999</span>
-                                </label>
-                            </div>
-                            <div class=" QuGuiWidth20pc QuGuiHeight100pc  QuGuiLayoutRightH QuGuiMarginLeft20">
-                                <label class="QuGuiPointerCursor selectionForeColor">
-                                    <i class="iconfont  QuGuiTextSize30">&#xe601;</i>
-                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22">8565</span>
+                                    <span class="QuGuiMarginLeft5  QuGuiTextSize22" th:text="${footprint.readAmount}">8565</span>
                                 </label>
                             </div>
                         </div>
@@ -337,7 +129,7 @@
                 <input id="schedulingBoxHidden" type="hidden" value="行程安排"/>
                 <div style="background: #eeeeee"
                      class=" QuGuiMinHeight QuGuiBorderBlack2px QuGuiMarginBottom10px QuGuiWidth90pc QuGuiHeight20pc QuGuiLayoutCenterH QuGuiBorderBottom tripBorderShadow"
-                     th:each="footprint,footprintStat:${footprintList}">
+                     th:each="footprint,footprintStat:${footprintListNotShared}">
                     <div class="QuGuiLayoutCenterV QuGuiWidth80pc QuGuiHeight100pc ">
                         <div class="QuGuiWidth100pc QuGuiHeight70pc QuGuiLayoutCenterH QuGuiBorderBottomBlack1px">
                             <span class="QuGuiTextSize66">失落处</span>
@@ -355,7 +147,7 @@
                             <span th:if="${footprint.state==1}" class=" QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30">准备中</span>
                             <span th:if="${footprint.state==2}" style="border-radius: 50%" class=" QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterV QuGuiTextSize30 QuGuiBtnRipple ">进行中</span>
                             <!--<input id="temFootprintID " th:id="temFootprintID+ ${footprintStat}" type="hidden" value="haha" th:value="${footprint.id}"/>-->
-                            <span th:if="${footprint.state==3}"  th:temId="${footprint.id}" onclick="post('/profile/share', {token: $('#token').val(), footprintID: $(this).attr('temId')})" class=" QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
+                            <span th:if="${footprint.state==3}"  th:temId="${footprint.id}" onclick="post('/profile/link/share', {token: $('#token').val(), footprintID: $(this).attr('temId')})" class=" QuGuiPointerCursor QuGuiTextHoverChinaRed QuGuiWidth80pc QuGuiHeight80pc QuGuiLayoutCenterH QuGuiTextSize30">
                                 <i class="iconfont QuGuiTextSize12 QuGuiMarginBottom5px">&#xe605;</i>
                                 分享
                             </span>

@@ -6,6 +6,7 @@ package internal.persistence.model;
 public class ScenicSpot
 {
     private int id;
+    private int likeAmount;
     private String name;
     private String country;
     private String province;
@@ -13,6 +14,16 @@ public class ScenicSpot
     private String folkCulture;
     private String feature;
     private String officialComments;
+
+    public int getLikeAmount()
+    {
+        return likeAmount;
+    }
+
+    public void setLikeAmount(int likeAmount)
+    {
+        this.likeAmount = likeAmount;
+    }
 
     public int getId()
     {

@@ -118,6 +118,9 @@ public class UserController
         {
             map.put("resultCode", true);
             map.put("result", user);
+            session.setAttribute("user", user);
+            //TODO 千万要注意，下面这句代码是用来设置session的过期时间的，目的是测试登录控制是否正确执行。
+            session.setMaxInactiveInterval(30);
             session.setAttribute("token", TokenUtil.generateToken(user.getNickName(), user.getPassword()));
             return JSON.toJSONString(map);
         }

@@ -13,6 +13,10 @@ function redirectOpen(id) {
     var $objContainHref = $("#" + id);
     window.open($objContainHref.attr("href"));
 }
+function redirectOpenNewWindow(url) {
+    // var $objContainHref = $("#" + id);
+    window.open(url);
+}
 
 function getWebRootPath() {
     var webRoot = document.location.href;

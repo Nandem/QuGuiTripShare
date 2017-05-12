@@ -14,4 +14,8 @@ import java.util.List;
 public interface FootprintDao extends BaseDao<Footprint>
 {
     List<Footprint> getFootprintListByUser(@Param("affiliationUser") String affiliationUser);
+
+    User getAffiliationUser(@Param("footprintID") String footprintID);
+
+    List<Footprint> getSearchResult(@Param("key") String key);
 }

@@ -28,4 +28,15 @@ $().ready(function ()
         }
         sideBarToggleFlag = !sideBarToggleFlag;
     });
+
+    $("#searchBtn").click(function ()
+    {
+        var $oSearchInput = $("#searchInput");
+        if($oSearchInput.val() === "")
+        {
+            layer.msg("请输入旅行地点");
+            return;
+        }
+        post("/search/searchPlace?key="+$oSearchInput.val())
+    });
 });

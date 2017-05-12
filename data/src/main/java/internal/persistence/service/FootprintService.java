@@ -2,10 +2,12 @@ package internal.persistence.service;
 
 import internal.persistence.dao.FootprintDao;
 import internal.persistence.model.Footprint;
+import internal.persistence.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,13 +48,46 @@ public class FootprintService
         }
     }
 
-    public List<Footprint> getFootprintListByUser(String affiliationUser)
+    private List<Footprint> getFootprintListByUser(String affiliationUser)
     {
         return footprintDao.getFootprintListByUser(affiliationUser);
+    }
+
+    public List<Footprint> getSharedFootprintByUser(String affiliationUser)
+    {
+        List<Footprint> temFootprintList = new ArrayList<>();
+        List<Footprint> oriFootprintList = getFootprintListByUser(affiliationUser);
+        for(Footprint f : oriFootprintList)
+        {
+            if(f.getState() == 0)
+                temFootprintList.add(f);
+        }
+        return temFootprintList;
+    }
+    public List<Footprint> getNotSharedFootprintByUser(String affiliationUser)
+    {
+        List<Footprint> temFootprintList = new ArrayList<>();
+        List<Footprint> oriFootprintList = getFootprintListByUser(affiliationUser);
+        for(Footprint f : oriFootprintList)
+        {
+            if(f.getState() != 0)
+                temFootprintList.add(f);
+        }
+        return temFootprintList;
     }
 
     public Footprint getFootprintById(String footprintID)
     {
         return footprintDao.retrieve(footprintID);
+    }
+
+    public User getAffiliationUser(String footprintID)
+    {
+        return footprintDao.getAffiliationUser(footprintID);
+    }
+
+    public List<Footprint> getSearchResult(String key)
+    {
+        return footprintDao.getSearchResult(key);
     }
 }
